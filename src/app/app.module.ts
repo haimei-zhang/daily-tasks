@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from '~view/login/login.component';
 import { ErrorComponent } from '~view/error/error.component';
+import { HomeComponent } from '~view/home/home.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
@@ -24,7 +25,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
   declarations: [
     AppComponent,
     LoginComponent,
-    ErrorComponent
+    ErrorComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

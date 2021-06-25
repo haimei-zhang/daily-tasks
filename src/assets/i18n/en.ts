@@ -2,6 +2,7 @@ export const EN = {
   COMMON: {
     FORGET_PASSWORD: 'Forget Password',
     LOGIN: 'Login',
+    LOGOUT: 'Logout',
     MY_DIARY: 'My Diary',
     PASSWORD: 'Password',
     REGISTER: 'Register',

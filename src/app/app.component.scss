@@ -22,7 +22,7 @@ p {
 }
 
 .toolbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -36,6 +36,10 @@ p {
 
 .toolbar img {
   margin: 0 16px;
+}
+
+.content-container {
+  padding: 60px 20px 0;
 }
 
 footer {
