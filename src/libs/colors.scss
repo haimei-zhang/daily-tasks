@@ -1,0 +1,95 @@
+$success: #009a44;
+$information: #009fdf;
+$primary: #1d428a;
+$warning: #f5b846;
+$danger: #da291c;
+$advanced: #e9510e;
+$advanced-black: #333333;
+$disabled: #999999;
+
+@function success-light($opacity) {
+  @return rgba(0, 154, 68, $opacity);
+}
+@function information-light($opacity) {
+  @return rgba(0, 159, 223, $opacity);
+}
+@function primary-light($opacity) {
+  @return rgba(29, 66, 138, $opacity);
+}
+@function warning-light($opacity) {
+  @return rgba(245, 184, 70, $opacity);
+}
+@function danger-light($opacity) {
+  @return rgba(218, 41, 28, $opacity);
+}
+@function advanced-light($opacity) {
+  @return rgba(233, 81, 14, $opacity);
+}
+@function advanced-black-light($opacity) {
+  @return rgba(51, 51, 51, $opacity);
+}
+@function disabled-light($opacity) {
+  @return rgba(85, 85, 85, $opacity);
+}
+
+/*theme*/
+.theme-dark {
+  background-color: $advanced-black;
+  color: #fff;
+}
+
+.theme-blue {
+  background-color: $information;
+  color: #fff;
+}
+
+.theme-green {
+  background-color: $success;
+  color: #fff;
+}
+
+.theme-dark-blue {
+  background-color: $primary;
+  color: #fff;
+}
+
+.theme-yellow {
+  background-color: $warning;
+  color: #fff;
+}
+
+.theme-red {
+  background-color: $danger;
+  color: #fff;
+}
+
+.theme-orange {
+  background-color: $advanced;
+  color: #fff;
+}
+
+/*border*/
+.border-danger {
+  border-color: $danger;
+}
+
+.border-warning {
+  border-color: $warning;
+}
+
+.border-info {
+  border-color: $information;
+}
+
+.border-primary {
+  border-color: $primary;
+}
+
+.border-success {
+  border-color: $success;
+}
+
+/*text*/
+.text-muted {
+  color: #767676;
+}

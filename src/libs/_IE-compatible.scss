@@ -1,0 +1,37 @@
+/* IE 10+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .btn-group {
+    position: static; /*position relative can make the dropdown not clickable*/
+
+    .dropdown-menu {
+      top: auto;
+      left: auto;
+    }
+
+    &.open {
+      position: relative;
+    }
+  }
+
+  .input-group {
+    z-index: 0;
+  }
+
+  .main-container {
+    .details-button-actions {
+      transition: all .3s ease-in-out;
+      left: 250px !important;
+      left: var(--main-container-margin-left) !important;
+    }
+
+    &.pull-left-toggle {
+      .details-button-actions {
+        left: 0 !important;
+      }
+    }
+  }
+
+  .mc-collapse.mc-collapse--show {
+    overflow: visible;
+  }
+}
