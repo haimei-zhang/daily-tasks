@@ -9,12 +9,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 8px 0;
 }
 
@@ -60,4 +55,26 @@ footer {
 footer a {
   display: flex;
   align-items: center;
+}
+
+.page-loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background-color: rgba($advanced-black, 50%);
+
+  .page-loader-container {
+    position: fixed;
+    top: calc(50vh - 40px);
+    left: calc(50vw - 40px);
+
+    img {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+    }
+  }
 }

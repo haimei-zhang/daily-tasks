@@ -1,6 +1,11 @@
 export const EN = {
   COMMON: {
-
+    FORGET_PASSWORD: 'Forget Password',
+    LOGIN: 'Login',
+    MY_DIARY: 'My Diary',
+    PASSWORD: 'Password',
+    REGISTER: 'Register',
+    USER_NAME: 'User Name'
   },
   ERROR: {
 
@@ -9,6 +14,6 @@ export const EN = {
 
   },
   MESSAGE: {
-
+    LOGIN_SUB_TITLE: 'Welcome'
   }
 };

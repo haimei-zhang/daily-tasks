@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="authentication">
+  <div class="authentication-container authentication-container--bg-img"
+       style="background-image: url(assets/images/background.png);">
+    <div class="authentication-container__inner">
+      <div class="authentication-card">
+        <div class="authentication-card__header">
+          <img class="authentication-card__img"
+               src="assets/images/wx.png" width="100" alt="Advanced Mosaic">
+          <div class="authentication-card__app-name">{{'COMMON.MY_DIARY' | translate}}</div>
+          <h1 class="authentication-card__title">{{'MESSAGE.LOGIN_SUB_TITLE' | translate}}</h1></div>
+        <div class="authentication-card__content">
+          <p class="authentication-card__text"></p>
+          <form name="login-form">
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{'COMMON.USER_NAME' | translate}}</mat-label>
+              <input matInput name="username" [(ngModel)]="username">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{'COMMON.PASSWORD' | translate}}</mat-label>
+              <input matInput name="password" [(ngModel)]="password">
+            </mat-form-field>
+            <button mat-raised-button class="full-width" color="primary" (click)="login()">
+              {{'COMMON.LOGIN' | translate}}
+            </button>
+          </form>
+          <p class="authentication-card__text authentication-card__last-child">
+            <a mat-button href="javascript:void(0)" target="_blank">{{'COMMON.FORGET_PASSWORD' | translate}}?</a>
+            <a mat-button href="javascript:void(0)" target="_blank">{{'COMMON.REGISTER' | translate}}</a>
+          </p>
+        </div>
+        <div class="authentication-card__footer">
+          <small>Development System<br>Any other environment information</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
