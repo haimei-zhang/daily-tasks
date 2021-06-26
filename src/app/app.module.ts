@@ -22,6 +22,7 @@ import { SidenavComponent } from '~components/sidenav/sidenav.component';
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
+import { IconsComponent } from './components/icons/icons.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     LoginComponent,
     ErrorComponent,
     HomeComponent,
-    SidenavComponent
+    SidenavComponent,
+    IconsComponent
   ],
   imports: [
     BrowserModule,

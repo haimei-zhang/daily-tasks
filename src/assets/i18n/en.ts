@@ -9,6 +9,15 @@ export const EN = {
     REGISTER: 'Register',
     USER_NAME: 'User Name'
   },
+  MENU: {
+    AGREEMENTS: 'Agreements',
+    ANNOUNCEMENT: 'Announcement',
+    BANK: 'Bank',
+    HABITS: 'Habits',
+    HOME: 'Home',
+    LETTERS: 'Letters',
+    TASKS: 'Tasks'
+  },
   ERROR: {
 
   },

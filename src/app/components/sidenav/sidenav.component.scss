@@ -50,6 +50,11 @@
           background-color: $advanced-black;
         }
 
+        .btn__icon {
+          margin-right: .625rem;
+          display: flex;
+        }
+
         .btn__div {
           white-space: nowrap;
           overflow: hidden;
