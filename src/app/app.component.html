@@ -1,16 +1,29 @@
 <div class="toolbar" role="banner">
-  <img width="40" alt="Logo" src="assets/images/wx.png"/>
-  <span>{{'COMMON.MY_DIARY' | translate}}</span>
-  <div class="spacer"></div>
+  <div class="title">
+    <img width="40" alt="Logo" src="assets/images/wx.png"/>
+    <span>{{'COMMON.MY_DIARY' | translate}}</span>
+  </div>
 
+  <div class="spacer"></div>
+  <button type="button" mat-button (click)="drawer.toggle(); isMenuOpen = !isMenuOpen">
+    {{'COMMON.MENU' | translate}}
+  </button>
   <button mat-button [routerLink]="'./login'">{{'COMMON.LOGOUT' | translate}}</button>
 </div>
 
-<div class="content-container">
-  <router-outlet></router-outlet>
+<div class="main-container">
+  <mat-drawer-container autosize>
+    <mat-drawer #drawer mode="side">
+      <diary-sidenav></diary-sidenav>
+    </mat-drawer>
+  </mat-drawer-container>
+
+  <div class="content-container" [ngClass]="{'pull-right-toggle': isMenuOpen}">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
-<footer>
+<footer class="text-center">
   some copy right here, you know
 </footer>
 

@@ -7,13 +7,14 @@ import { EN } from '../assets/i18n/en';
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'diary-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
   isLoading: boolean;
+  isMenuOpen = false;
 
   constructor(readonly translateService: TranslateService,
               readonly loadingIndicatorService: LoadingIndicatorService) {

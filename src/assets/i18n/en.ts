@@ -3,6 +3,7 @@ export const EN = {
     FORGET_PASSWORD: 'Forget Password',
     LOGIN: 'Login',
     LOGOUT: 'Logout',
+    MENU: 'Menu',
     MY_DIARY: 'My Diary',
     PASSWORD: 'Password',
     REGISTER: 'Register',

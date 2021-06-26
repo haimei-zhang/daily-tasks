@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,6 +17,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from '~view/login/login.component';
 import { ErrorComponent } from '~view/error/error.component';
 import { HomeComponent } from '~view/home/home.component';
+import { SidenavComponent } from '~components/sidenav/sidenav.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
@@ -26,7 +28,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     AppComponent,
     LoginComponent,
     ErrorComponent,
-    HomeComponent
+    HomeComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     TranslateModule.forRoot(),
     ToastrModule.forRoot({timeOut: 10000, closeButton: true, progressBar: true}),
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule
   ],
   providers: [
     {

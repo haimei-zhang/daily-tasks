@@ -13,23 +13,21 @@ body {
   background: #f8f8f8;
 }
 
-.main-container {
-  .details-button-actions {
-    transition: all .3s ease-in-out;
-    left: 250px;
-    left: var(--main-container-margin-left);
-  }
-
-  &.pull-left-toggle {
-    .details-button-actions {
-      left: 0;
-    }
-  }
-}
-
 .pointer-events-none {
   pointer-events: none;
   cursor: not-allowed;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .full-width {

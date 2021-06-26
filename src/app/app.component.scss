@@ -21,6 +21,7 @@ p {
   flex: 1;
 }
 
+/*top nav*/
 .toolbar {
   position: fixed;
   top: 0;
@@ -29,19 +30,38 @@ p {
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
+  background-color: lighten($advanced-black, 10%);
   color: white;
   font-weight: 600;
+
+  .title {
+    width: 250px;
+    display: inline-block;
+    background-color: $advanced-black;
+  }
+
+  img {
+    margin: 10px 16px;
+    vertical-align: middle;
+  }
 }
 
-.toolbar img {
-  margin: 0 16px;
+mat-drawer {
+  -webkit-transition: .3s linear;
+  transition: .3s linear;
 }
 
 .content-container {
   padding: 60px 20px 0;
+  transition: all .3s ease-in-out;
+  margin-left: 0;
+
+  &.pull-right-toggle {
+    margin-left: 250px;
+  }
 }
 
+/*footer*/
 footer {
   color: white;
   position: fixed;
@@ -54,6 +74,8 @@ footer {
   background-color: $advanced-black;
   left: 0;
   right: 0;
+  padding: 0 20px;
+  z-index: 1;
 }
 
 footer a {

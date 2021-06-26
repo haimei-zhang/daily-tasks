@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'diary-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

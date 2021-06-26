@@ -1,0 +1,65 @@
+@import "../../../libs/colors";
+
+.nav-container {
+  background-color: lighten($advanced-black, 10%);
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  overflow: hidden;
+  overflow-y: auto;
+
+  .navigation--sidebar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 15px;
+
+    .btn {
+      display: inline-block;
+
+      .btn__button--sidebar {
+        background: none;
+        border-radius: 0;
+        padding: 15px 20px 15px 15px;
+        color: #999;
+        -webkit-transition: background-color .3s linear,border-color .3s linear,color .3s linear;
+        transition: background-color .3s linear,border-color .3s linear,color .3s linear;
+        border: none;
+        border-left: 5px solid transparent;
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+          background-color: $advanced-black;
+        }
+
+        .btn__div {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+
+[type="button"]:not(:disabled), button:not(:disabled) {
+  cursor: pointer;
+}
