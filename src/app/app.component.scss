@@ -33,6 +33,7 @@ p {
   background-color: lighten($advanced-black, 10%);
   color: white;
   font-weight: 600;
+  z-index: 1;
 
   .title {
     width: 250px;
@@ -52,7 +53,7 @@ mat-drawer {
 }
 
 .content-container {
-  padding: 60px 20px 0;
+  padding: 80px 20px 0;
   transition: all .3s ease-in-out;
   margin-left: 0;
 

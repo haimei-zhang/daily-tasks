@@ -1,1 +1,19 @@
-<p>home works!</p>
+<mat-grid-list cols="3" rowHeight="1:1">
+  <ng-container *ngFor="let menu of MENUS; let i = index;">
+    <mat-grid-tile>
+      <div matRipple>
+        <mat-card class="card">
+          <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>{{menu.text | translate}}</mat-card-title>
+            <mat-card-subtitle>{{menu.text | translate}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{menu.description | translate}}</p>
+          </mat-card-content>
+          <img class="card-img" src="assets/images/wx.png" alt="image">
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </ng-container>
+</mat-grid-list>

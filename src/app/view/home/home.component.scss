@@ -1,0 +1,29 @@
+@import "../../../libs/colors";
+
+.card {
+  box-sizing: border-box;
+  margin: 8px;
+  overflow: auto;
+  height: calc(100% - 8px);
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+
+  .header-image {
+    background-image: url('../../../assets/images/wx.png');
+    background-size: cover;
+  }
+
+  .card-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    align-self: flex-end;
+  }
+}
+
+.mat-ripple {
+  height: 100%;
+  width: 100%;
+}
+

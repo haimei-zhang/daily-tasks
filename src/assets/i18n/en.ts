@@ -25,6 +25,13 @@ export const EN = {
 
   },
   MESSAGE: {
-    LOGIN_SUB_TITLE: 'Welcome'
+    AGREEMENTS_DESCRIPTION: '',
+    ANNOUNCEMENT_DESCRIPTION: '',
+    BANK_DESCRIPTION: '',
+    HABITS_DESCRIPTION: '',
+    HOME_DESCRIPTION: '',
+    LETTER_DESCRIPTION: '',
+    LOGIN_SUB_TITLE: 'Welcome',
+    TASKS_DESCRIPTION: ''
   }
 };

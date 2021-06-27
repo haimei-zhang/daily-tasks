@@ -9,6 +9,7 @@
   bottom: 0;
   overflow: hidden;
   overflow-y: auto;
+  z-index: 1;
 
   .navigation--sidebar {
     display: -webkit-box;

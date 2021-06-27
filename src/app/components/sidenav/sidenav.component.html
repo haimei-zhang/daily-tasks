@@ -1,48 +1,14 @@
 <div class="nav-container">
   <div class="navigation--sidebar navigation">
     <div class="btn btn--sidebar">
-      <button type="button" class="btn__button btn__button--sidebar" [attr.aria-label]="'MENU.HOME' | translate">
+      <ng-container *ngFor="let menu of MENUS">
+        <button type="button" class="btn__button btn__button--sidebar" [attr.aria-label]="menu.text | translate">
         <span class="btn__icon">
-          <svg class="icon" width="18" height="18"><use xlink:href='#home' href='#home'></use></svg>
+          <svg class="icon" width="18" height="18"><use [attr.xlink:href]='menu.icon' [attr.href]='menu.icon'></use></svg>
         </span>
-        <span class="btn__div">{{'MENU.HOME' | translate}}</span>
-      </button>
-      <button type="button" class="btn__button btn__button--sidebar" [attr.aria-label]="'MENU.LETTERS' | translate">
-        <span class="btn__icon">
-          <svg class="icon" width="18" height="18"><use xlink:href='#envelope' href='#envelope'></use></svg>
-        </span>
-        <span class="btn__div">{{'MENU.LETTERS' | translate}}</span>
-      </button>
-      <button type="button" class="btn__button btn__button--sidebar" [attr.aria-label]="'MENU.AGREEMENTS' | translate">
-        <span class="btn__icon">
-          <svg class="icon" width="18" height="18"><use xlink:href='#file-contract' href='#file-contract'></use></svg>
-        </span>
-        <span class="btn__div">{{'MENU.AGREEMENTS' | translate}}</span>
-      </button>
-      <button type="button" class="btn__button btn__button--sidebar" [attr.aria-label]="'MENU.HABITS' | translate">
-        <span class="btn__icon">
-          <svg class="icon" width="18" height="18"><use xlink:href='#heart' href='#heart'></use></svg>
-        </span>
-        <span class="btn__div">{{'MENU.HABITS' | translate}}</span>
-      </button>
-      <button type="button" class="btn__button btn__button--sidebar" [attr.aria-label]="'MENU.ANNOUNCEMENT' | translate">
-        <span class="btn__icon">
-          <svg class="icon" width="18" height="18"><use xlink:href='#bullhorn' href='#bullhorn'></use></svg>
-        </span>
-        <span class="btn__div">{{'MENU.ANNOUNCEMENT' | translate}}</span>
-      </button>
-      <button type="button" class="btn__button btn__button--sidebar" [attr.aria-label]="'MENU.BANK' | translate">
-        <span class="btn__icon">
-          <svg class="icon" width="18" height="18"><use xlink:href='#money-check-alt' href='#money-check-alt'></use></svg>
-        </span>
-        <span class="btn__div">{{'MENU.BANK' | translate}}</span>
-      </button>
-      <button type="button" class="btn__button btn__button--sidebar" [attr.aria-label]="'MENU.TASKS' | translate">
-        <span class="btn__icon">
-          <svg class="icon" width="18" height="18"><use xlink:href='#tasks' href='#tasks'></use></svg>
-        </span>
-        <span class="btn__div">{{'MENU.TASKS' | translate}}</span>
-      </button>
+          <span class="btn__div">{{menu.text | translate}}</span>
+        </button>
+      </ng-container>
     </div>
   </div>
   <div class="sidebar__gutter"></div>

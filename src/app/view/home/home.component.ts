@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MENUS } from '~constants';
 
 @Component({
   selector: 'diary-home',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  MENUS = MENUS;
 
   constructor() { }
 

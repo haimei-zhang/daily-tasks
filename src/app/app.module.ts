@@ -6,7 +6,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { ErrorStateMatcher, MatRippleModule, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -18,11 +18,13 @@ import { LoginComponent } from '~view/login/login.component';
 import { ErrorComponent } from '~view/error/error.component';
 import { HomeComponent } from '~view/home/home.component';
 import { SidenavComponent } from '~components/sidenav/sidenav.component';
+import { IconsComponent } from '~components/icons/icons.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
-import { IconsComponent } from './components/icons/icons.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,10 @@ import { IconsComponent } from './components/icons/icons.component';
     ToastrModule.forRoot({timeOut: 10000, closeButton: true, progressBar: true}),
     MatButtonModule,
     MatInputModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule,
+    MatRippleModule,
+    MatGridListModule
   ],
   providers: [
     {
