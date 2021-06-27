@@ -6,6 +6,16 @@
   </div>
 
   <div class="spacer"></div>
+  <button type="button" mat-button [matMenuTriggerFor]="settings">
+    {{'COMMON.SETTINGS' | translate}}
+  </button>
+  <mat-menu #settings="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="languages">{{'COMMON.LANGUAGE' | translate}}</button>
+  </mat-menu>
+  <mat-menu #languages="matMenu">
+    <button mat-menu-item (click)="changeLanguage('cn')">{{'LANGUAGE.CN' | translate}}</button>
+    <button mat-menu-item (click)="changeLanguage('en')">{{'LANGUAGE.EN' | translate}}</button>
+  </mat-menu>
   <button type="button" mat-button (click)="drawer.toggle(); isMenuOpen = !isMenuOpen">
     {{'COMMON.MENU' | translate}}
   </button>
@@ -19,7 +29,7 @@
     </mat-drawer>
   </mat-drawer-container>
 
-  <div class="content-container" [ngClass]="{'pull-right-toggle': isMenuOpen}">
+  <div id="content-container" class="content-container" [ngClass]="{'pull-right-toggle': isMenuOpen}">
     <router-outlet></router-outlet>
   </div>
 </div>

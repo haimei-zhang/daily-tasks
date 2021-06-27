@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { CH } from '../assets/i18n/ch';
+import { CN } from '../assets/i18n/cn';
 import { EN } from '../assets/i18n/en';
 
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
@@ -22,8 +22,12 @@ export class AppComponent {
       this.isLoading = isLoading;
     }, 0));
 
-    translateService.setTranslation('ch', CH);
+    translateService.setTranslation('cn', CN);
     translateService.setTranslation('en', EN);
     translateService.use('en');
+  }
+
+  changeLanguage(language): void {
+    this.translateService.use(language);
   }
 }
