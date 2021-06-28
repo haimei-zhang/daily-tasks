@@ -5,7 +5,7 @@
       <mat-card-title>{{'HABITS.STORIES' | translate}}</mat-card-title>
       <mat-card-subtitle>{{'MESSAGE.STORIES_DESCRIPTION' | translate}}</mat-card-subtitle>
       <div class="card-header-action text-right">
-        <button mat-raised-button (click)="openDialog()">
+        <button mat-raised-button (click)="openCreateHabitDialog(null, true)">
           <svg class="icon" width="16" height="16">
             <use xlink:href="#plus" href="#plus"></use>
           </svg>
@@ -22,6 +22,14 @@
       <div mat-card-avatar class="header-image"></div>
       <mat-card-title>{{'HABITS.MOVIES_OPERAS' | translate}}</mat-card-title>
       <mat-card-subtitle>{{'MESSAGE.MOVIES_OPERAS_DESCRIPTION' | translate}}</mat-card-subtitle>
+      <div class="card-header-action text-right">
+        <button mat-raised-button (click)="openCreateHabitDialog()">
+          <svg class="icon" width="16" height="16">
+            <use xlink:href="#plus" href="#plus"></use>
+          </svg>
+          {{'TABLE.ADD' | translate}}
+        </button>
+      </div>
     </mat-card-header>
     <mat-card-content>
       <diary-movies-table></diary-movies-table>
@@ -32,6 +40,14 @@
       <div mat-card-avatar class="header-image"></div>
       <mat-card-title>{{'HABITS.GAMES' | translate}}</mat-card-title>
       <mat-card-subtitle>{{'MESSAGE.GAMES_DESCRIPTION' | translate}}</mat-card-subtitle>
+      <div class="card-header-action text-right">
+        <button mat-raised-button (click)="openCreateHabitDialog()">
+          <svg class="icon" width="16" height="16">
+            <use xlink:href="#plus" href="#plus"></use>
+          </svg>
+          {{'TABLE.ADD' | translate}}
+        </button>
+      </div>
     </mat-card-header>
     <mat-card-content>
       <diary-games-table></diary-games-table>

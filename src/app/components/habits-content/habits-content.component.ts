@@ -15,10 +15,11 @@ export class HabitsContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog(data): void {
+  openCreateHabitDialog(data?, hasAuthor?): void {
     const config = data ? {data: data} : {
       data: {
         name: '',
+        hasAuthor: hasAuthor,
         author: '',
         date: new Date(),
         notes: ''
