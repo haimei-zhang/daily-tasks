@@ -1,6 +1,12 @@
 <div class="letters-editor">
   <div class="button-container text-right">
-    <button mat-raised-button (click)="save()" class="mr-2">
+    <button mat-raised-button class="mr-2" (click)="cancel()">
+      <svg class="icon" width="16" height="16">
+        <use xlink:href="#times" href="#times"></use>
+      </svg>
+      {{'COMMON.CANCEL' | translate}}
+    </button>
+    <button mat-raised-button (click)="save()" color="primary">
       <svg class="icon" width="16" height="16">
         <use xlink:href="#save" href="#save"></use>
       </svg>
@@ -13,7 +19,7 @@
       <input matInput aria-label="name">
     </mat-form-field>
     <mat-form-field class="content-input full-width" appearance="fill">
-      <mat-label>{{'TABLE.NAME' | translate}}</mat-label>
+      <mat-label>{{'TABLE.CONTENT' | translate}}</mat-label>
       <textarea matInput aria-label="content"></textarea>
     </mat-form-field>
   </form>

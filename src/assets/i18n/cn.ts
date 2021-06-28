@@ -1,6 +1,8 @@
 export const CN = {
   COMMON: {
     BACK: '返回',
+    CANCEL: '取消',
+    CLOSE: '关闭',
     FORGET_PASSWORD: '忘记密码',
     LANGUAGE: '语言',
     LOGIN: '登陆',

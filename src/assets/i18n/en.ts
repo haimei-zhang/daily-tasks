@@ -1,6 +1,8 @@
 export const EN = {
   COMMON: {
     BACK: 'Back',
+    CANCEL: 'Cancel',
+    CLOSE: 'Close',
     FORGET_PASSWORD: 'Forget Password',
     LANGUAGE: 'Language',
     LOGIN: 'Login',

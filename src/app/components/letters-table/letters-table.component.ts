@@ -38,13 +38,8 @@ export class LettersTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addData() {
-    const randomElementIndex = Math.floor(Math.random() * this.ELEMENT_DATA.length);
-    this.dataToDisplay = [
-      ...this.dataToDisplay,
-      this.ELEMENT_DATA[randomElementIndex]
-    ];
-    // this.dataSource.setData(this.dataToDisplay);
+  add() {
+    this.storeService.updateEditMode(true);
   }
 
   removeData(data) {
