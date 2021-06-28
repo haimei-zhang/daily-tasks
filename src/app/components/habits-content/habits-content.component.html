@@ -1,0 +1,40 @@
+<div class="diary-habits">
+  <mat-card class="card stories-card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title>{{'HABITS.STORIES' | translate}}</mat-card-title>
+      <mat-card-subtitle>{{'MESSAGE.STORIES_DESCRIPTION' | translate}}</mat-card-subtitle>
+      <div class="card-header-action text-right">
+        <button mat-raised-button (click)="openDialog()">
+          <svg class="icon" width="16" height="16">
+            <use xlink:href="#plus" href="#plus"></use>
+          </svg>
+          {{'TABLE.ADD' | translate}}
+        </button>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <diary-stories-table></diary-stories-table>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card movies-card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title>{{'HABITS.MOVIES_OPERAS' | translate}}</mat-card-title>
+      <mat-card-subtitle>{{'MESSAGE.MOVIES_OPERAS_DESCRIPTION' | translate}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <diary-movies-table></diary-movies-table>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="card games-card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title>{{'HABITS.GAMES' | translate}}</mat-card-title>
+      <mat-card-subtitle>{{'MESSAGE.GAMES_DESCRIPTION' | translate}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <diary-games-table></diary-games-table>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { StoreService } from '~service/store/store.service';
 
 @Component({
@@ -30,8 +30,6 @@ export class LettersTableComponent implements OnInit {
   displayedColumns: string[] = ['name', 'author', 'date', 'action'];
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-
-  @ViewChild(MatTable) table: MatTable<any>;
 
   constructor(readonly storeService: StoreService) { }
 

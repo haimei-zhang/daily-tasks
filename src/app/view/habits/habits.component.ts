@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HabitsComponent implements OnInit {
 
+  avatarSrc = 'https://thispersondoesnotexist.com/image';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  refresh(lastRefreshTime): void {
+    console.log(lastRefreshTime);
   }
 
 }

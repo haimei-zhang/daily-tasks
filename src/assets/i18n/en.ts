@@ -9,6 +9,7 @@ export const EN = {
     LOGOUT: 'Logout',
     MENU: 'Menu',
     MY_DIARY: 'My Diary',
+    OK: 'OK',
     PASSWORD: 'Password',
     REFRESH: 'Refresh',
     REGISTER: 'Register',
@@ -19,20 +20,32 @@ export const EN = {
     DETAILED_RULE: 'Detailed Rule',
     GENERAL_RULE: 'General Rule',
   },
+  HABITS: {
+    GAMES: 'Games',
+    STORIES: 'Stories',
+    MOVIES_OPERAS: 'Movies & Operas',
+    MUSIC: 'Music',
+  },
   LANGUAGE: {
     CN: '中文',
     EN: 'English'
+  },
+  USER: {
+    NINE: 'Nine',
+    ZHANG: 'Zhang'
   },
   TABLE: {
     ACTION: 'Action',
     ADD: 'Add',
     AUTHOR: 'Author',
+    COMPLETED: 'Completed',
     CONTENT: 'Content',
     DATE: 'Date',
     DELETE: 'Delete',
     EDIT: 'Edit',
     FILTER: 'Filter',
     NAME: 'Name',
+    NOTES: 'Notes',
     SAVE: 'Save'
   },
   MENU: {
@@ -43,7 +56,12 @@ export const EN = {
     HABITS: 'Habits',
     HOME: 'Home',
     LETTERS: 'Letters',
-    TASKS: 'Tasks'
+    TASKS: 'Tasks',
+    TIMELINE: 'Timeline'
+  },
+  DIALOG: {
+    CREATE_HABIT: 'Create a new habit',
+    CREATE_STORY: 'Create a new story'
   },
   ERROR: {
 
@@ -57,11 +75,15 @@ export const EN = {
     ANNOUNCEMENT_DESCRIPTION: '',
     BANK_DESCRIPTION: '',
     DETAILED_RULE_DESCRIPTION: '',
+    GAMES_DESCRIPTION: '',
     GENERAL_RULE_DESCRIPTION: '',
     HABITS_DESCRIPTION: '',
     HOME_DESCRIPTION: '',
     LETTER_DESCRIPTION: '',
     LOGIN_SUB_TITLE: 'Welcome',
-    TASKS_DESCRIPTION: ''
+    MOVIES_OPERAS_DESCRIPTION: '',
+    STORIES_DESCRIPTION: '',
+    TASKS_DESCRIPTION: '',
+    TIMELINE_DESCRIPTION: ''
   }
 };

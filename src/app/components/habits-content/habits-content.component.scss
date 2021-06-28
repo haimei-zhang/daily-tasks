@@ -1,0 +1,36 @@
+.header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.diary-habits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+
+    .card-header-action {
+      flex: 1;
+    }
+
+  }
+
+  ::ng-deep {
+    .filter {
+      width: 100%;
+    }
+    table {
+      width: 100%;
+
+      .mat-column-action, .mat-column-complete {
+        border-left: 1px solid currentColor;
+        text-align: center;
+        width: 16em;
+      }
+    }
+  }
+
+}
