@@ -1,5 +1,6 @@
 export const CN = {
   COMMON: {
+    BACK: '返回',
     FORGET_PASSWORD: '忘记密码',
     LANGUAGE: '语言',
     LOGIN: '登陆',
@@ -7,6 +8,7 @@ export const CN = {
     MENU: '菜单',
     MY_DIARY: '变笨日记',
     PASSWORD: '密码',
+    REFRESH: '刷新',
     REGISTER: '注册',
     SETTINGS: '设置',
     USER_NAME: '用户名'
@@ -14,6 +16,16 @@ export const CN = {
   LANGUAGE: {
     CN: 'Chinese',
     EN: '英语'
+  },
+  TABLE: {
+    ACTION: '管理',
+    ADD: '添加',
+    AUTHOR: '作者',
+    DATE: '日期',
+    DELETE: '删除',
+    EDIT: '编辑',
+    FILTER: '过滤',
+    NAME: '名称'
   },
   MENU: {
     AGREEMENTS: '约法三章',

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LettersComponent implements OnInit {
 
+  avatarSrc = 'https://thispersondoesnotexist.com/image';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  refresh(lastRefreshTime): void {
+    console.log(lastRefreshTime)
   }
 
 }

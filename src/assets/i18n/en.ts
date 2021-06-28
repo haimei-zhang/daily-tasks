@@ -1,5 +1,6 @@
 export const EN = {
   COMMON: {
+    BACK: 'Back',
     FORGET_PASSWORD: 'Forget Password',
     LANGUAGE: 'Language',
     LOGIN: 'Login',
@@ -7,6 +8,7 @@ export const EN = {
     MENU: 'Menu',
     MY_DIARY: 'My Diary',
     PASSWORD: 'Password',
+    REFRESH: 'Refresh',
     REGISTER: 'Register',
     SETTINGS: 'Settings',
     USER_NAME: 'User Name'
@@ -14,6 +16,16 @@ export const EN = {
   LANGUAGE: {
     CN: '中文',
     EN: 'English'
+  },
+  TABLE: {
+    ACTION: 'Action',
+    ADD: 'Add',
+    AUTHOR: 'Author',
+    DATE: 'Date',
+    DELETE: 'Delete',
+    EDIT: 'Edit',
+    FILTER: 'Filter',
+    NAME: 'Name'
   },
   MENU: {
     AGREEMENTS: 'Agreements',

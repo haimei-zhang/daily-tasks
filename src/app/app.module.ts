@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from '~view/login/login.component';
@@ -28,10 +29,12 @@ import { TasksComponent } from '~view/tasks/tasks.component';
 import { AnalyticsComponent } from '~view/analytics/analytics.component';
 import { SidenavComponent } from '~components/sidenav/sidenav.component';
 import { IconsComponent } from '~components/icons/icons.component';
+import { PageHeaderComponent } from '~components/page-header/page-header.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
+import { LettersTableComponent } from './components/letters-table/letters-table.component';
 
 
 @NgModule({
@@ -48,7 +51,9 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     AnnouncementComponent,
     BankComponent,
     TasksComponent,
-    AnalyticsComponent
+    AnalyticsComponent,
+    PageHeaderComponent,
+    LettersTableComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +68,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     MatCardModule,
     MatRippleModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule
   ],
   providers: [
     {

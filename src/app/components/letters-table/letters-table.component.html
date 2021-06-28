@@ -1,0 +1,54 @@
+<div class="button-container">
+  <button mat-raised-button (click)="addData()" class="mr-2">
+    <svg class="icon" width="16" height="16">
+      <use xlink:href="#plus" href="#plus"></use>
+    </svg>
+    {{'TABLE.ADD' | translate}}
+  </button>
+  <mat-form-field appearance="standard" class="filter">
+    <mat-label>Filter</mat-label>
+    <input aria-label="filter" matInput (keyup)="applyFilter($event)" placeholder="Type to search..." #input>
+  </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="letters-table">
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>{{'TABLE.NAME' | translate}}</th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef>{{'TABLE.AUTHOR' | translate}}</th>
+    <td mat-cell *matCellDef="let element">{{element.author}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>{{'TABLE.DATE' | translate}}</th>
+    <td mat-cell *matCellDef="let element">{{element.date}}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="action">
+    <th class="table-action" mat-header-cell *matHeaderCellDef>{{'TABLE.ACTION' | translate}}</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-flat-button color="primary" class="mr-2">
+        <svg class="icon" width="16" height="16">
+          <use xlink:href="#edit" href="#edit"></use>
+        </svg>
+        {{'TABLE.EDIT' | translate}}
+      </button>
+      <button mat-flat-button color="warn" (click)="removeData(element)">
+        <svg class="icon" width="16" height="16">
+          <use xlink:href="#trash" href="#trash"></use>
+        </svg>
+        {{'TABLE.DELETE' | translate}}
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
