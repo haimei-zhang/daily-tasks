@@ -15,6 +15,10 @@ export const EN = {
     SETTINGS: 'Settings',
     USER_NAME: 'User Name'
   },
+  AGREEMENTS: {
+    DETAILED_RULE: 'Detailed Rule',
+    GENERAL_RULE: 'General Rule',
+  },
   LANGUAGE: {
     CN: '中文',
     EN: 'English'
@@ -52,6 +56,8 @@ export const EN = {
     ANALYTICS_DESCRIPTION: '',
     ANNOUNCEMENT_DESCRIPTION: '',
     BANK_DESCRIPTION: '',
+    DETAILED_RULE_DESCRIPTION: '',
+    GENERAL_RULE_DESCRIPTION: '',
     HABITS_DESCRIPTION: '',
     HOME_DESCRIPTION: '',
     LETTER_DESCRIPTION: '',

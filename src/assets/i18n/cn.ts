@@ -15,6 +15,10 @@ export const CN = {
     SETTINGS: '设置',
     USER_NAME: '用户名'
   },
+  AGREEMENTS: {
+    DETAILED_RULE: '细则',
+    GENERAL_RULE: '总则',
+  },
   LANGUAGE: {
     CN: 'Chinese',
     EN: '英语'
@@ -52,6 +56,8 @@ export const CN = {
     ANALYTICS_DESCRIPTION: '',
     ANNOUNCEMENT_DESCRIPTION: '',
     BANK_DESCRIPTION: '',
+    DETAILED_RULE_DESCRIPTION: '',
+    GENERAL_RULE_DESCRIPTION: '',
     HABITS_DESCRIPTION: '',
     HOME_DESCRIPTION: '',
     LETTER_DESCRIPTION: '',

@@ -37,6 +37,7 @@ import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AgreementsEditorComponent } from './components/agreements-editor/agreements-editor.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AnalyticsComponent,
     PageHeaderComponent,
     LettersTableComponent,
-    LettersEditorComponent
+    LettersEditorComponent,
+    AgreementsEditorComponent
   ],
   imports: [
     BrowserModule,
