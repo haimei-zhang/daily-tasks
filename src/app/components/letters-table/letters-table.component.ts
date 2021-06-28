@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { StoreService } from '~service/store/store.service';
 
 @Component({
   selector: 'diary-letters-table',
@@ -13,7 +14,7 @@ export class LettersTableComponent implements OnInit {
   date: number;
   action: string;
 
-  ELEMENT_DATA: PeriodicElement[] = [
+  ELEMENT_DATA = [
     {author: 1, name: 'Hydrogen', date: 1.0079, action: 'H'},
     {author: 2, name: 'Helium', date: 4.0026, action: 'He'},
     {author: 3, name: 'Lithium', date: 6.941, action: 'Li'},
@@ -30,9 +31,9 @@ export class LettersTableComponent implements OnInit {
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
-  @ViewChild(MatTable) table: MatTable<PeriodicElement>;
+  @ViewChild(MatTable) table: MatTable<any>;
 
-  constructor() { }
+  constructor(readonly storeService: StoreService) { }
 
   ngOnInit(): void {
   }
@@ -43,13 +44,13 @@ export class LettersTableComponent implements OnInit {
       ...this.dataToDisplay,
       this.ELEMENT_DATA[randomElementIndex]
     ];
-    this.dataSource.setData(this.dataToDisplay);
+    // this.dataSource.setData(this.dataToDisplay);
   }
 
   removeData(data) {
     console.log(data);
     this.dataToDisplay = this.dataToDisplay.slice(0, -1);
-    this.dataSource.setData(this.dataToDisplay);
+    // this.dataSource.setData(this.dataToDisplay);
   }
 
   applyFilter(event: Event) {
@@ -57,4 +58,8 @@ export class LettersTableComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  edit(element): void {
+    console.log(element);
+    this.storeService.updateEditMode(true);
+  }
 }

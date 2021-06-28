@@ -34,7 +34,7 @@
   <ng-container matColumnDef="action">
     <th class="table-action" mat-header-cell *matHeaderCellDef>{{'TABLE.ACTION' | translate}}</th>
     <td mat-cell *matCellDef="let element">
-      <button mat-flat-button color="primary" class="mr-2">
+      <button mat-flat-button color="primary" class="mr-2" (click)="edit(element)">
         <svg class="icon" width="16" height="16">
           <use xlink:href="#edit" href="#edit"></use>
         </svg>

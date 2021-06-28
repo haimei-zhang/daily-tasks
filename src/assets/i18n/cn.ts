@@ -21,11 +21,13 @@ export const CN = {
     ACTION: '管理',
     ADD: '添加',
     AUTHOR: '作者',
+    CONTENT: '内容',
     DATE: '日期',
     DELETE: '删除',
     EDIT: '编辑',
     FILTER: '过滤',
-    NAME: '名称'
+    NAME: '名称',
+    SAVE: '保存'
   },
   MENU: {
     AGREEMENTS: '约法三章',

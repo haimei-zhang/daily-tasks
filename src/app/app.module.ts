@@ -30,12 +30,13 @@ import { AnalyticsComponent } from '~view/analytics/analytics.component';
 import { SidenavComponent } from '~components/sidenav/sidenav.component';
 import { IconsComponent } from '~components/icons/icons.component';
 import { PageHeaderComponent } from '~components/page-header/page-header.component';
+import { LettersTableComponent } from '~components/letters-table/letters-table.component';
+import { LettersEditorComponent } from '~components/letters-editor/letters-editor.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
-import { LettersTableComponent } from './components/letters-table/letters-table.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { LettersTableComponent } from './components/letters-table/letters-table.
     TasksComponent,
     AnalyticsComponent,
     PageHeaderComponent,
-    LettersTableComponent
+    LettersTableComponent,
+    LettersEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { LettersTableComponent } from './components/letters-table/letters-table.
     MatRippleModule,
     MatGridListModule,
     MatMenuModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule
   ],
   providers: [
     {

@@ -1,3 +1,11 @@
 <diary-page-header [pageTitle]="'MENU.LETTERS'" [pageSubtitle]="'MENU.LETTERS'" [avatarSrc]="avatarSrc"
                    (refreshEvent)="refresh($event)"></diary-page-header>
-<diary-letters-table></diary-letters-table>
+<div class="diary-letters">
+  <div class="diary-letters-table" [ngClass]="isEditMode ? 'full-width' : 'half-width mr-2'">
+    <diary-letters-table></diary-letters-table>
+  </div>
+  <div class="diary-letters-editor half-width" [@slideHorizontalInOut]="isEditMode? 'in': 'out'">
+    <diary-letters-editor></diary-letters-editor>
+  </div>
+</div>
+

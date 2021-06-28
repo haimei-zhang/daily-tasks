@@ -21,11 +21,13 @@ export const EN = {
     ACTION: 'Action',
     ADD: 'Add',
     AUTHOR: 'Author',
+    CONTENT: 'Content',
     DATE: 'Date',
     DELETE: 'Delete',
     EDIT: 'Edit',
     FILTER: 'Filter',
-    NAME: 'Name'
+    NAME: 'Name',
+    SAVE: 'Save'
   },
   MENU: {
     AGREEMENTS: 'Agreements',
