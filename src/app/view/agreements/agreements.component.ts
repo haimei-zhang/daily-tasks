@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StoreService } from '~service/store/store.service';
 
 @Component({
   selector: 'diary-agreements',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgreementsComponent implements OnInit {
 
-  constructor() { }
+  avatarSrc = 'https://thispersondoesnotexist.com/image';
+  isEditMode: boolean;
+
+  constructor(readonly storeService: StoreService) { }
 
   ngOnInit(): void {
+    this.getEditMode();
   }
 
+  refresh(lastRefreshTime): void {
+    console.log(lastRefreshTime);
+  }
+
+  private getEditMode(): void {
+    this.storeService.isEditMode$.subscribe((isEditMode) => {
+      this.isEditMode = isEditMode;
+    });
+  }
 }

@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { dateToTime } from '~utils/core.util';
+
+import { StoreService } from '~service/store/store.service';
 
 @Component({
   selector: 'diary-page-header',
@@ -13,10 +17,16 @@ export class PageHeaderComponent implements OnInit {
   @Input() avatarSrc: string;
   @Output() refreshEvent = new EventEmitter<number>();
 
-  constructor() {
+  constructor(readonly router: Router,
+              readonly storeService: StoreService) {
   }
 
   ngOnInit(): void {
+  }
+
+  goBackToHome(): void {
+    this.router.navigate(['home']);
+    this.storeService.updateEditMode(false);
   }
 
   refresh(): void {
