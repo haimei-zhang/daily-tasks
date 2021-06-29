@@ -14,6 +14,12 @@
       </svg>
       {{'TABLE.SAVE' | translate}}
     </button>
+    <button *ngIf="currentAnnouncement" class="ml-2" mat-raised-button (click)="openDeleteConfirmationDialog()" color="warn">
+      <svg class="icon" width="16" height="16">
+        <use xlink:href="#trash-alt" href="#trash-alt"></use>
+      </svg>
+      {{'TABLE.DELETE' | translate}}
+    </button>
   </div>
   <div>
     <mat-form-field class="full-width" appearance="fill">

@@ -29,20 +29,9 @@ export class MoviesTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  removeData(data) {
-    console.log(data);
-    this.dataToDisplay = this.dataToDisplay.slice(0, -1);
-    // this.dataSource.setData(this.dataToDisplay);
-  }
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  edit(element): void {
-    console.log(element);
-    this.storeService.updateEditMode(true);
   }
 
   completeTask(element, checked): void {
@@ -84,6 +73,17 @@ export class MoviesTableComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.edit(result);
     });
+  }
+
+  private removeData(data) {
+    console.log(data);
+    this.dataToDisplay = this.dataToDisplay.slice(0, -1);
+    // this.dataSource.setData(this.dataToDisplay);
+  }
+
+  private edit(element): void {
+    console.log(element);
+    this.storeService.updateEditMode(true);
   }
 
 }

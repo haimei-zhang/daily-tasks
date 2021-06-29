@@ -65,7 +65,9 @@ export const EN = {
     COMPLETE_HABIT: 'Complete the habit',
     CREATE_HABIT: 'Create a new habit',
     CREATE_STORY: 'Create a new story',
+    DELETE_ANNOUNCEMENT: 'Delete the announcement',
     DELETE_HABIT: 'Delete the habit',
+    DELETE_ANNOUNCEMENT_MESSAGE: 'Are you sure you want to delete the announcement?',
     DELETE_HABIT_MESSAGE: 'Are you sure you want to delete the habit?',
     EDIT_HABIT: 'Edit the habit'
   },
