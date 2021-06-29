@@ -62,10 +62,12 @@ export const EN = {
     TIMELINE: 'Timeline'
   },
   DIALOG: {
+    COMPLETE_HABIT: 'Complete the habit',
     CREATE_HABIT: 'Create a new habit',
     CREATE_STORY: 'Create a new story',
     DELETE_HABIT: 'Delete the habit',
-    DELETE_HABIT_MESSAGE: 'Are you sure you want to delete the habit?'
+    DELETE_HABIT_MESSAGE: 'Are you sure you want to delete the habit?',
+    EDIT_HABIT: 'Edit the habit'
   },
   ERROR: {
 

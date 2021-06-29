@@ -62,7 +62,18 @@ export class MoviesTableComponent implements OnInit {
   }
 
   completeTask(element, checked): void {
-    console.log(checked)
+    if (checked) {
+      const config = {
+        data: {
+          title: 'DIALOG.COMPLETE_HABIT',
+          date: ''
+        }
+      };
+      const dialogRef = this.dialog.open(CreateUpdateHabitsComponent, config);
+      dialogRef.afterClosed().subscribe(result => {
+        this.edit(result);
+      });
+    }
   }
 
   openDeleteConfirmationDialog(element): void {
@@ -81,6 +92,7 @@ export class MoviesTableComponent implements OnInit {
   }
 
   openEditHabitDialog(element): void {
+    element.title = 'DIALOG.EDIT_HABIT';
     const config = {
       data: element
     };

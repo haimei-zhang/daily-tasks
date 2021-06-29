@@ -62,10 +62,12 @@ export const CN = {
     TIMELINE: '时间轴'
   },
   DIALOG: {
+    COMPLETE_HABIT: '完成习惯',
     CREATE_HABIT: '添加习惯',
     CREATE_STORY: '添加故事',
     DELETE_HABIT: '删除习惯',
-    DELETE_HABIT_MESSAGE: '你确定要删除这个习惯吗?'
+    DELETE_HABIT_MESSAGE: '你确定要删除这个习惯吗?',
+    EDIT_HABIT: '修改习惯',
   },
   ERROR: {
 

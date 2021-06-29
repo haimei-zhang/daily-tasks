@@ -50,11 +50,11 @@ import { MoviesTableComponent } from '~components/movies-table/movies-table.comp
 import { GamesTableComponent } from '~components/games-table/games-table.component';
 import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
 import { TasksTableComponent } from '~components/tasks-table/tasks-table.component';
+import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
-import { ConfirmationDialogComponent } from './components/dialog/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [

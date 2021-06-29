@@ -84,6 +84,7 @@ export class GamesTableComponent implements OnInit {
   }
 
   openEditHabitDialog(element): void {
+    element.title = 'DIALOG.EDIT_HABIT';
     const config = {
       data: element
     };

@@ -18,6 +18,7 @@ export class HabitsContentComponent implements OnInit {
   createStory(): void {
     const config = {
       data: {
+        title: 'DIALOG.CREATE_HABIT',
         name: '',
         author: '',
         date: new Date(),
@@ -30,6 +31,7 @@ export class HabitsContentComponent implements OnInit {
   createMovieGame(): void {
     const config = {
       data: {
+        title: 'DIALOG.CREATE_HABIT',
         name: '',
         notes: ''
       }
