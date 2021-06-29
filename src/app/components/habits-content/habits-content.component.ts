@@ -39,6 +39,18 @@ export class HabitsContentComponent implements OnInit {
     this.openCreateHabitDialog(config);
   }
 
+  createTask(): void {
+    const config = {
+      data: {
+        title: 'DIALOG.CREATE_TASK',
+        name: '',
+        notes: '',
+        date: new Date()
+      }
+    };
+    this.openCreateHabitDialog(config);
+  }
+
   private openCreateHabitDialog(config): void {
     const dialogRef = this.dialog.open(CreateUpdateHabitsComponent, config);
 

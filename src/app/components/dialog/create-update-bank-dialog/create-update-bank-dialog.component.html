@@ -19,7 +19,7 @@
     <input type="number" matInput [(ngModel)]="data.amount" aria-label="amount">
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions align="end">
   <button mat-button (click)="onNoClick()">{{'COMMON.CANCEL' | translate}}</button>
   <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>{{'COMMON.OK' | translate}}</button>
 </div>

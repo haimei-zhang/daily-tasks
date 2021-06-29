@@ -26,6 +26,7 @@ export const CN = {
     STORIES: '故事',
     MOVIES: '影视',
     MUSIC: '音乐',
+    TASKS: '小任务'
   },
   LANGUAGE: {
     CN: 'Chinese',
@@ -43,6 +44,7 @@ export const CN = {
     COMPLETED_DATE: '完成时间',
     CONTENT: '内容',
     DATE: '日期',
+    DEADLINE: '截止日期',
     DELETE: '删除',
     EDIT: '编辑',
     FILTER: '过滤',
@@ -67,7 +69,6 @@ export const CN = {
     HABITS: '小习惯',
     HOME: '主页',
     LETTERS: '悔过书',
-    TASKS: '小任务',
     TIMELINE: '时间轴'
   },
   DIALOG: {
@@ -75,6 +76,7 @@ export const CN = {
     CREATE_BANK: '添加银行流水',
     CREATE_HABIT: '添加习惯',
     CREATE_STORY: '添加故事',
+    CREATE_TASK: '添加任务',
     DELETE_ANNOUNCEMENT: '删除公告',
     DELETE_BANK: '删除银行流水',
     DELETE_HABIT: '删除习惯',

@@ -6,7 +6,6 @@ import { ELEMENT_DATA } from '~constants';
 
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
-import { StoreService } from '~service/store/store.service';
 
 @Component({
   selector: 'diary-stories-table',
@@ -21,15 +20,10 @@ export class StoriesTableComponent implements OnInit {
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
-  constructor(public dialog: MatDialog,
-              readonly storeService: StoreService) {
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
-  }
-
-  add() {
-    this.storeService.updateEditMode(true);
   }
 
   applyFilter(event: Event) {
@@ -69,13 +63,11 @@ export class StoriesTableComponent implements OnInit {
 
   private removeData(data) {
     console.log(data);
-    this.dataToDisplay = this.dataToDisplay.slice(0, -1);
     // this.dataSource.setData(this.dataToDisplay);
   }
 
   private edit(element): void {
     console.log(element);
-    this.storeService.updateEditMode(true);
   }
 
 }

@@ -26,6 +26,7 @@ export const EN = {
     STORIES: 'Stories',
     MOVIES_OPERAS: 'Movies & Operas',
     MUSIC: 'Music',
+    TASKS: 'Tasks'
   },
   LANGUAGE: {
     CN: '中文',
@@ -43,6 +44,7 @@ export const EN = {
     COMPLETED_DATE: 'Completed Date',
     CONTENT: 'Content',
     DATE: 'Date',
+    DEADLINE: 'Deadline',
     DELETE: 'Delete',
     EDIT: 'Edit',
     FILTER: 'Filter',
@@ -67,7 +69,6 @@ export const EN = {
     HABITS: 'Habits',
     HOME: 'Home',
     LETTERS: 'Letters',
-    TASKS: 'Tasks',
     TIMELINE: 'Timeline'
   },
   DIALOG: {
@@ -75,6 +76,7 @@ export const EN = {
     CREATE_BANK: 'Create a new bank statement',
     CREATE_HABIT: 'Create a new habit',
     CREATE_STORY: 'Create a new story',
+    CREATE_TASK: 'Create a new task',
     DELETE_ANNOUNCEMENT: 'Delete the statement',
     DELETE_BANK: 'Delete the bank bill',
     DELETE_HABIT: 'Delete the habit',

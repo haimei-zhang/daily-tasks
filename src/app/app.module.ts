@@ -36,7 +36,6 @@ import { AgreementsComponent } from '~view/agreements/agreements.component';
 import { HabitsComponent } from '~view/habits/habits.component';
 import { AnnouncementComponent } from '~view/announcement/announcement.component';
 import { BankComponent } from '~view/bank/bank.component';
-import { TasksComponent } from '~view/tasks/tasks.component';
 import { AnalyticsComponent } from '~view/analytics/analytics.component';
 import { TimelineComponent } from '~view/timeline/timeline.component';
 import { SidenavComponent } from '~components/sidenav/sidenav.component';
@@ -74,7 +73,6 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     HabitsComponent,
     AnnouncementComponent,
     BankComponent,
-    TasksComponent,
     AnalyticsComponent,
     PageHeaderComponent,
     LettersTableComponent,

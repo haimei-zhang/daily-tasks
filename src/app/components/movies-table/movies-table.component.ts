@@ -7,8 +7,6 @@ import { ELEMENT_DATA } from '~constants';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
 
-import { StoreService } from '~service/store/store.service';
-
 @Component({
   selector: 'diary-movies-table',
   templateUrl: './movies-table.component.html',
@@ -22,8 +20,7 @@ export class MoviesTableComponent implements OnInit {
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
-  constructor(public dialog: MatDialog,
-              readonly storeService: StoreService) {
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -83,7 +80,6 @@ export class MoviesTableComponent implements OnInit {
 
   private edit(element): void {
     console.log(element);
-    this.storeService.updateEditMode(true);
   }
 
 }

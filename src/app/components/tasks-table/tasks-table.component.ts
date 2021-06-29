@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ELEMENT_DATA } from '~constants';
-import { StoreService } from '~service/store/store.service';
+import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
+import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'diary-tasks-table',
@@ -10,26 +12,19 @@ import { StoreService } from '~service/store/store.service';
 })
 export class TasksTableComponent implements OnInit {
 
+  completeUser1: boolean;
+  completeUser2: boolean;
+
   ELEMENT_DATA = ELEMENT_DATA;
 
-  displayedColumns: string[] = ['name', 'author', 'date', 'notes', 'complete', 'action'];
+  displayedColumns: string[] = ['name', 'deadline', 'notes', 'complete', 'action'];
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
-  constructor(readonly storeService: StoreService) {
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
-  }
-
-  add() {
-    this.storeService.updateEditMode(true);
-  }
-
-  removeData(data) {
-    console.log(data);
-    this.dataToDisplay = this.dataToDisplay.slice(0, -1);
-    // this.dataSource.setData(this.dataToDisplay);
   }
 
   applyFilter(event: Event) {
@@ -37,13 +32,44 @@ export class TasksTableComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  edit(element): void {
-    console.log(element);
-    this.storeService.updateEditMode(true);
-  }
-
   completeTask(element, user, checked): void {
     console.log(user)
     console.log(checked)
   }
+
+  openDeleteConfirmationDialog(element): void {
+    const config = {
+      data: {
+        title: 'DIALOG.DELETE_HABIT',
+        content: 'DIALOG.DELETE_HABIT_MESSAGE'
+      }
+    };
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, config);
+    dialogRef.afterClosed().subscribe(confirm => {
+      if (confirm) {
+        this.removeData(element);
+      }
+    });
+  }
+
+  openEditHabitDialog(element): void {
+    element.title = 'DIALOG.EDIT_HABIT';
+    const config = {
+      data: element
+    };
+    const dialogRef = this.dialog.open(CreateUpdateHabitsComponent, config);
+    dialogRef.afterClosed().subscribe(result => {
+      this.edit(result);
+    });
+  }
+
+  private removeData(data) {
+    console.log(data);
+    // this.dataSource.setData(this.dataToDisplay);
+  }
+
+  private edit(element): void {
+    console.log(element);
+  }
+
 }
