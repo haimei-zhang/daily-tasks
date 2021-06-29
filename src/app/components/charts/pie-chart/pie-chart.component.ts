@@ -2,7 +2,6 @@ import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } fro
 import { TranslateService } from '@ngx-translate/core';
 import * as echarts from 'echarts';
 import ECharts = echarts.ECharts;
-import EChartOption = echarts.EChartsOption;
 
 @Component({
   selector: 'diary-pie-chart',
@@ -44,7 +43,7 @@ export class PieChartComponent implements OnInit, AfterViewInit, OnChanges {
   private drawChart(): void {
     if (this.eCharts) {
       const option = {
-        tooltip : {
+        tooltip: {
           trigger: 'item',
           formatter: '{b} <br/>{a} : {c} ({d}%)'
         },
@@ -62,11 +61,11 @@ export class PieChartComponent implements OnInit, AfterViewInit, OnChanges {
           bottom: 20,
           data: this.options.legendData,
         },
-        series : [
+        series: [
           {
             name: this.translateService.instant('ANALYTICS.COUNT'),
             type: 'pie',
-            radius : '55%',
+            radius: '55%',
             center: ['30%', '50%'],
             data: this.options.seriesData,
             avoidLabelOverlap: false,

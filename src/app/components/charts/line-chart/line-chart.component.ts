@@ -74,19 +74,7 @@ export class LineChartComponent implements OnInit, AfterViewInit, OnChanges {
         },
         yAxis: {type: 'value', name: this.translateService.instant('ANALYTICS.COUNT')},
         series: [{
-          data: this.options.seriesData,
-          type: 'bar',
-          markPoint: {
-            data: [
-              {type: 'max', name: 'Max'},
-              {type: 'min', name: 'Min'}
-            ]
-          },
-          markLine: {
-            data: [
-              {type: 'average', name: 'Average'}
-            ]
-          }
+          data: this.options.seriesData
         }]
       };
       this.eCharts.setOption(option);

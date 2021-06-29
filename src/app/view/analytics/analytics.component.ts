@@ -71,7 +71,9 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
         legend: {show: false}
       };
       this.lineChartOptions1.xAxisData = R.map((e: any) => e.category)(this.data);
-      this.lineChartOptions1.seriesData = R.map((e: any) => e.count)(this.data);
+      this.lineChartOptions1.seriesData = R.map((e: any) => {
+        return {name: `${e.category}`, type: 'line', data: e.count};
+      })(this.data);
     }
   }
 
@@ -79,10 +81,11 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
     if (this.data) {
       this.lineChartOptions2 = {
         chartId: 'line-chart2',
-        legend: {show: false}
       };
       this.lineChartOptions2.xAxisData = R.map((e: any) => e.category)(this.data);
-      this.lineChartOptions2.seriesData = R.map((e: any) => e.count)(this.data);
+      this.lineChartOptions2.seriesData = R.map((e: any) => {
+        return {name: `${e.category}`, type: 'line', data: e.count};
+      })(this.data);
     }
   }
 
