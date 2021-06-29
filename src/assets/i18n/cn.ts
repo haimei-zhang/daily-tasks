@@ -50,6 +50,15 @@ export const CN = {
     NOTES: '备注',
     SAVE: '保存'
   },
+  BANK: {
+    AMOUNT: '数额',
+    BANK_STATEMENT: '银行流水',
+    EXPENSES: '支出',
+    INCOME: '收入',
+    LAST_UPDATED_TIME: '上次更新时间',
+    TOTAL: '总计',
+    TYPE: '类型'
+  },
   MENU: {
     AGREEMENTS: '约法三章',
     ANALYTICS: '数据分析',
@@ -63,20 +72,20 @@ export const CN = {
   },
   DIALOG: {
     COMPLETE_HABIT: '完成习惯',
+    CREATE_BANK: '添加银行流水',
     CREATE_HABIT: '添加习惯',
     CREATE_STORY: '添加故事',
     DELETE_ANNOUNCEMENT: '删除公告',
+    DELETE_BANK: '删除银行流水',
     DELETE_HABIT: '删除习惯',
     DELETE_ANNOUNCEMENT_MESSAGE: '你确定要删除这个公告吗?',
+    DELETE_BANK_MESSAGE: '你确定要删除这个银行账单吗?',
     DELETE_HABIT_MESSAGE: '你确定要删除这个习惯吗?',
     EDIT_HABIT: '修改习惯',
+    EDIT_BANK: '编辑银行流水'
   },
-  ERROR: {
-
-  },
-  SUCCESS: {
-
-  },
+  ERROR: {},
+  SUCCESS: {},
   MESSAGE: {
     AGREEMENTS_DESCRIPTION: '',
     ANALYTICS_DESCRIPTION: '',

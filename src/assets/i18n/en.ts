@@ -50,6 +50,15 @@ export const EN = {
     NOTES: 'Notes',
     SAVE: 'Save'
   },
+  BANK: {
+    AMOUNT: 'Amount',
+    BANK_STATEMENT: 'Bank Statement',
+    EXPENSES: 'Expenses',
+    INCOME: 'Income',
+    LAST_UPDATED_TIME: 'Last updated time',
+    TOTAL: 'Total',
+    TYPE: 'Type'
+  },
   MENU: {
     AGREEMENTS: 'Agreements',
     ANALYTICS: 'Analytics',
@@ -63,13 +72,17 @@ export const EN = {
   },
   DIALOG: {
     COMPLETE_HABIT: 'Complete the habit',
+    CREATE_BANK: 'Create a new bank statement',
     CREATE_HABIT: 'Create a new habit',
     CREATE_STORY: 'Create a new story',
-    DELETE_ANNOUNCEMENT: 'Delete the announcement',
+    DELETE_ANNOUNCEMENT: 'Delete the statement',
+    DELETE_BANK: 'Delete the bank bill',
     DELETE_HABIT: 'Delete the habit',
     DELETE_ANNOUNCEMENT_MESSAGE: 'Are you sure you want to delete the announcement?',
+    DELETE_BANK_MESSAGE: 'Are you sure you want to delete the bank statement?',
     DELETE_HABIT_MESSAGE: 'Are you sure you want to delete the habit?',
-    EDIT_HABIT: 'Edit the habit'
+    EDIT_HABIT: 'Edit the habit',
+    EDIT_BANK: 'Edit the bank statement'
   },
   ERROR: {
 

@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BankComponent implements OnInit {
 
+  avatarSrc = 'https://thispersondoesnotexist.com/image';
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  refresh(event): void {
+    console.log(event)
+  }
+
 
 }

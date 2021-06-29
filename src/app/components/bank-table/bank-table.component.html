@@ -1,0 +1,66 @@
+<mat-card class="card">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>{{user}}</mat-card-title>
+    <mat-card-subtitle>{{'BANK.BANK_STATEMENT' | translate}}</mat-card-subtitle>
+    <div class="card-header-action text-right">
+      <button mat-raised-button (click)="openCreateBankDialog()">
+        <svg class="icon" width="16" height="16">
+          <use xlink:href="#plus" href="#plus"></use>
+        </svg>
+        {{'TABLE.ADD' | translate}}
+      </button>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <table class="mat-table">
+      <tr class="mat-header-row">
+        <th class="mat-header-cell">{{'BANK.TOTAL' | translate}}</th>
+        <td class="mat-cell">{{bankStatus.total}}</td>
+        <th class="mat-header-cell">{{'BANK.LAST_UPDATED_TIME' | translate}}</th>
+        <td class="mat-cell">{{bankStatus.lastUpdatedTime | date: 'mediumDate'}}</td>
+      </tr>
+    </table>
+    <table mat-table [dataSource]="dataSource" class="letters-table">
+      <!-- date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>{{'TABLE.DATE' | translate}}</th>
+        <td mat-cell *matCellDef="let element">{{element.date | date: 'mediumDate'}}</td>
+      </ng-container>
+
+      <!-- note Column -->
+      <ng-container matColumnDef="notes">
+        <th mat-header-cell *matHeaderCellDef>{{'TABLE.NOTES' | translate}}</th>
+        <td mat-cell *matCellDef="let element">{{element.notes}}</td>
+      </ng-container>
+
+      <!-- amount Column -->
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>{{'BANK.AMOUNT' | translate}}</th>
+        <td mat-cell *matCellDef="let element">{{element.amount}}</td>
+      </ng-container>
+
+      <!-- action Column -->
+      <ng-container matColumnDef="action">
+        <th class="table-action" mat-header-cell *matHeaderCellDef>{{'TABLE.ACTION' | translate}}</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-flat-button color="primary" class="mr-2" (click)="openEditBankDialog(element)">
+            <svg class="icon" width="16" height="16">
+              <use xlink:href="#edit" href="#edit"></use>
+            </svg>
+            {{'TABLE.EDIT' | translate}}
+          </button>
+          <button mat-flat-button color="warn" (click)="openDeleteConfirmationDialog(element)">
+            <svg class="icon" width="16" height="16">
+              <use xlink:href="#trash-alt" href="#trash-alt"></use>
+            </svg>
+            {{'TABLE.DELETE' | translate}}
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

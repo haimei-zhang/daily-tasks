@@ -21,10 +21,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from '~view/login/login.component';
@@ -53,6 +54,8 @@ import { TasksTableComponent } from '~components/tasks-table/tasks-table.compone
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { AnnouncementTableComponent } from '~components/announcement-table/announcement-table.component';
 import { AnnouncementEditorComponent } from '~components/announcement-editor/announcement-editor.component';
+import { BankTableComponent } from '~components/bank-table/bank-table.component';
+import { CreateUpdateBankDialogComponent } from '~components/dialog/create-update-bank-dialog/create-update-bank-dialog.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
@@ -86,7 +89,9 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     TasksTableComponent,
     ConfirmationDialogComponent,
     AnnouncementTableComponent,
-    AnnouncementEditorComponent
+    AnnouncementEditorComponent,
+    BankTableComponent,
+    CreateUpdateBankDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +113,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     MatCheckboxModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule,
   ],
   providers: [
     {

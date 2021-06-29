@@ -1,0 +1,15 @@
+.diary-bank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .diary-bank-card {
+    width: 49%;
+    margin-bottom: 20px;
+
+    @media (max-width: 960px) {
+      width: 100%;
+    }
+  }
+
+}
