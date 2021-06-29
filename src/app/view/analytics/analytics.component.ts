@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as R from 'ramda';
 
 @Component({
@@ -6,7 +6,7 @@ import * as R from 'ramda';
   templateUrl: './analytics.component.html',
   styleUrls: ['./analytics.component.scss']
 })
-export class AnalyticsComponent implements OnInit, AfterViewInit {
+export class AnalyticsComponent implements OnInit {
 
   avatarSrc = 'https://thispersondoesnotexist.com/image';
   barChartOptions: any;
@@ -31,9 +31,6 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
     this.initPieChart();
     this.initLineChart1();
     this.initLineChart2();
-  }
-
-  ngAfterViewInit(): void {
     this.refresh();
   }
 
@@ -71,9 +68,12 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
         legend: {show: false}
       };
       this.lineChartOptions1.xAxisData = R.map((e: any) => e.category)(this.data);
-      this.lineChartOptions1.seriesData = R.map((e: any) => {
-        return {name: `${e.category}`, type: 'line', data: e.count};
-      })(this.data);
+      this.lineChartOptions1.seriesData = [{
+        type: 'line',
+        data: R.map((e: any) => {
+          return e.count;
+        })(this.data)
+      }];
     }
   }
 
@@ -81,11 +81,15 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
     if (this.data) {
       this.lineChartOptions2 = {
         chartId: 'line-chart2',
+        legend: {show: false}
       };
       this.lineChartOptions2.xAxisData = R.map((e: any) => e.category)(this.data);
-      this.lineChartOptions2.seriesData = R.map((e: any) => {
-        return {name: `${e.category}`, type: 'line', data: e.count};
-      })(this.data);
+      this.lineChartOptions2.seriesData = [{
+        type: 'line',
+        data: R.map((e: any) => {
+          return e.count;
+        })(this.data)
+      }];
     }
   }
 

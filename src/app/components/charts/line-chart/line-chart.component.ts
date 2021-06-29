@@ -66,16 +66,11 @@ export class LineChartComponent implements OnInit, AfterViewInit, OnChanges {
         },
         xAxis: {
           type: 'category',
-          axisLabel: {
-            interval: 0,
-            rotate: 45
-          },
+          boundaryGap: false,
           data: this.options.xAxisData
         },
-        yAxis: {type: 'value', name: this.translateService.instant('ANALYTICS.COUNT')},
-        series: [{
-          data: this.options.seriesData
-        }]
+        yAxis: {type: 'value'},
+        series: this.options.seriesData
       };
       this.eCharts.setOption(option);
       this.eCharts.resize();
