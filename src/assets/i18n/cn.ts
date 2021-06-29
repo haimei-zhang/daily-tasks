@@ -3,6 +3,7 @@ export const CN = {
     BACK: '返回',
     CANCEL: '取消',
     CLOSE: '关闭',
+    CONFIRM: '确定',
     FORGET_PASSWORD: '忘记密码',
     LANGUAGE: '语言',
     LOGIN: '登陆',
@@ -39,6 +40,7 @@ export const CN = {
     ADD: '添加',
     AUTHOR: '作者',
     COMPLETED: '完成情况',
+    COMPLETED_DATE: '完成时间',
     CONTENT: '内容',
     DATE: '日期',
     DELETE: '删除',
@@ -61,7 +63,9 @@ export const CN = {
   },
   DIALOG: {
     CREATE_HABIT: '添加习惯',
-    CREATE_STORY: '添加故事'
+    CREATE_STORY: '添加故事',
+    DELETE_HABIT: '删除习惯',
+    DELETE_HABIT_MESSAGE: '你确定要删除这个习惯吗?'
   },
   ERROR: {
 

@@ -2,13 +2,13 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'diary-create-habits',
-  templateUrl: './create-habits.component.html',
-  styleUrls: ['./create-habits.component.scss']
+  selector: 'diary-create-update-habits',
+  templateUrl: './create-update-habits.component.html',
+  styleUrls: ['./create-update-habits.component.scss']
 })
-export class CreateHabitsComponent implements OnInit {
+export class CreateUpdateHabitsComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<CreateHabitsComponent>,
+  constructor(public dialogRef: MatDialogRef<CreateUpdateHabitsComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 

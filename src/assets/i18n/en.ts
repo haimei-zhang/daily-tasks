@@ -3,6 +3,7 @@ export const EN = {
     BACK: 'Back',
     CANCEL: 'Cancel',
     CLOSE: 'Close',
+    CONFIRM: 'Confirm',
     FORGET_PASSWORD: 'Forget Password',
     LANGUAGE: 'Language',
     LOGIN: 'Login',
@@ -39,6 +40,7 @@ export const EN = {
     ADD: 'Add',
     AUTHOR: 'Author',
     COMPLETED: 'Completed',
+    COMPLETED_DATE: 'Completed Date',
     CONTENT: 'Content',
     DATE: 'Date',
     DELETE: 'Delete',
@@ -61,7 +63,9 @@ export const EN = {
   },
   DIALOG: {
     CREATE_HABIT: 'Create a new habit',
-    CREATE_STORY: 'Create a new story'
+    CREATE_STORY: 'Create a new story',
+    DELETE_HABIT: 'Delete the habit',
+    DELETE_HABIT_MESSAGE: 'Are you sure you want to delete the habit?'
   },
   ERROR: {
 

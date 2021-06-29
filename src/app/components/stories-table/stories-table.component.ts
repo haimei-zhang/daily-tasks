@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { CreateHabitsComponent } from '~components/dialog/create-habits/create-habits.component';
 
+import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
+import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
 import { StoreService } from '~service/store/store.service';
 
 @Component({
@@ -36,9 +37,12 @@ export class StoriesTableComponent implements OnInit {
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
-  constructor(readonly storeService: StoreService) { }
+  constructor(public dialog: MatDialog,
+              readonly storeService: StoreService) {
+  }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   add() {
     this.storeService.updateEditMode(true);
@@ -62,6 +66,31 @@ export class StoriesTableComponent implements OnInit {
 
   completeTask(element, checked): void {
     console.log(checked)
+  }
+
+  openDeleteConfirmationDialog(element): void {
+    const config = {
+      data: {
+        title: 'DIALOG.DELETE_HABIT',
+        content: 'DIALOG.DELETE_HABIT_MESSAGE'
+      }
+    };
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, config);
+    dialogRef.afterClosed().subscribe(confirm => {
+      if (confirm) {
+        this.removeData(element);
+      }
+    });
+  }
+
+  openEditHabitDialog(element): void {
+    const config = {
+      data: element
+    };
+    const dialogRef = this.dialog.open(CreateUpdateHabitsComponent, config);
+    dialogRef.afterClosed().subscribe(result => {
+      this.edit(result);
+    });
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateHabitsComponent } from '~components/dialog/create-habits/create-habits.component';
+import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -15,18 +15,30 @@ export class HabitsContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openCreateHabitDialog(data?, hasAuthor?): void {
-    const config = data ? {data: data} : {
+  createStory(): void {
+    const config = {
       data: {
         name: '',
-        hasAuthor: hasAuthor,
         author: '',
         date: new Date(),
         notes: ''
       }
     };
+    this.openCreateHabitDialog(config);
+  }
 
-    const dialogRef = this.dialog.open(CreateHabitsComponent, config);
+  createMovieGame(): void {
+    const config = {
+      data: {
+        name: '',
+        notes: ''
+      }
+    };
+    this.openCreateHabitDialog(config);
+  }
+
+  private openCreateHabitDialog(config): void {
+    const dialogRef = this.dialog.open(CreateUpdateHabitsComponent, config);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

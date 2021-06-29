@@ -48,12 +48,13 @@ import { HabitsContentComponent } from '~components/habits-content/habits-conten
 import { StoriesTableComponent } from '~components/stories-table/stories-table.component';
 import { MoviesTableComponent } from '~components/movies-table/movies-table.component';
 import { GamesTableComponent } from '~components/games-table/games-table.component';
-import { CreateHabitsComponent } from '~components/dialog/create-habits/create-habits.component';
+import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
 import { TasksTableComponent } from '~components/tasks-table/tasks-table.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
+import { ConfirmationDialogComponent } from './components/dialog/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -79,8 +80,9 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     MoviesTableComponent,
     GamesTableComponent,
     TimelineComponent,
-    CreateHabitsComponent,
-    TasksTableComponent
+    CreateUpdateHabitsComponent,
+    TasksTableComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,

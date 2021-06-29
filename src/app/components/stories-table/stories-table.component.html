@@ -46,15 +46,15 @@
   <ng-container matColumnDef="action">
     <th class="table-action" mat-header-cell *matHeaderCellDef>{{'TABLE.ACTION' | translate}}</th>
     <td mat-cell *matCellDef="let element">
-      <button mat-flat-button color="primary" class="mr-2" (click)="edit(element)">
+      <button mat-flat-button color="primary" class="mr-2" (click)="openEditHabitDialog(element)">
         <svg class="icon" width="16" height="16">
           <use xlink:href="#edit" href="#edit"></use>
         </svg>
         {{'TABLE.EDIT' | translate}}
       </button>
-      <button mat-flat-button color="warn" (click)="removeData(element)">
+      <button mat-flat-button color="warn" (click)="openDeleteConfirmationDialog(element)">
         <svg class="icon" width="16" height="16">
-          <use xlink:href="#trash" href="#trash"></use>
+          <use xlink:href="#trash-alt" href="#trash-alt"></use>
         </svg>
         {{'TABLE.DELETE' | translate}}
       </button>
