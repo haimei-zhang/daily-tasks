@@ -1,0 +1,21 @@
+.announcement-table {
+  width: 100%;
+
+  tr:not(.mat-header-row):hover {
+    background: whitesmoke;
+    cursor: pointer;
+  }
+
+  tr:not(.mat-header-row):active {
+    background: #efefef;
+  }
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+
+  .filter {
+    flex: 1;
+  }
+}

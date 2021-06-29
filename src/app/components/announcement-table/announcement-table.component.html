@@ -1,0 +1,35 @@
+<div class="button-container">
+  <button mat-raised-button (click)="add()" class="mr-2">
+    <svg class="icon" width="16" height="16">
+      <use xlink:href="#plus" href="#plus"></use>
+    </svg>
+    {{'TABLE.ADD' | translate}}
+  </button>
+  <mat-form-field appearance="standard" class="filter">
+    <mat-label>{{'TABLE.FILTER' | translate}}</mat-label>
+    <input aria-label="filter" matInput (keyup)="applyFilter($event)" placeholder="Type to search..." #input>
+  </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="announcement-table">
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>{{'TABLE.NAME' | translate}}</th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+
+  <!-- author Column -->
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef>{{'TABLE.AUTHOR' | translate}}</th>
+    <td mat-cell *matCellDef="let element">{{element.author}}</td>
+  </ng-container>
+
+  <!-- date Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>{{'TABLE.DATE' | translate}}</th>
+    <td mat-cell *matCellDef="let element">{{element.date | date: 'mediumDate'}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="viewDetails(row)"></tr>
+</table>

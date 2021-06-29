@@ -1,5 +1,7 @@
-<div class="letters-editor">
-  <div class="button-container text-right">
+<diary-page-header [pageTitle]="'MENU.ANNOUNCEMENT'" [pageSubtitle]="'MENU.ANNOUNCEMENT'" [avatarSrc]="avatarSrc"
+                   (refreshEvent)="refresh($event)"></diary-page-header>
+<div class="announcement">
+  <div class="button-container text-right mb-2">
     <button mat-raised-button class="mr-2" (click)="cancel()">
       <svg class="icon" width="16" height="16">
         <use xlink:href="#times" href="#times"></use>
@@ -13,14 +15,14 @@
       {{'TABLE.SAVE' | translate}}
     </button>
   </div>
-  <form>
+  <div>
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>{{'TABLE.NAME' | translate}}</mat-label>
-      <input matInput aria-label="name">
+      <input matInput aria-label="name" [(ngModel)]="name">
     </mat-form-field>
     <mat-form-field class="content-input full-width" appearance="fill">
       <mat-label>{{'TABLE.CONTENT' | translate}}</mat-label>
-      <textarea matInput aria-label="content"></textarea>
+      <textarea matInput aria-label="content" [(ngModel)]="content"></textarea>
     </mat-form-field>
-  </form>
+  </div>
 </div>

@@ -12,11 +12,6 @@ import { StoreService } from '~service/store/store.service';
 })
 export class LettersTableComponent implements OnInit {
 
-  name: string;
-  author: number;
-  date: number;
-  action: string;
-
   ELEMENT_DATA = ELEMENT_DATA;
 
   displayedColumns: string[] = ['name', 'author', 'date', 'action'];

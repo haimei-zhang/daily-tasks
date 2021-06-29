@@ -51,6 +51,8 @@ import { GamesTableComponent } from '~components/games-table/games-table.compone
 import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
 import { TasksTableComponent } from '~components/tasks-table/tasks-table.component';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
+import { AnnouncementTableComponent } from '~components/announcement-table/announcement-table.component';
+import { AnnouncementEditorComponent } from '~components/announcement-editor/announcement-editor.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
@@ -82,7 +84,9 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     TimelineComponent,
     CreateUpdateHabitsComponent,
     TasksTableComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    AnnouncementTableComponent,
+    AnnouncementEditorComponent
   ],
   imports: [
     BrowserModule,

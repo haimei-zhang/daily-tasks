@@ -27,14 +27,14 @@ export const MENUS = [
 ]
 
 export const ELEMENT_DATA = [
-  {author: '笨蛋', name: 'test name 1', date: new Date(), notes: 'This is a test note'},
-  {author: '变态', name: 'test name 2', date: new Date(), notes: 'This is a test note'},
-  {author: '笨蛋', name: 'test name 3', date: new Date(), notes: 'This is a test note'},
-  {author: '变态', name: 'test name 4', date: new Date(), notes: 'This is a test note'},
-  {author: '笨蛋', name: 'test name 5', date: new Date(), notes: 'This is a test note'},
-  {author: '变态', name: 'test name 6', date: new Date(), notes: 'This is a test note'},
-  {author: '笨蛋', name: 'test name 7', date: new Date(), notes: 'This is a test note'},
-  {author: '变态', name: 'test name 8', date: new Date(), notes: 'This is a test note'},
-  {author: '笨蛋', name: 'test name 9', date: new Date(), notes: 'This is a test note'},
-  {author: '变态', name: 'test name 0', date: new Date(), notes: 'This is a test note'}
+  {id: '1', author: '笨蛋', name: 'test name 1', date: new Date(), notes: 'This is a test note'},
+  {id: '2', author: '变态', name: 'test name 2', date: new Date(), notes: 'This is a test note'},
+  {id: '3', author: '笨蛋', name: 'test name 3', date: new Date(), notes: 'This is a test note'},
+  {id: '4', author: '变态', name: 'test name 4', date: new Date(), notes: 'This is a test note'},
+  {id: '5', author: '笨蛋', name: 'test name 5', date: new Date(), notes: 'This is a test note'},
+  {id: '6', author: '变态', name: 'test name 6', date: new Date(), notes: 'This is a test note'},
+  {id: '7', author: '笨蛋', name: 'test name 7', date: new Date(), notes: 'This is a test note'},
+  {id: '8', author: '变态', name: 'test name 8', date: new Date(), notes: 'This is a test note'},
+  {id: '9', author: '笨蛋', name: 'test name 9', date: new Date(), notes: 'This is a test note'},
+  {id: '10', author: '变态', name: 'test name 0', date: new Date(), notes: 'This is a test note'}
 ];

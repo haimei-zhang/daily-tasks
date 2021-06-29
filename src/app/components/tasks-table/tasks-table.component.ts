@@ -10,14 +10,6 @@ import { StoreService } from '~service/store/store.service';
 })
 export class TasksTableComponent implements OnInit {
 
-  name: string;
-  author: number;
-  date: number;
-  notes: string;
-
-  completeUser1: boolean;
-  completeUser2: boolean;
-
   ELEMENT_DATA = ELEMENT_DATA;
 
   displayedColumns: string[] = ['name', 'author', 'date', 'notes', 'complete', 'action'];

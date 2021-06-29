@@ -15,13 +15,6 @@ import { StoreService } from '~service/store/store.service';
 })
 export class StoriesTableComponent implements OnInit {
 
-  name: string;
-  author: number;
-  date: number;
-  notes: string;
-
-  completed: boolean;
-
   ELEMENT_DATA = ELEMENT_DATA;
 
   displayedColumns: string[] = ['name', 'author', 'date', 'notes', 'complete', 'action'];
