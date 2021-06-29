@@ -55,6 +55,10 @@ import { AnnouncementTableComponent } from '~components/announcement-table/annou
 import { AnnouncementEditorComponent } from '~components/announcement-editor/announcement-editor.component';
 import { BankTableComponent } from '~components/bank-table/bank-table.component';
 import { CreateUpdateBankDialogComponent } from '~components/dialog/create-update-bank-dialog/create-update-bank-dialog.component';
+import { BarChartComponent } from '~components/charts/bar-chart/bar-chart.component';
+import { LineChartComponent } from '~components/charts/line-chart/line-chart.component';
+import { PieChartComponent } from '~components/charts/pie-chart/pie-chart.component';
+import { TableChartComponent } from '~components/charts/table-chart/table-chart.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
@@ -89,7 +93,11 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     AnnouncementTableComponent,
     AnnouncementEditorComponent,
     BankTableComponent,
-    CreateUpdateBankDialogComponent
+    CreateUpdateBankDialogComponent,
+    BarChartComponent,
+    LineChartComponent,
+    PieChartComponent,
+    TableChartComponent
   ],
   imports: [
     BrowserModule,

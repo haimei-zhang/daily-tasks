@@ -1,0 +1,21 @@
+<div class="table-chart">
+  <table class="table dataTable table-striped table-responsive">
+    <thead>
+    <tr>
+      <td class="col sorting"  [ngClass]="{'sorting_asc': sortingByColumn === 'category' && this.sortDescending, 'sorting_desc': sortingByColumn === 'category' && !this.sortDescending}"
+          (click)="sortColumn('category')">{{'COMMON.CATEGORY' | translate}}
+      </td>
+      <td class="col sorting" [ngClass]="{'sorting_asc': sortingByColumn === 'count' && this.sortDescending, 'sorting_desc': sortingByColumn === 'count' && !this.sortDescending}"
+          (click)="sortColumn('count')">
+        {{'COMMON.COUNT' | translate}}
+      </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let d of data">
+      <td>{{d.category}}</td>
+      <td>{{d.count}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

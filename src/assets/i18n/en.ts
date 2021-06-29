@@ -61,6 +61,16 @@ export const EN = {
     TOTAL: 'Total',
     TYPE: 'Type'
   },
+  ANALYTICS: {
+    BAR_CHART: 'Bar chart',
+    CATEGORY_ANALYTICS: 'Category analytics',
+    COMPLETED_STATUS_ANALYTICS: 'Completed status analytics',
+    COUNT: 'Count',
+    FREQUENCY_ANALYTICS: 'Frequency analytic',
+    LINE_CHART: 'Line chart',
+    PIE_CHART: 'Pie chart',
+    TABLE_CHART: 'Table chart'
+  },
   MENU: {
     AGREEMENTS: 'Agreements',
     ANALYTICS: 'Analytics',
@@ -97,7 +107,10 @@ export const EN = {
     ANALYTICS_DESCRIPTION: '',
     ANNOUNCEMENT_DESCRIPTION: '',
     BANK_DESCRIPTION: '',
+    CATEGORY_ANALYTICS_DESCRIPTION: 'Category analytics',
+    COMPLETED_STATUS_ANALYTICS_DESCRIPTION: 'Completed status analytics',
     DETAILED_RULE_DESCRIPTION: '',
+    FREQUENCY_ANALYTICS_DESCRIPTION: 'Frequency analytic',
     GAMES_DESCRIPTION: '',
     GENERAL_RULE_DESCRIPTION: '',
     HABITS_DESCRIPTION: '',

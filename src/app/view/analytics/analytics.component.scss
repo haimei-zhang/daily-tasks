@@ -1,0 +1,15 @@
+.diary-analytics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .card {
+    width: 47%;
+    margin-bottom: 20px;
+
+    @media (max-width: 1200px) {
+      width: 100%;
+    }
+  }
+
+}

@@ -61,6 +61,16 @@ export const CN = {
     TOTAL: '总计',
     TYPE: '类型'
   },
+  ANALYTICS: {
+    BAR_CHART: '柱状图',
+    CATEGORY_ANALYTICS: '分类分析',
+    COMPLETED_STATUS_ANALYTICS: '完成情况分析',
+    COUNT: '数量',
+    FREQUENCY_ANALYTICS: '使用频率分析',
+    LINE_CHART: '现状图',
+    PIE_CHART: '饼状图',
+    TABLE_CHART: '图表'
+  },
   MENU: {
     AGREEMENTS: '约法三章',
     ANALYTICS: '数据分析',
@@ -93,7 +103,10 @@ export const CN = {
     ANALYTICS_DESCRIPTION: '',
     ANNOUNCEMENT_DESCRIPTION: '',
     BANK_DESCRIPTION: '',
+    CATEGORY_ANALYTICS_DESCRIPTION: 'Category analytics',
+    COMPLETED_STATUS_ANALYTICS_DESCRIPTION: 'Completed status analytics',
     DETAILED_RULE_DESCRIPTION: '',
+    FREQUENCY_ANALYTICS_DESCRIPTION: 'Frequency analytic',
     GAMES_DESCRIPTION: '',
     GENERAL_RULE_DESCRIPTION: '',
     HABITS_DESCRIPTION: '',

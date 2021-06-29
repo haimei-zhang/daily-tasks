@@ -11,6 +11,7 @@ import { AnnouncementComponent } from '~view/announcement/announcement.component
 import { AnnouncementEditorComponent } from '~components/announcement-editor/announcement-editor.component';
 import { BankComponent } from '~view/bank/bank.component';
 import { AnalyticsComponent } from '~view/analytics/analytics.component';
+import { TimelineComponent } from '~view/timeline/timeline.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'announcement', component: AnnouncementComponent},
   {path: 'announcement/:id', component: AnnouncementEditorComponent},
   {path: 'bank', component: BankComponent},
-  {path: 'Analytics', component: AnalyticsComponent},
+  {path: 'analytics', component: AnalyticsComponent},
+  {path: 'timeline', component: TimelineComponent},
   {path: 'error', component: ErrorComponent},
   {path: '**', component: ErrorComponent}
 ];
