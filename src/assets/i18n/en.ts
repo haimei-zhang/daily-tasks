@@ -96,12 +96,8 @@ export const EN = {
     EDIT_HABIT: 'Edit the habit',
     EDIT_BANK: 'Edit the bank statement'
   },
-  ERROR: {
-
-  },
-  SUCCESS: {
-
-  },
+  ERROR: {},
+  SUCCESS: {},
   MESSAGE: {
     AGREEMENTS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     ANALYTICS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',

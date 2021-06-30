@@ -12,7 +12,7 @@
             <mat-card-content>
               <p>{{menu.description | translate}}</p>
             </mat-card-content>
-            <img class="card-img" src="assets/images/wx.png" alt="image">
+            <img class="card-img" [src]="'https://unsplash.it/1920/500?image=' + i" alt="image">
           </mat-card>
         </div>
       </mat-grid-tile>
