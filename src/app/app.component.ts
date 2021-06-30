@@ -24,7 +24,7 @@ export class AppComponent {
 
     translateService.setTranslation('cn', CN);
     translateService.setTranslation('en', EN);
-    translateService.use('en');
+    translateService.use('cn');
   }
 
   changeLanguage(language): void {
