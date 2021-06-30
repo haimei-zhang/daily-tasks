@@ -24,7 +24,7 @@ export const CN = {
   HABITS: {
     GAMES: '游戏',
     STORIES: '故事',
-    MOVIES: '影视',
+    MOVIES_OPERAS: '影视',
     MUSIC: '音乐',
     TASKS: '小任务'
   },
@@ -39,6 +39,7 @@ export const CN = {
   TABLE: {
     ACTION: '管理',
     ADD: '添加',
+    ASSIGNEE: '任务人',
     AUTHOR: '作者',
     COMPLETED: '完成情况',
     COMPLETED_DATE: '完成时间',
@@ -79,6 +80,7 @@ export const CN = {
     HABITS: '小习惯',
     HOME: '主页',
     LETTERS: '悔过书',
+    TASKS: '小任务',
     TIMELINE: '时间轴'
   },
   DIALOG: {

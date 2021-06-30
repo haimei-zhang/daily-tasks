@@ -39,6 +39,7 @@ export const EN = {
   TABLE: {
     ACTION: 'Action',
     ADD: 'Add',
+    ASSIGNEE: 'Assignee',
     AUTHOR: 'Author',
     COMPLETED: 'Completed',
     COMPLETED_DATE: 'Completed Date',
@@ -79,6 +80,7 @@ export const EN = {
     HABITS: 'Habits',
     HOME: 'Home',
     LETTERS: 'Letters',
+    TASKS: 'Tasks',
     TIMELINE: 'Timeline'
   },
   DIALOG: {
