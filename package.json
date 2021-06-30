@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-compressed": "node --max_old_space_size=1500 ./node_modules/@angular/cli/bin/ng build --prod --output-hashing=none --vendor-chunk=true --source-map && gulp process-bundle"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,8 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "echarts": "^5.1.2",
+    "gulp": "^4.0.2",
+    "gulp-gzip": "^1.4.2",
     "ngx-toastr": "^14.0.0",
     "ramda": "^0.27.1",
     "rxjs": "~6.5.5",

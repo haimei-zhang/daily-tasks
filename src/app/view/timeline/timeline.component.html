@@ -1,1 +1,26 @@
-<p>timeline works!</p>
+<diary-page-header [pageTitle]="'MENU.TIMELINE'" [pageSubtitle]="'MENU.TIMELINE'" [avatarSrc]="avatarSrc"
+                   (refreshEvent)="refresh($event)"></diary-page-header>
+<div class="container">
+  <div class="timeline">
+    <div class="swiper-container swiper-container-vertical">
+      <div class="swiper-wrapper">
+        <ng-container *ngFor="let i of [1,2,3,4,5,6]">
+          <div class="swiper-slide" [attr.style]="'background-image: url(https://unsplash.it/1920/500?image=' + i + ')'">
+            <div class="swiper-slide-content">
+              <span class="timeline-year">201{{i}}</span>
+              <h4 class="timeline-title">Our nice super title</h4>
+              <p class="timeline-text">
+                Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et
+                dolore magna aliqua. Ut enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.
+              </p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"></div>
+    </div>
+  </div>
+</div>
