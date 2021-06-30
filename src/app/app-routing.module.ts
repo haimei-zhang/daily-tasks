@@ -13,6 +13,7 @@ import { BankComponent } from '~view/bank/bank.component';
 import { AnalyticsComponent } from '~view/analytics/analytics.component';
 import { TimelineComponent } from '~view/timeline/timeline.component';
 import { TasksComponent } from '~view/tasks/tasks.component';
+import { ShopComponent } from '~view/shop/shop.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'bank', component: BankComponent},
   {path: 'analytics', component: AnalyticsComponent},
   {path: 'timeline', component: TimelineComponent},
+  {path: 'shop', component: ShopComponent},
   {path: 'error', component: ErrorComponent},
   {path: '**', component: ErrorComponent}
 ];

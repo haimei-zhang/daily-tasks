@@ -40,6 +40,8 @@ import { BankComponent } from '~view/bank/bank.component';
 import { AnalyticsComponent } from '~view/analytics/analytics.component';
 import { TimelineComponent } from '~view/timeline/timeline.component';
 import { TasksComponent } from '~view/tasks/tasks.component';
+import { ShopComponent } from '~view/shop/shop.component';
+
 import { SidenavComponent } from '~components/sidenav/sidenav.component';
 import { IconsComponent } from '~components/icons/icons.component';
 import { PageHeaderComponent } from '~components/page-header/page-header.component';
@@ -102,7 +104,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     PieChartComponent,
     TableChartComponent,
     TasksComponent,
-    CreateUpdateTasksDialogComponent
+    CreateUpdateTasksDialogComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,
