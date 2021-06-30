@@ -75,7 +75,7 @@ export const CN = {
   MENU: {
     AGREEMENTS: '约法三章',
     ANALYTICS: '数据分析',
-    ANNOUNCEMENT: '公告',
+    ANNOUNCEMENT: '日志',
     BANK: '银行',
     HABITS: '小习惯',
     HOME: '主页',
