@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ELEMENT_DATA } from '~constants';
 
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
-import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
+import { CreateUpdateHabitsDialogComponent } from '~components/dialog/create-update-habits-dialog/create-update-habits-dialog.component';
 
 @Component({
   selector: 'diary-stories-table',
@@ -55,7 +55,7 @@ export class StoriesTableComponent implements OnInit {
     const config = {
       data: element
     };
-    const dialogRef = this.dialog.open(CreateUpdateHabitsComponent, config);
+    const dialogRef = this.dialog.open(CreateUpdateHabitsDialogComponent, config);
     dialogRef.afterClosed().subscribe(result => {
       this.edit(result);
     });

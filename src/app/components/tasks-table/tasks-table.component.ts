@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 import { ELEMENT_DATA } from '~constants';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
-import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
-import { MatDialog } from '@angular/material/dialog';
+import { CreateUpdateTasksDialogComponent } from '~components/dialog/create-update-tasks-dialog/create-update-tasks-dialog.component';
 
 @Component({
   selector: 'diary-tasks-table',
@@ -17,7 +17,7 @@ export class TasksTableComponent implements OnInit {
 
   ELEMENT_DATA = ELEMENT_DATA;
 
-  displayedColumns: string[] = ['name', 'deadline', 'notes', 'complete', 'action'];
+  displayedColumns: string[] = ['name', 'author', 'assignee', 'notes', 'amount', 'complete', 'action'];
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
@@ -57,7 +57,7 @@ export class TasksTableComponent implements OnInit {
     const config = {
       data: element
     };
-    const dialogRef = this.dialog.open(CreateUpdateHabitsComponent, config);
+    const dialogRef = this.dialog.open(CreateUpdateTasksDialogComponent, config);
     dialogRef.afterClosed().subscribe(result => {
       this.edit(result);
     });

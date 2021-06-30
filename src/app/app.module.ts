@@ -39,6 +39,7 @@ import { AnnouncementComponent } from '~view/announcement/announcement.component
 import { BankComponent } from '~view/bank/bank.component';
 import { AnalyticsComponent } from '~view/analytics/analytics.component';
 import { TimelineComponent } from '~view/timeline/timeline.component';
+import { TasksComponent } from '~view/tasks/tasks.component';
 import { SidenavComponent } from '~components/sidenav/sidenav.component';
 import { IconsComponent } from '~components/icons/icons.component';
 import { PageHeaderComponent } from '~components/page-header/page-header.component';
@@ -49,7 +50,7 @@ import { HabitsContentComponent } from '~components/habits-content/habits-conten
 import { StoriesTableComponent } from '~components/stories-table/stories-table.component';
 import { MoviesTableComponent } from '~components/movies-table/movies-table.component';
 import { GamesTableComponent } from '~components/games-table/games-table.component';
-import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
+import { CreateUpdateHabitsDialogComponent } from '~components/dialog/create-update-habits-dialog/create-update-habits-dialog.component';
 import { TasksTableComponent } from '~components/tasks-table/tasks-table.component';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { AnnouncementTableComponent } from '~components/announcement-table/announcement-table.component';
@@ -60,6 +61,7 @@ import { BarChartComponent } from '~components/charts/bar-chart/bar-chart.compon
 import { LineChartComponent } from '~components/charts/line-chart/line-chart.component';
 import { PieChartComponent } from '~components/charts/pie-chart/pie-chart.component';
 import { TableChartComponent } from '~components/charts/table-chart/table-chart.component';
+import { CreateUpdateTasksDialogComponent } from '~components/dialog/create-update-tasks-dialog/create-update-tasks-dialog.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
@@ -88,7 +90,7 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     MoviesTableComponent,
     GamesTableComponent,
     TimelineComponent,
-    CreateUpdateHabitsComponent,
+    CreateUpdateHabitsDialogComponent,
     TasksTableComponent,
     ConfirmationDialogComponent,
     AnnouncementTableComponent,
@@ -98,7 +100,9 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     BarChartComponent,
     LineChartComponent,
     PieChartComponent,
-    TableChartComponent
+    TableChartComponent,
+    TasksComponent,
+    CreateUpdateTasksDialogComponent
   ],
   imports: [
     BrowserModule,

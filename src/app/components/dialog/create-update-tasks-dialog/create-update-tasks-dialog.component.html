@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>{{data.title | translate}}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>{{'TABLE.NAME' | translate}}</mat-label>
+    <input matInput [(ngModel)]="data.name" aria-label="name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>{{'TABLE.AUTHOR' | translate}}</mat-label>
+    <input matInput [(ngModel)]="data.author" aria-label="author">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>{{'TABLE.ASSIGNEE' | translate}}</mat-label>
+    <input matInput [(ngModel)]="data.assignee" aria-label="assignee">
+  </mat-form-field>
+  <mat-form-field *ngIf="data.notes || data.notes === ''" appearance="fill">
+    <mat-label>{{'TABLE.NOTES' | translate}}</mat-label>
+    <textarea matInput [(ngModel)]="data.notes" aria-label="notes"></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>{{'BANK.AMOUNT' | translate}}</mat-label>
+    <input matInput type="number" [(ngModel)]="data.amount" aria-label="amount">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">{{'COMMON.CANCEL' | translate}}</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>{{'COMMON.OK' | translate}}</button>
+</div>

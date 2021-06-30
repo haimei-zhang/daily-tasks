@@ -12,6 +12,7 @@ import { AnnouncementEditorComponent } from '~components/announcement-editor/ann
 import { BankComponent } from '~view/bank/bank.component';
 import { AnalyticsComponent } from '~view/analytics/analytics.component';
 import { TimelineComponent } from '~view/timeline/timeline.component';
+import { TasksComponent } from '~view/tasks/tasks.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'letters', component: LettersComponent},
   {path: 'agreements', component: AgreementsComponent},
   {path: 'habits', component: HabitsComponent},
+  {path: 'tasks', component: TasksComponent},
   {path: 'announcement', component: AnnouncementComponent},
   {path: 'announcement/:id', component: AnnouncementEditorComponent},
   {path: 'bank', component: BankComponent},

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateUpdateHabitsComponent } from '~components/dialog/create-update-habits/create-update-habits.component';
+import { CreateUpdateHabitsDialogComponent } from '~components/dialog/create-update-habits-dialog/create-update-habits-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -39,20 +39,8 @@ export class HabitsContentComponent implements OnInit {
     this.openCreateHabitDialog(config);
   }
 
-  createTask(): void {
-    const config = {
-      data: {
-        title: 'DIALOG.CREATE_TASK',
-        name: '',
-        notes: '',
-        date: new Date()
-      }
-    };
-    this.openCreateHabitDialog(config);
-  }
-
   private openCreateHabitDialog(config): void {
-    const dialogRef = this.dialog.open(CreateUpdateHabitsComponent, config);
+    const dialogRef = this.dialog.open(CreateUpdateHabitsDialogComponent, config);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
