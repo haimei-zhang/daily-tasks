@@ -7,7 +7,16 @@
           <img class="authentication-card__img"
                src="assets/images/wx.png" width="100" alt="logo">
           <div class="authentication-card__app-name">{{'COMMON.MY_DIARY' | translate}}</div>
-          <h1 class="authentication-card__title">{{'MESSAGE.LOGIN_SUB_TITLE' | translate}}</h1></div>
+          <h1 class="authentication-card__title">{{'MESSAGE.LOGIN_SUB_TITLE' | translate}}</h1>
+          <mat-button-toggle-group>
+            <mat-button-toggle value="left" aria-label="Chinese" title="Chinese" (click)="changeLanguage('cn')">
+              {{'LANGUAGE.CN' | translate}}
+            </mat-button-toggle>
+            <mat-button-toggle checked value="justify" aria-label="English" title="English" (click)="changeLanguage('en')">
+              {{'LANGUAGE.EN' | translate}}
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
         <div class="authentication-card__content">
           <p class="authentication-card__text"></p>
           <form name="login-form">

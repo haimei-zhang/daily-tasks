@@ -21,11 +21,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { AppRoutingModule } from './app-routing.module';
 import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from '~view/login/login.component';
@@ -121,6 +122,7 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
+    MatButtonToggleModule
   ],
   providers: [
     {

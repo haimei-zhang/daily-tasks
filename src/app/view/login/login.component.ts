@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'diary-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   password: string;
 
   constructor(readonly route: ActivatedRoute,
-              readonly router: Router) {
+              readonly router: Router,
+              readonly translateService: TranslateService) {
   }
 
   ngOnInit(): void {
@@ -22,6 +24,10 @@ export class LoginComponent implements OnInit {
     if (this.username === 'test' && this.password === 'test') {
       this.router.navigate(['home']);
     }
+  }
+
+  changeLanguage(language): void {
+    this.translateService.use(language);
   }
 
 }
