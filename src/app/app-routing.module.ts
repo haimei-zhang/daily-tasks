@@ -30,7 +30,7 @@ const routes: Routes = [
   {path: 'timeline', component: TimelineComponent},
   {path: 'shop', component: ShopComponent},
   {path: 'error', component: ErrorComponent},
-  {path: '**', component: ErrorComponent}
+  {path: '**', redirectTo: '/login'}
 ];
 
 @NgModule({

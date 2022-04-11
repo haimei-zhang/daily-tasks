@@ -2,11 +2,11 @@ const gulp = require('gulp');
 const gzip = require('gulp-gzip');
 
 gulp.task('compress', function () {
-  gulp.src(['./dist/assets/*.png', './dist/assets/*.gif'])
+  gulp.src(['./dist/assets/*.png', './dist/assets/*.gif', './dist/assets/*.jpg', './dist/assets/*.jpeg'])
     .pipe(gzip({append: false}))
     .pipe(gulp.dest('./dist/assets'));
 
-  gulp.src(['./dist/*.js', './dist/*.css', './dist/*.ttf', './dist/*.woff', './dist/*.woff2', './dist/*.svg', './dist/*.png', './dist/*.gif'])
+  gulp.src(['./dist/*.js', './dist/*.css', './dist/*.ttf', './dist/*.woff', './dist/*.woff2', './dist/*.svg', './dist/*.png', './dist/*.gif', './dist/*.jpg', './dist/*.jpeg'])
     .pipe(gzip({append: false}))
     .pipe(gulp.dest('./dist'));
 });
