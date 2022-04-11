@@ -9,7 +9,7 @@ import { StoreService } from '~service/store/store.service';
 })
 export class AnnouncementComponent implements OnInit {
 
-  avatarSrc = 'https://thispersondoesnotexist.com/image';
+  avatarSrc = 'assets/images/announcement.png';
 
   constructor(readonly storeService: StoreService) { }
 

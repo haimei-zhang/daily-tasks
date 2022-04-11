@@ -8,7 +8,7 @@ import { StoreService } from '~service/store/store.service';
 })
 export class AgreementsComponent implements OnInit {
 
-  avatarSrc = 'https://thispersondoesnotexist.com/image';
+  avatarSrc = 'assets/images/agreements.jpeg';
   isEditMode: boolean;
 
   constructor(readonly storeService: StoreService) { }

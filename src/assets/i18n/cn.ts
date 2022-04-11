@@ -32,10 +32,6 @@ export const CN = {
     CN: 'Chinese',
     EN: '英语'
   },
-  USER: {
-    NINE: '老九',
-    ZHANG: '老张'
-  },
   TABLE: {
     ACTION: '管理',
     ADD: '添加',
@@ -79,7 +75,7 @@ export const CN = {
     BANK: '银行',
     HABITS: '小习惯',
     HOME: '主页',
-    LETTERS: '悔过书',
+    LETTERS: '保证书',
     SHOP: '商店',
     TASKS: '小任务',
     TIMELINE: '时间轴'

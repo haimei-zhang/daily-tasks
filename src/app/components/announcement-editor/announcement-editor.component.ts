@@ -12,7 +12,7 @@ import { DiaryStoreServiceService } from '~service/store/diary-store-service.ser
 })
 export class AnnouncementEditorComponent implements OnInit {
 
-  avatarSrc = 'https://thispersondoesnotexist.com/image';
+  avatarSrc = 'assets/images/announcement.png';
 
   name: string;
   content: string;

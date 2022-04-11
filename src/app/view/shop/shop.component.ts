@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopComponent implements OnInit {
 
-  avatarSrc = 'https://thispersondoesnotexist.com/image';
+  avatarSrc = 'assets/images/shop.png';
 
   constructor() { }
 

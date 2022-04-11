@@ -21,7 +21,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class LettersComponent implements OnInit {
 
-  avatarSrc = 'https://thispersondoesnotexist.com/image';
+  avatarSrc = 'assets/images/letters.jpeg';
   isEditMode: boolean;
 
   constructor(readonly storeService: StoreService) { }

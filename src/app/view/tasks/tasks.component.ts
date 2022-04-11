@@ -9,7 +9,7 @@ import { CreateUpdateTasksDialogComponent } from '~components/dialog/create-upda
 })
 export class TasksComponent implements OnInit {
 
-  avatarSrc = 'https://thispersondoesnotexist.com/image';
+  avatarSrc = 'assets/images/daily-tasks.jpg';
 
   constructor(public dialog: MatDialog) {}
 

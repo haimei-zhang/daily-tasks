@@ -8,7 +8,7 @@ import * as R from 'ramda';
 })
 export class AnalyticsComponent implements OnInit {
 
-  avatarSrc = 'https://thispersondoesnotexist.com/image';
+  avatarSrc = 'assets/images/data-analysis.jpeg';
   barChartOptions: any;
   pieChartOptions: any;
   lineChartOptions1: any;

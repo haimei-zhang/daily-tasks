@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HabitsComponent implements OnInit {
 
-  avatarSrc = 'https://thispersondoesnotexist.com/image';
+  avatarSrc = 'assets/images/habits.jpeg';
 
   constructor() { }
 
