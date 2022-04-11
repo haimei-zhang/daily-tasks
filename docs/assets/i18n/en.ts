@@ -32,10 +32,6 @@ export const EN = {
     CN: '中文',
     EN: 'English'
   },
-  USER: {
-    NINE: 'Nine',
-    ZHANG: 'Zhang'
-  },
   TABLE: {
     ACTION: 'Action',
     ADD: 'Add',

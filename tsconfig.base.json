@@ -35,7 +35,7 @@
         "constants"
       ]
     },
-    "outDir": "./dist/out-tsc",
+    "outDir": "./docs/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,

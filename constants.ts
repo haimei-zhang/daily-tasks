@@ -15,16 +15,16 @@ export const BASE_URL = 'http://localhost:4223';
 /* endpoints */
 
 export const MENUS = [
-  {component: 'home', text: 'MENU.HOME', icon:'#home', description: 'MESSAGE.HOME_DESCRIPTION', router: '/home', imgSrc: 'assets/images/background/background1.jpg'},
-  {component: 'letters', text: 'MENU.LETTERS', icon:'#envelope', description: 'MESSAGE.LETTER_DESCRIPTION', router: '/letters', imgSrc: 'assets/images/background/background2.jpg'},
-  {component: 'agreements', text: 'MENU.AGREEMENTS', icon:'#file-contract', description: 'MESSAGE.AGREEMENTS_DESCRIPTION', router: '/agreements', imgSrc: 'assets/images/background/background3.jpg'},
-  {component: 'habits', text: 'MENU.HABITS', icon:'#heart', description: 'MESSAGE.HABITS_DESCRIPTION', router: '/habits', imgSrc: 'assets/images/background/background4.jpg'},
-  {component: 'tasks', text: 'MENU.TASKS', icon:'#tasks', description: 'MESSAGE.TASKS_DESCRIPTION', router: '/tasks', imgSrc: 'assets/images/background/background5.jpg'},
-  {component: 'announcement', text: 'MENU.ANNOUNCEMENT', icon:'#bullhorn', description: 'MESSAGE.ANNOUNCEMENT_DESCRIPTION', router: '/announcement', imgSrc: 'assets/images/background/background6.jpg'},
-  {component: 'bank', text: 'MENU.BANK', icon:'#money-check-alt', description: 'MESSAGE.BANK_DESCRIPTION', router: '/bank', imgSrc: 'assets/images/background/background7.jpg'},
-  {component: 'analytics', text: 'MENU.ANALYTICS', icon:'#chart-bar', description: 'MESSAGE.ANALYTICS_DESCRIPTION', router: '/analytics', imgSrc: 'assets/images/background/background8.jpg'},
-  {component: 'timeline', text: 'MENU.TIMELINE', icon:'#stream', description: 'MESSAGE.TIMELINE_DESCRIPTION', router: '/timeline', imgSrc: 'assets/images/background/background9.jpg'},
-  {component: 'shop', text: 'MENU.SHOP', icon:'#shopping-cart', description: 'MESSAGE.SHOP_DESCRIPTION', router: '/shop', imgSrc: 'assets/images/background/background10.jpg'}
+  {component: 'home', text: 'MENU.HOME', icon:'#home', description: 'MESSAGE.HOME_DESCRIPTION', router: '/home', imgSrc: 'assets/images/background1.jpg'},
+  {component: 'letters', text: 'MENU.LETTERS', icon:'#envelope', description: 'MESSAGE.LETTER_DESCRIPTION', router: '/letters', imgSrc: 'assets/images/background2.jpg'},
+  {component: 'agreements', text: 'MENU.AGREEMENTS', icon:'#file-contract', description: 'MESSAGE.AGREEMENTS_DESCRIPTION', router: '/agreements', imgSrc: 'assets/images/background3.jpg'},
+  {component: 'habits', text: 'MENU.HABITS', icon:'#heart', description: 'MESSAGE.HABITS_DESCRIPTION', router: '/habits', imgSrc: 'assets/images/background4.jpg'},
+  {component: 'tasks', text: 'MENU.TASKS', icon:'#tasks', description: 'MESSAGE.TASKS_DESCRIPTION', router: '/tasks', imgSrc: 'assets/images/background5.jpg'},
+  {component: 'announcement', text: 'MENU.ANNOUNCEMENT', icon:'#bullhorn', description: 'MESSAGE.ANNOUNCEMENT_DESCRIPTION', router: '/announcement', imgSrc: 'assets/images/background6.jpg'},
+  {component: 'bank', text: 'MENU.BANK', icon:'#money-check-alt', description: 'MESSAGE.BANK_DESCRIPTION', router: '/bank', imgSrc: 'assets/images/background7.jpg'},
+  {component: 'analytics', text: 'MENU.ANALYTICS', icon:'#chart-bar', description: 'MESSAGE.ANALYTICS_DESCRIPTION', router: '/analytics', imgSrc: 'assets/images/background8.jpg'},
+  {component: 'timeline', text: 'MENU.TIMELINE', icon:'#stream', description: 'MESSAGE.TIMELINE_DESCRIPTION', router: '/timeline', imgSrc: 'assets/images/background9.jpg'},
+  {component: 'shop', text: 'MENU.SHOP', icon:'#shopping-cart', description: 'MESSAGE.SHOP_DESCRIPTION', router: '/shop', imgSrc: 'assets/images/background10.jpg'}
 ]
 
 export const ELEMENT_DATA = [
