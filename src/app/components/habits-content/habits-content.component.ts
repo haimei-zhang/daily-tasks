@@ -2,6 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CreateUpdateHabitsDialogComponent } from '~components/dialog/create-update-habits-dialog/create-update-habits-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
+import {
+  CHALLENGING_TASKS,
+  GAME_TASKS, LOVE_TASKS,
+  MEDITATION_TASKS,
+  SELF_CARE_TASKS,
+  SPORTS_TASKS,
+  STUDY_TASKS
+} from '~constants';
+
 @Component({
   selector: 'diary-habits-content',
   templateUrl: './habits-content.component.html',
@@ -9,30 +18,26 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HabitsContentComponent implements OnInit {
 
+  selfCareTasks = SELF_CARE_TASKS;
+  sportsTasks = SPORTS_TASKS;
+  studyTasks = STUDY_TASKS;
+  meditationTasks = MEDITATION_TASKS;
+  gameTasks = GAME_TASKS;
+  challengingTasks = CHALLENGING_TASKS;
+  loveTasks = LOVE_TASKS;
+
   constructor(public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
   }
 
-  createStory(): void {
+  createTask(taskName: string): void {
     const config = {
       data: {
         title: 'DIALOG.CREATE_HABIT',
         name: '',
-        author: '',
-        date: new Date(),
-        notes: ''
-      }
-    };
-    this.openCreateHabitDialog(config);
-  }
-
-  createMovieGame(): void {
-    const config = {
-      data: {
-        title: 'DIALOG.CREATE_HABIT',
-        name: '',
+        completedDate: new Date(),
         notes: ''
       }
     };

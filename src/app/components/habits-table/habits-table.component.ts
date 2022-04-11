@@ -1,29 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 
-import { ELEMENT_DATA } from '~constants';
-
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { CreateUpdateHabitsDialogComponent } from '~components/dialog/create-update-habits-dialog/create-update-habits-dialog.component';
+import { Habit } from '../../model/habit.model';
 
 @Component({
-  selector: 'diary-games-table',
-  templateUrl: './games-table.component.html',
-  styleUrls: ['./games-table.component.scss']
+  selector: 'diary-habits-table',
+  templateUrl: './habits-table.component.html',
+  styleUrls: ['./habits-table.component.scss']
 })
-export class GamesTableComponent implements OnInit {
+export class HabitsTableComponent implements OnInit, OnChanges {
 
-  ELEMENT_DATA = ELEMENT_DATA;
+  @Input() data: Habit[] = [];
 
-  displayedColumns: string[] = ['name', 'date', 'notes', 'complete', 'action'];
-  dataToDisplay = [...this.ELEMENT_DATA];
-  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  displayedColumns: string[] = ['name', 'notes', 'completedDate', 'action'];
+  dataToDisplay = [...this.data];
+  dataSource = new MatTableDataSource(this.data);
 
   constructor(public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(): void {
+    this.dataSource = new MatTableDataSource(this.data);
   }
 
   applyFilter(event: Event) {
@@ -32,7 +35,18 @@ export class GamesTableComponent implements OnInit {
   }
 
   completeTask(element, checked): void {
-    console.log(checked)
+    if (checked) {
+      const config = {
+        data: {
+          title: 'DIALOG.COMPLETE_HABIT',
+          date: ''
+        }
+      };
+      const dialogRef = this.dialog.open(CreateUpdateHabitsDialogComponent, config);
+      dialogRef.afterClosed().subscribe(result => {
+        this.edit(result);
+      });
+    }
   }
 
   openDeleteConfirmationDialog(element): void {
@@ -63,10 +77,12 @@ export class GamesTableComponent implements OnInit {
 
   private removeData(data) {
     console.log(data);
+    this.dataToDisplay = this.dataToDisplay.slice(0, -1);
     // this.dataSource.setData(this.dataToDisplay);
   }
 
   private edit(element): void {
     console.log(element);
   }
+
 }

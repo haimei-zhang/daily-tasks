@@ -49,9 +49,6 @@ import { LettersTableComponent } from '~components/letters-table/letters-table.c
 import { LettersEditorComponent } from '~components/letters-editor/letters-editor.component';
 import { AgreementsEditorComponent } from '~components/agreements-editor/agreements-editor.component';
 import { HabitsContentComponent } from '~components/habits-content/habits-content.component';
-import { StoriesTableComponent } from '~components/stories-table/stories-table.component';
-import { MoviesTableComponent } from '~components/movies-table/movies-table.component';
-import { GamesTableComponent } from '~components/games-table/games-table.component';
 import { CreateUpdateHabitsDialogComponent } from '~components/dialog/create-update-habits-dialog/create-update-habits-dialog.component';
 import { TasksTableComponent } from '~components/tasks-table/tasks-table.component';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
@@ -64,6 +61,7 @@ import { LineChartComponent } from '~components/charts/line-chart/line-chart.com
 import { PieChartComponent } from '~components/charts/pie-chart/pie-chart.component';
 import { TableChartComponent } from '~components/charts/table-chart/table-chart.component';
 import { CreateUpdateTasksDialogComponent } from '~components/dialog/create-update-tasks-dialog/create-update-tasks-dialog.component';
+import { HabitsTableComponent } from '~components/habits-table/habits-table.component';
 
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
@@ -88,9 +86,6 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     LettersEditorComponent,
     AgreementsEditorComponent,
     HabitsContentComponent,
-    StoriesTableComponent,
-    MoviesTableComponent,
-    GamesTableComponent,
     TimelineComponent,
     CreateUpdateHabitsDialogComponent,
     TasksTableComponent,
@@ -105,7 +100,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     TableChartComponent,
     TasksComponent,
     CreateUpdateTasksDialogComponent,
-    ShopComponent
+    ShopComponent,
+    HabitsTableComponent
   ],
   imports: [
     BrowserModule,

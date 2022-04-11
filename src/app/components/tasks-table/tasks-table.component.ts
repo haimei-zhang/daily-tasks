@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { ELEMENT_DATA } from '~constants';
+import { TASKS } from '~constants';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { CreateUpdateTasksDialogComponent } from '~components/dialog/create-update-tasks-dialog/create-update-tasks-dialog.component';
 
@@ -12,12 +12,9 @@ import { CreateUpdateTasksDialogComponent } from '~components/dialog/create-upda
 })
 export class TasksTableComponent implements OnInit {
 
-  completeUser1: boolean;
-  completeUser2: boolean;
+  ELEMENT_DATA = TASKS;
 
-  ELEMENT_DATA = ELEMENT_DATA;
-
-  displayedColumns: string[] = ['name', 'author', 'assignee', 'notes', 'amount', 'complete', 'action'];
+  displayedColumns: string[] = ['name', 'assignee', 'notes', 'amount', 'action'];
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 

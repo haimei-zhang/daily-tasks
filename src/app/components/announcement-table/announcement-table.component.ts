@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { ELEMENT_DATA } from '~constants';
+import { TASKS } from '~constants';
 import { DiaryStoreServiceService } from '~service/store/diary-store-service.service';
 
 @Component({
@@ -12,9 +12,9 @@ import { DiaryStoreServiceService } from '~service/store/diary-store-service.ser
 })
 export class AnnouncementTableComponent implements OnInit {
 
-  ELEMENT_DATA = ELEMENT_DATA;
+  ELEMENT_DATA = TASKS;
 
-  displayedColumns: string[] = ['name', 'author', 'date'];
+  displayedColumns: string[] = ['name', 'date'];
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 

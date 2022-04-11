@@ -4,11 +4,7 @@
     <mat-label>{{'TABLE.NAME' | translate}}</mat-label>
     <input matInput [(ngModel)]="data.name" aria-label="name">
   </mat-form-field>
-  <mat-form-field *ngIf="data.author || data.author === ''" appearance="fill">
-    <mat-label>{{'TABLE.AUTHOR' | translate}}</mat-label>
-    <input matInput [(ngModel)]="data.author" aria-label="author">
-  </mat-form-field>
-  <mat-form-field *ngIf="data.date || data.date === ''" appearance="fill">
+  <mat-form-field *ngIf="data.completedDate || data.completedDate === ''" appearance="fill">
     <mat-label>{{'TABLE.DATE' | translate}}</mat-label>
     <input matInput [matDatepicker]="picker" aria-label="date" [(ngModel)]="data.date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

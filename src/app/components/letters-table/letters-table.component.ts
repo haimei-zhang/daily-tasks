@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { ELEMENT_DATA } from '~constants';
+import { TASKS } from '~constants';
 
 import { StoreService } from '~service/store/store.service';
 
@@ -12,9 +12,9 @@ import { StoreService } from '~service/store/store.service';
 })
 export class LettersTableComponent implements OnInit {
 
-  ELEMENT_DATA = ELEMENT_DATA;
+  ELEMENT_DATA = TASKS;
 
-  displayedColumns: string[] = ['name', 'author', 'date', 'action'];
+  displayedColumns: string[] = ['name', 'completedDate', 'action'];
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
