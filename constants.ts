@@ -1,17 +1,14 @@
 /***** REMOTE *****/
-/*export const SESSION = sessionStorage.getItem('session') ?
-  JSON.parse(sessionStorage.getItem('session')) : sessionStorage.getItem('session');
-
-export const BASE_URL = '/catalogue';
+// export const BASE_URL = 'https://haimei-zhang.github.io/daily-tasks';
 /***** end REMOTE *****/
 
 /***** LOCAL *****/
-export const SESSION = {
-  accessToken: '75074b35-4237-4e86-b5ca-fd5982f4c1cf' // Sigma
-};
 export const BASE_URL = 'http://localhost:4223';
 /***** end LOCAL *****/
 
+export const SESSION = {
+  accessToken: '75074b35-4237-4e86-b5ca-fd5982f4c1cf'
+};
 /* endpoints */
 
 export const MENUS = [
@@ -62,7 +59,11 @@ export const STUDY_TASKS = [
   {id: 3, name: '有效复习15分钟', completedDate: new Date(), notes: '五分钟就搞定了。'},
   {id: 4, name: '绘画或者涂鸦一幅', completedDate: new Date(), notes: '不给小笨笨。'},
   {id: 5, name: '演奏15分钟', completedDate: new Date(), notes: '我等着小笨笨给我买古琴。'},
-  {id: 6, name: '音乐灵感一段', completedDate: new Date(), notes: '小笨笨最擅长~'}
+  {id: 6, name: '音乐灵感一段', completedDate: new Date(), notes: '小笨笨最擅长~'},
+  {id: 7, name: '日语/英语一课', completedDate: new Date(), notes: '各做各的~'},
+  {id: 8, name: '画画/弹琴一课', completedDate: new Date(), notes: '各做各的~'},
+  {id: 9, name: 'AWS/编曲一课', completedDate: new Date(), notes: '各做各的~'},
+  {id: 10, name: '个人app + Firebase后台', completedDate: new Date(), notes: '我做，笨笨出谋划策'}
 ];
 
 export const MEDITATION_TASKS = [
