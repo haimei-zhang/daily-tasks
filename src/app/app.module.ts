@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from '~view/login/login.component';
@@ -41,6 +42,7 @@ import { AnalyticsComponent } from '~view/analytics/analytics.component';
 import { TimelineComponent } from '~view/timeline/timeline.component';
 import { TasksComponent } from '~view/tasks/tasks.component';
 import { ShopComponent } from '~view/shop/shop.component';
+import { MessagesComponent } from '~view/messages/messages.component';
 
 import { SidenavComponent } from '~components/sidenav/sidenav.component';
 import { IconsComponent } from '~components/icons/icons.component';
@@ -101,7 +103,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     TasksComponent,
     CreateUpdateTasksDialogComponent,
     ShopComponent,
-    HabitsTableComponent
+    HabitsTableComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -125,7 +128,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatDividerModule
   ],
   providers: [
     {

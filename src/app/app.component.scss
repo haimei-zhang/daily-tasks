@@ -57,6 +57,10 @@ mat-drawer {
   transition: all .3s ease-in-out;
   margin-left: 0;
 
+  /*min-height: calc(100vh - 120px);
+  background: url('../assets/images/background.png') fixed;
+  background-size: contain;*/
+
   &.pull-right-toggle {
     margin-left: 250px;
   }

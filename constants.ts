@@ -16,15 +16,16 @@ export const BASE_URL = 'http://localhost:4223';
 
 export const MENUS = [
   {component: 'home', text: 'MENU.HOME', icon:'#home', description: 'MESSAGE.HOME_DESCRIPTION', router: '/home', imgSrc: 'assets/images/background1.jpg'},
-  {component: 'letters', text: 'MENU.LETTERS', icon:'#envelope', description: 'MESSAGE.LETTER_DESCRIPTION', router: '/letters', imgSrc: 'assets/images/background2.jpg'},
-  {component: 'agreements', text: 'MENU.AGREEMENTS', icon:'#file-contract', description: 'MESSAGE.AGREEMENTS_DESCRIPTION', router: '/agreements', imgSrc: 'assets/images/background3.jpg'},
-  {component: 'habits', text: 'MENU.HABITS', icon:'#heart', description: 'MESSAGE.HABITS_DESCRIPTION', router: '/habits', imgSrc: 'assets/images/background4.jpg'},
-  {component: 'tasks', text: 'MENU.TASKS', icon:'#tasks', description: 'MESSAGE.TASKS_DESCRIPTION', router: '/tasks', imgSrc: 'assets/images/background5.jpg'},
-  {component: 'announcement', text: 'MENU.ANNOUNCEMENT', icon:'#bullhorn', description: 'MESSAGE.ANNOUNCEMENT_DESCRIPTION', router: '/announcement', imgSrc: 'assets/images/background6.jpg'},
-  {component: 'bank', text: 'MENU.BANK', icon:'#money-check-alt', description: 'MESSAGE.BANK_DESCRIPTION', router: '/bank', imgSrc: 'assets/images/background7.jpg'},
-  {component: 'analytics', text: 'MENU.ANALYTICS', icon:'#chart-bar', description: 'MESSAGE.ANALYTICS_DESCRIPTION', router: '/analytics', imgSrc: 'assets/images/background8.jpg'},
-  {component: 'timeline', text: 'MENU.TIMELINE', icon:'#stream', description: 'MESSAGE.TIMELINE_DESCRIPTION', router: '/timeline', imgSrc: 'assets/images/background9.jpg'},
-  {component: 'shop', text: 'MENU.SHOP', icon:'#shopping-cart', description: 'MESSAGE.SHOP_DESCRIPTION', router: '/shop', imgSrc: 'assets/images/background10.jpg'}
+  {component: 'letters', text: 'MENU.LETTERS', icon:'#envelope', description: 'MESSAGE.LETTER_DESCRIPTION', router: '/letters', imgSrc: 'assets/images/background1.jpg'},
+  {component: 'agreements', text: 'MENU.AGREEMENTS', icon:'#file-contract', description: 'MESSAGE.AGREEMENTS_DESCRIPTION', router: '/agreements', imgSrc: 'assets/images/background2.jpg'},
+  {component: 'habits', text: 'MENU.HABITS', icon:'#heart', description: 'MESSAGE.HABITS_DESCRIPTION', router: '/habits', imgSrc: 'assets/images/background3.jpg'},
+  {component: 'tasks', text: 'MENU.TASKS', icon:'#tasks', description: 'MESSAGE.TASKS_DESCRIPTION', router: '/tasks', imgSrc: 'assets/images/background4.jpg'},
+  {component: 'announcement', text: 'MENU.ANNOUNCEMENT', icon:'#bullhorn', description: 'MESSAGE.ANNOUNCEMENT_DESCRIPTION', router: '/announcement', imgSrc: 'assets/images/background5.jpg'},
+  {component: 'bank', text: 'MENU.BANK', icon:'#money-check-alt', description: 'MESSAGE.BANK_DESCRIPTION', router: '/bank', imgSrc: 'assets/images/background6.jpg'},
+  {component: 'analytics', text: 'MENU.ANALYTICS', icon:'#chart-bar', description: 'MESSAGE.ANALYTICS_DESCRIPTION', router: '/analytics', imgSrc: 'assets/images/background7.jpg'},
+  {component: 'timeline', text: 'MENU.TIMELINE', icon:'#stream', description: 'MESSAGE.TIMELINE_DESCRIPTION', router: '/timeline', imgSrc: 'assets/images/background8.jpg'},
+  {component: 'shop', text: 'MENU.SHOP', icon:'#shopping-cart', description: 'MESSAGE.SHOP_DESCRIPTION', router: '/shop', imgSrc: 'assets/images/background9.jpg'},
+  {component: 'messages', text: 'MENU.MESSAGES', icon:'#comments', description: 'MESSAGE.MESSAGES_DESCRIPTION', router: '/messages', imgSrc: 'assets/images/background10.jpg'}
 ]
 
 export const TASKS = [
@@ -87,4 +88,12 @@ export const LOVE_TASKS = [
   {id: 3, name: '每周视频时间不限', completedDate: new Date(), notes: '小笨笨太丑了我不愿意。'},
   {id: 4, name: '给对方讲一个可爱故事', completedDate: new Date(), notes: '这个可以有。'},
   {id: 5, name: '给对方一个丑照', completedDate: new Date(), notes: '我是拒绝的。'}
+];
+
+export const MESSAGES = [
+  {id: 1, name: '笨笨', date: new Date(), notes: '来踩踩。'},
+  {id: 2, name: '宝宝', date: new Date(), notes: '不知道说啥好。'},
+  {id: 3, name: '笨笨', date: new Date(), notes: '笨笨太笨了。'},
+  {id: 4, name: '宝宝', date: new Date(), notes: '笨笨是个大笨蛋。'},
+  {id: 5, name: '宝宝', date: new Date(), notes: '没错真的好笨啊。'}
 ];

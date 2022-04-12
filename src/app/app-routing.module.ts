@@ -14,6 +14,7 @@ import { AnalyticsComponent } from '~view/analytics/analytics.component';
 import { TimelineComponent } from '~view/timeline/timeline.component';
 import { TasksComponent } from '~view/tasks/tasks.component';
 import { ShopComponent } from '~view/shop/shop.component';
+import { MessagesComponent } from '~view/messages/messages.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'analytics', component: AnalyticsComponent},
   {path: 'timeline', component: TimelineComponent},
   {path: 'shop', component: ShopComponent},
+  {path: 'messages', component: MessagesComponent},
   {path: 'error', component: ErrorComponent},
   {path: '**', redirectTo: '/login'}
 ];

@@ -1,0 +1,39 @@
+<diary-page-header [pageTitle]="'MENU.MESSAGES'" [pageSubtitle]="'MENU.MESSAGES'" [avatarSrc]="avatarSrc"
+                   (refreshEvent)="refresh($event)"></diary-page-header>
+
+<div class="mb-2">
+  <mat-form-field appearance="fill">
+    <mat-label>{{'COMMON.MESSAGE' | translate}}</mat-label>
+    <textarea matInput [(ngModel)]="message" aria-label="message"></textarea>
+  </mat-form-field>
+  <div class="text-right">
+    <button mat-raised-button (click)="createMessage()">
+      <svg class="icon" width="16" height="16">
+        <use xlink:href="#plus" href="#plus"></use>
+      </svg>
+      {{'TABLE.ADD' | translate}}
+    </button>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<div class="mb-2"></div>
+<ng-container *ngFor="let message of messages">
+  <mat-card class="card mb-2">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image" style="background-image: url(assets/images/daily-tasks.jpg);"></div>
+      <mat-card-title>{{message.name}}</mat-card-title>
+      <mat-card-subtitle>{{message.date | date: 'medium'}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      {{message.notes}}
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-stroked-button color="basic" (click)="openDeleteConfirmationDialog(message)">
+        <svg class="icon" width="16" height="16">
+          <use xlink:href="#trash-alt" href="#trash-alt"></use>
+        </svg>
+        {{'TABLE.DELETE' | translate}}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>

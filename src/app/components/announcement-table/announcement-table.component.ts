@@ -24,7 +24,7 @@ export class AnnouncementTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add() {
+  add(): void {
     this.diaryStoreService.clearCurrentAnnouncement();
     this.router.navigate(['/announcement/new']);
   }

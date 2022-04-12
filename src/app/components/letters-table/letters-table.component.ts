@@ -14,7 +14,7 @@ export class LettersTableComponent implements OnInit {
 
   ELEMENT_DATA = TASKS;
 
-  displayedColumns: string[] = ['name', 'completedDate', 'action'];
+  displayedColumns: string[] = ['name', 'date', 'action'];
   dataToDisplay = [...this.ELEMENT_DATA];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
@@ -23,7 +23,7 @@ export class LettersTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add() {
+  add(): void {
     this.storeService.updateEditMode(true);
   }
 
