@@ -1,0 +1,59 @@
+<div class="authentication">
+  <div class="authentication-container authentication-container--bg-img"
+       style="background-image: url(assets/images/background.png);">
+    <div class="authentication-container__inner">
+      <div class="authentication-card">
+        <div class="authentication-card__header">
+          <img class="authentication-card__img"
+               src="assets/images/wx.png" width="100" alt="logo">
+          <div class="authentication-card__app-name">{{'COMMON.MY_DIARY' | translate}}</div>
+          <h1 class="authentication-card__title">{{'MESSAGE.LOGIN_SUB_TITLE' | translate}}</h1>
+          <mat-button-toggle-group>
+            <mat-button-toggle checked value="left" aria-label="Chinese" title="Chinese" (click)="changeLanguage('cn')">
+              {{'LANGUAGE.CN' | translate}}
+            </mat-button-toggle>
+            <mat-button-toggle value="justify" aria-label="English" title="English" (click)="changeLanguage('en')">
+              {{'LANGUAGE.EN' | translate}}
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="authentication-card__content">
+          <p class="authentication-card__text"></p>
+          <form name="login-form">
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{'COMMON.EMAIL' | translate}}</mat-label>
+              <input matInput name="username" [(ngModel)]="username">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{'COMMON.PASSWORD' | translate}}</mat-label>
+              <input matInput type="password" name="password" [(ngModel)]="password">
+            </mat-form-field>
+            <mat-grid-list cols="2" rowHeight="40px">
+              <mat-grid-tile>
+                <button mat-raised-button class="full-width" color="primary" (click)="login()">
+                  {{'COMMON.LOGIN' | translate}}
+                </button>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <button mat-raised-button class="full-width" color="primary" (click)="loginWithGoogle()">
+                  Google {{'COMMON.LOGIN' | translate}}
+                </button>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </form>
+          <p class="authentication-card__text authentication-card__last-child">
+            <a mat-button href="javascript:void(0)" target="_blank" routerLink="/forgot-password">
+              {{'COMMON.FORGET_PASSWORD' | translate}}?
+            </a>
+            <a mat-button href="javascript:void(0)" target="_blank" routerLink="/sign-up">
+              {{'COMMON.REGISTER' | translate}}
+            </a>
+          </p>
+        </div>
+        <div class="authentication-card__footer">
+          <small>Development System<br>Any other environment information</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
