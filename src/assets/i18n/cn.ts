@@ -4,6 +4,7 @@ export const CN = {
     CANCEL: '取消',
     CLOSE: '关闭',
     CONFIRM: '确定',
+    EMAIL: '邮箱',
     FORGET_PASSWORD: '忘记密码',
     LANGUAGE: '语言',
     LOGIN: '登陆',

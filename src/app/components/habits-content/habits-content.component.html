@@ -14,7 +14,7 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <diary-habits-table [data]="selfCareTasks"></diary-habits-table>
+      <diary-habits-table [data]="(selfCareTasks$ | async)"></diary-habits-table>
     </mat-card-content>
   </mat-card>
 
@@ -33,7 +33,7 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <diary-habits-table [data]="sportsTasks"></diary-habits-table>
+      <diary-habits-table [data]="(sportsTasks$ | async)"></diary-habits-table>
     </mat-card-content>
   </mat-card>
 
@@ -52,7 +52,7 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <diary-habits-table [data]="studyTasks"></diary-habits-table>
+      <diary-habits-table [data]="(studyTasks$ | async)"></diary-habits-table>
     </mat-card-content>
   </mat-card>
 
@@ -71,7 +71,7 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <diary-habits-table [data]="meditationTasks"></diary-habits-table>
+      <diary-habits-table [data]="(meditationTasks$ | async)"></diary-habits-table>
     </mat-card-content>
   </mat-card>
 
@@ -90,7 +90,7 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <diary-habits-table [data]="gameTasks"></diary-habits-table>
+      <diary-habits-table [data]="(gameTasks$ | async)"></diary-habits-table>
     </mat-card-content>
   </mat-card>
 
@@ -109,7 +109,7 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <diary-habits-table [data]="challengingTasks"></diary-habits-table>
+      <diary-habits-table [data]="(challengingTasks$ | async)"></diary-habits-table>
     </mat-card-content>
   </mat-card>
 
@@ -128,7 +128,7 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <diary-habits-table [data]="loveTasks"></diary-habits-table>
+      <diary-habits-table [data]="(loveTasks$ | async)"></diary-habits-table>
     </mat-card-content>
   </mat-card>
 

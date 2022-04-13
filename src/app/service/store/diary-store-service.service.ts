@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import * as R from 'ramda';
+
+import { Habit } from '~models/habit.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,23 @@ export class DiaryStoreServiceService {
   readonly currentAnnouncementSource = new BehaviorSubject<any>(this.currentAnnouncement);
   currentAnnouncement$ = this.currentAnnouncementSource.asObservable();
 
-  constructor() {
+  selfCareTasks$ = this.getObservable(this.angularFirestore.collection('todo')) as Observable<Habit[]>;
+  sportsTasks$ = this.getObservable(this.angularFirestore.collection('todo')) as Observable<Habit[]>;
+  studyTasks$ = this.getObservable(this.angularFirestore.collection('todo')) as Observable<Habit[]>;
+  meditationTasks$ = this.getObservable(this.angularFirestore.collection('todo')) as Observable<Habit[]>;
+  gameTasks$ = this.getObservable(this.angularFirestore.collection('todo')) as Observable<Habit[]>;
+  challengingTasks$ = this.getObservable(this.angularFirestore.collection('todo')) as Observable<Habit[]>;
+  loveTasks$ = this.getObservable(this.angularFirestore.collection('todo')) as Observable<Habit[]>;
+
+  constructor(private angularFirestore: AngularFirestore) {
+  }
+
+  getObservable(collection: AngularFirestoreCollection<any>): Observable<any> {
+    const subject = new BehaviorSubject<any>([]);
+    collection.valueChanges({ idField: 'id' }).subscribe(val => {
+      subject.next(val);
+    });
+    return subject;
   }
 
   updateCurrentAnnouncement(announcement): void {

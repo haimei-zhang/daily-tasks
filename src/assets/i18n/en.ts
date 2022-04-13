@@ -4,6 +4,7 @@ export const EN = {
     CANCEL: 'Cancel',
     CLOSE: 'Close',
     CONFIRM: 'Confirm',
+    EMAIL: 'Email',
     FORGET_PASSWORD: 'Forget Password',
     LANGUAGE: 'Language',
     LOGIN: 'Login',

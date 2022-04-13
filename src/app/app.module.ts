@@ -5,13 +5,14 @@ import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
-
 import {
   ErrorStateMatcher,
   MatNativeDateModule,
   MatRippleModule,
   ShowOnDirtyErrorStateMatcher
 } from '@angular/material/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { A11yModule } from '@angular/cdk/a11y';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -68,6 +69,10 @@ import { HabitsTableComponent } from '~components/habits-table/habits-table.comp
 import { TokenService } from '~service/interceptor/token.service';
 import { LoadingIndicatorInterceptorService } from '~service/interceptor/loading-indicator-interceptor.service';
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
+import { AuthService } from '~service/auth.service';
+
+import { environment } from '../environments/environment';
+import { SignUpComponent } from './view/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +109,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     CreateUpdateTasksDialogComponent,
     ShopComponent,
     HabitsTableComponent,
-    MessagesComponent
+    MessagesComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -129,7 +135,9 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     MatNativeDateModule,
     MatRadioModule,
     MatButtonToggleModule,
-    MatDividerModule
+    MatDividerModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [
     {
@@ -146,7 +154,8 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
     {
       provide: ErrorStateMatcher,
       useClass: ShowOnDirtyErrorStateMatcher
-    }
+    },
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
+import { AuthService } from '~service/auth.service';
+
 @Component({
   selector: 'diary-login',
   templateUrl: './login.component.html',
@@ -11,8 +13,10 @@ export class LoginComponent implements OnInit {
 
   username: string;
   password: string;
+  auth: any;
 
-  constructor(readonly route: ActivatedRoute,
+  constructor(public authService: AuthService,
+              readonly route: ActivatedRoute,
               readonly router: Router,
               readonly translateService: TranslateService) {
   }
@@ -21,9 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    if (this.username === 'test' && this.password === 'test') {
-      this.router.navigate(['home']);
-    }
+    this.authService.signIn(this.username, this.password);
+  }
+
+  loginWithGoogle(): void {
+    this.authService.googleAuth();
   }
 
   changeLanguage(language): void {

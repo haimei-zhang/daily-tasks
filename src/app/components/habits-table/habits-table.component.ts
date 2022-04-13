@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { CreateUpdateHabitsDialogComponent } from '~components/dialog/create-update-habits-dialog/create-update-habits-dialog.component';
-import { Habit } from '../../model/habit.model';
+import { Habit } from '~models/habit.model';
 
 @Component({
   selector: 'diary-habits-table',
@@ -34,21 +34,6 @@ export class HabitsTableComponent implements OnInit, OnChanges {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  completeTask(element, checked): void {
-    if (checked) {
-      const config = {
-        data: {
-          title: 'DIALOG.COMPLETE_HABIT',
-          date: ''
-        }
-      };
-      const dialogRef = this.dialog.open(CreateUpdateHabitsDialogComponent, config);
-      dialogRef.afterClosed().subscribe(result => {
-        this.edit(result);
-      });
-    }
-  }
-
   openDeleteConfirmationDialog(element): void {
     const config = {
       data: {
@@ -75,8 +60,9 @@ export class HabitsTableComponent implements OnInit, OnChanges {
     });
   }
 
-  private removeData(data) {
-    console.log(data);
+  private removeData(dataToBeRemoved) {
+    console.log(dataToBeRemoved);
+
     this.dataToDisplay = this.dataToDisplay.slice(0, -1);
     // this.dataSource.setData(this.dataToDisplay);
   }
