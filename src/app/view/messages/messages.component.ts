@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
+import { User } from '~models/user.model';
+
 import { MESSAGES } from '~constants';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
+import { getLoggedInUser } from '~utils/core.util';
 
 @Component({
   selector: 'diary-messages',
@@ -11,13 +14,22 @@ import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dia
 })
 export class MessagesComponent implements OnInit {
 
+  user: User;
+  friends: User[] = [
+    {displayName: '大笨蛋', uid: '1', email: '1'},
+    {displayName: '大傻子', uid: '2', email: '1'},
+    {displayName: '宝宝', uid: '3', email: '1'},
+    {displayName: '大变态', uid: '4', email: '1'}
+  ];
   avatarSrc = 'assets/images/daily-tasks.jpg';
   messages = MESSAGES;
   message: string;
+  friendId: string;
 
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
+    this.getUser();
   }
 
   refresh(lastRefreshTime): void {
@@ -48,6 +60,14 @@ export class MessagesComponent implements OnInit {
         this.removeData(element);
       }
     });
+  }
+
+  addFriend(): void {
+
+  }
+
+  private getUser(): void {
+    this.user = getLoggedInUser();
   }
 
   private removeData(data) {

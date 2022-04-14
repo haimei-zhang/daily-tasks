@@ -1,4 +1,5 @@
 import * as R from 'ramda';
+import { User } from '~models/user.model';
 
 export const concatParams = (param: any): string => {
   if (param) {
@@ -118,4 +119,8 @@ export const transferEndOfDayToStartOfDayDate = (endOfDay: any): Date => {
   } else {
     return endOfDay;
   }
+};
+
+export const getLoggedInUser = (): User => {
+  return JSON.parse(sessionStorage.getItem('user'));
 };

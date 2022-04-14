@@ -1,11 +1,14 @@
 export const EN = {
   COMMON: {
+    ACCEPT: 'Accept',
     BACK: 'Back',
     CANCEL: 'Cancel',
     CLOSE: 'Close',
     CONFIRM: 'Confirm',
     EMAIL: 'Email',
     FORGET_PASSWORD: 'Forgot Password',
+    ID: 'ID',
+    INVITE: 'Invite',
     LANGUAGE: 'Language',
     LOGIN: 'Login',
     LOGIN_WITH_GOOGLE: 'Login with Google',
@@ -78,6 +81,10 @@ export const EN = {
     PIE_CHART: 'Pie chart',
     TABLE_CHART: 'Table chart'
   },
+  FRIENDS_MESSAGES: {
+    FRIENDS_ID: 'Friend\'s ID',
+    YOUR_ID: 'Your ID'
+  },
   MENU: {
     AGREEMENTS: 'Agreements',
     ANALYTICS: 'Analytics',
@@ -126,12 +133,14 @@ export const EN = {
     GENERAL_RULE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     HABITS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     HOME_DESCRIPTION: 'Welcome',
+    INVITE_FRIEND: 'Enter your friend\'s ID',
     LETTER_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     LOGIN_SUB_TITLE: 'Welcome',
     LOVE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     MESSAGES_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     MEDITATION_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     MOVIES_OPERAS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
+    PENDING_INVITATION: 'You have pending invitation(s)',
     REGISTERED: 'Thank you for registering.<br>We have sent a confirmation email to <b>{{email}}</b>.<br>Please check your email and click on the link to verify your email address.',
     SELF_CARE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     SHOP_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',

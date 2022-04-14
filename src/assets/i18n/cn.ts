@@ -1,11 +1,14 @@
 export const CN = {
   COMMON: {
+    ACCEPT: '接受',
     BACK: '返回',
     CANCEL: '取消',
     CLOSE: '关闭',
     CONFIRM: '确定',
     EMAIL: '邮箱',
     FORGET_PASSWORD: '忘记密码',
+    ID: 'ID',
+    INVITE: '邀请',
     LANGUAGE: '语言',
     LOGIN: '登陆',
     LOGIN_WITH_GOOGLE: 'Google登陆',
@@ -78,6 +81,10 @@ export const CN = {
     PIE_CHART: '饼状图',
     TABLE_CHART: '图表'
   },
+  FRIENDS_MESSAGES: {
+    FRIENDS_ID: '朋友的ID',
+    YOUR_ID: '你的ID'
+  },
   MENU: {
     AGREEMENTS: '约法三章',
     ANALYTICS: '数据分析',
@@ -126,12 +133,14 @@ export const CN = {
     GENERAL_RULE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     HABITS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     HOME_DESCRIPTION: '欢迎,',
+    INVITE_FRIEND: '输入你朋友的ID',
     LETTER_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     LOGIN_SUB_TITLE: '欢迎',
     LOVE_DESCRIPTION: '能牵手的时候请不要肩并肩，能拥抱的时候请别手牵手。',
     MEDITATION_DESCRIPTION: '耶和华是善良正直的，他必指引人走正确的道。',
     MESSAGES_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     MOVIES_OPERAS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
+    PENDING_INVITATION: '你有待处理的好友邀请',
     REGISTERED: '感谢您的注册。<br>我们已向您发送了一封邮件到 <b>{{email}}</b>。<br>请查看邮件并点击链接来确认邮箱。',
     SELF_CARE_DESCRIPTION: '健康的身体来自于良好的生活习惯~、美好的一天从干干净净开始~ 、让我们一起来享受清洁吧~、٩（●ᴗ●）۶',
     SHOP_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',

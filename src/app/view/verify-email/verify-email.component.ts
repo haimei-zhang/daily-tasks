@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '~models/user.model';
 import { AuthService } from '~service/auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from '~service/auth.service';
 })
 export class VerifyEmailComponent implements OnInit {
 
-  user: any;
+  user: User;
 
   constructor(public authService: AuthService) { }
 

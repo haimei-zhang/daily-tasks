@@ -1,3 +1,21 @@
 mat-form-field {
   width: 100%;
 }
+
+.messages-container {
+  display: flex;
+
+  .messages-sidebar {
+    width: 300px;
+    margin-right: 1rem;
+  }
+
+  .messages-content {
+    flex: 1;
+  }
+}
+
+.pending-invitation-action {
+  justify-self: flex-end;
+  margin-left: auto;
+}

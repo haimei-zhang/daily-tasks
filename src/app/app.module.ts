@@ -29,6 +29,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from '~view/login/login.component';
@@ -44,6 +46,9 @@ import { TimelineComponent } from '~view/timeline/timeline.component';
 import { TasksComponent } from '~view/tasks/tasks.component';
 import { ShopComponent } from '~view/shop/shop.component';
 import { MessagesComponent } from '~view/messages/messages.component';
+import { SignUpComponent } from '~view/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from '~view/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from '~view/verify-email/verify-email.component';
 
 import { SidenavComponent } from '~components/sidenav/sidenav.component';
 import { IconsComponent } from '~components/icons/icons.component';
@@ -72,9 +77,6 @@ import { LoadingIndicatorService } from '~service/loading-indicator.service';
 import { AuthService } from '~service/auth.service';
 
 import { environment } from '../environments/environment';
-import { SignUpComponent } from './view/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './view/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './view/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -140,6 +142,8 @@ import { VerifyEmailComponent } from './view/verify-email/verify-email.component
     MatRadioModule,
     MatButtonToggleModule,
     MatDividerModule,
+    MatListModule,
+    MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],

@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MENUS } from '~constants';
 import { User } from '~models/user.model';
+import { getLoggedInUser } from '~utils/core.util';
 import { AuthService } from '~service/auth.service';
 
 @Component({
@@ -45,10 +46,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
   }
 
   private getUser(): void {
-    this.user = this.authService.userData;
-    if (!this.user) {
-      this.user = JSON.parse(sessionStorage.getItem('user'));
-    }
+    this.user = getLoggedInUser();
   }
 
 }

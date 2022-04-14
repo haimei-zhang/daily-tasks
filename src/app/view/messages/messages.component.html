@@ -1,39 +1,78 @@
 <diary-page-header [pageTitle]="'MENU.MESSAGES'" [pageSubtitle]="'MENU.MESSAGES'" [avatarSrc]="avatarSrc"
                    [toShowAction]="true" (refreshEvent)="refresh($event)"></diary-page-header>
 
-<div class="mb-2">
-  <mat-form-field appearance="fill">
-    <mat-label>{{'COMMON.MESSAGE' | translate}}</mat-label>
-    <textarea matInput [(ngModel)]="message" aria-label="message"></textarea>
-  </mat-form-field>
-  <div class="text-right">
-    <button mat-raised-button (click)="createMessage()">
-      <svg class="icon" width="16" height="16">
-        <use xlink:href="#plus" href="#plus"></use>
-      </svg>
-      {{'TABLE.ADD' | translate}}
-    </button>
+<div class="messages-container">
+  <div class="messages-sidebar">
+    <div class="invite-friends">
+      <form name="friends-form">
+        <p><b>{{'FRIENDS_MESSAGES.YOUR_ID' | translate}}:</b> {{user.uid}}</p>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>{{'FRIENDS_MESSAGES.FRIENDS_ID' | translate}}</mat-label>
+          <input type="text" matInput name="friendId" [placeholder]="'MESSAGE.INVITE_FRIEND' | translate"
+                 [(ngModel)]="friendId" required>
+        </mat-form-field>
+        <button mat-stroked-button class="full-width" color="primary" (click)="addFriend()">
+          {{'COMMON.INVITE' | translate}}
+        </button>
+      </form>
+    </div>
+    <div class="pending-invitation-friends">
+      <mat-divider class="my-2"></mat-divider>
+      <p>{{'MESSAGE.PENDING_INVITATION' | translate}}</p>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let friend of friends" [value]="friend.uid">
+          <span>{{friend.displayName}}</span>
+          <button mat-stroked-button color="basic" class="pending-invitation-action">{{'COMMON.ACCEPT' | translate}}</button>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <div class="friends-list">
+      <mat-divider class="my-2"></mat-divider>
+      <ng-container *ngIf="!friends?.length">
+        <p>You don't have any friends yet.</p>
+      </ng-container>
+      <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let friend of friends" [value]="friend.uid">
+          {{friend.displayName}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+  <div class="messages-content">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>{{'COMMON.MESSAGE' | translate}}</mat-label>
+        <textarea matInput [(ngModel)]="message" aria-label="message"></textarea>
+      </mat-form-field>
+      <div class="text-right">
+        <button mat-raised-button (click)="createMessage()">
+          <svg class="icon" width="16" height="16">
+            <use xlink:href="#plus" href="#plus"></use>
+          </svg>
+          {{'TABLE.ADD' | translate}}
+        </button>
+      </div>
+    </div>
+    <mat-divider class="my-2"></mat-divider>
+    <ng-container *ngFor="let message of messages">
+      <mat-card class="card mb-2">
+        <mat-card-header>
+          <div mat-card-avatar class="header-image" style="background-image: url(assets/images/daily-tasks.jpg);"></div>
+          <mat-card-title>{{message.name}}</mat-card-title>
+          <mat-card-subtitle>{{message.date | date: 'medium'}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          {{message.notes}}
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-stroked-button color="basic" (click)="openDeleteConfirmationDialog(message)">
+            <svg class="icon" width="16" height="16">
+              <use xlink:href="#trash-alt" href="#trash-alt"></use>
+            </svg>
+            {{'TABLE.DELETE' | translate}}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
   </div>
 </div>
-<mat-divider></mat-divider>
-<div class="mb-2"></div>
-<ng-container *ngFor="let message of messages">
-  <mat-card class="card mb-2">
-    <mat-card-header>
-      <div mat-card-avatar class="header-image" style="background-image: url(assets/images/daily-tasks.jpg);"></div>
-      <mat-card-title>{{message.name}}</mat-card-title>
-      <mat-card-subtitle>{{message.date | date: 'medium'}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      {{message.notes}}
-    </mat-card-content>
-    <mat-card-actions align="end">
-      <button mat-stroked-button color="basic" (click)="openDeleteConfirmationDialog(message)">
-        <svg class="icon" width="16" height="16">
-          <use xlink:href="#trash-alt" href="#trash-alt"></use>
-        </svg>
-        {{'TABLE.DELETE' | translate}}
-      </button>
-    </mat-card-actions>
-  </mat-card>
-</ng-container>
