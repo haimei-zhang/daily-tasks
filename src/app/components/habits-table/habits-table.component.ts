@@ -2,9 +2,10 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 
+import { Habit } from '~models/habit.model';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { CreateUpdateHabitsDialogComponent } from '~components/dialog/create-update-habits-dialog/create-update-habits-dialog.component';
-import { Habit } from '~models/habit.model';
+import { DiaryStoreService } from '~service/store/diary-store.service';
 
 @Component({
   selector: 'diary-habits-table',
@@ -14,12 +15,14 @@ import { Habit } from '~models/habit.model';
 export class HabitsTableComponent implements OnInit, OnChanges {
 
   @Input() data: Habit[] = [];
+  @Input() dbName: string;
 
   displayedColumns: string[] = ['name', 'notes', 'completedDate', 'action'];
   dataToDisplay = [...this.data];
   dataSource = new MatTableDataSource(this.data);
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+              readonly diaryStoreService: DiaryStoreService) {
   }
 
   ngOnInit(): void {
@@ -60,15 +63,12 @@ export class HabitsTableComponent implements OnInit, OnChanges {
     });
   }
 
-  private removeData(dataToBeRemoved) {
-    console.log(dataToBeRemoved);
-
-    this.dataToDisplay = this.dataToDisplay.slice(0, -1);
-    // this.dataSource.setData(this.dataToDisplay);
+  private removeData(data) {
+    this.diaryStoreService.deleteHabit(this.dbName, data);
   }
 
-  private edit(element): void {
-    console.log(element);
+  private edit(data): void {
+    this.diaryStoreService.updateHabit(this.dbName, data);
   }
 
 }

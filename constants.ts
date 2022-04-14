@@ -98,3 +98,15 @@ export const MESSAGES = [
   {id: 4, name: '宝宝', date: new Date(), notes: '笨笨是个大笨蛋。'},
   {id: 5, name: '宝宝', date: new Date(), notes: '没错真的好笨啊。'}
 ];
+
+export const DB_COLLECTION_NAME = {
+  USER: 'user',
+  SELF_CARE_TASKS: 'self_care_tasks',
+  SPORTS_TASKS: 'sports_tasks',
+  STUDY_TASKS: 'study_tasks',
+  MEDITATION_TASKS: 'meditation_tasks',
+  GAME_TASKS: 'game_tasks',
+  CHALLENGING_TASKS: 'challenging_tasks',
+  LOVE_TASKS: 'love_tasks',
+  MOVIE_TASKS: 'movie_tasks'
+};

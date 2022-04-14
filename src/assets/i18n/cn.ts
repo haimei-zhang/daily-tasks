@@ -38,7 +38,6 @@ export const CN = {
     MUSIC: '音乐',
     SELF_CARE: '个人卫生',
     SPORTS: '运动健康',
-    STORIES: '故事',
     STUDY: '学习',
     TASKS: '小任务'
   },
@@ -139,13 +138,12 @@ export const CN = {
     LOVE_DESCRIPTION: '能牵手的时候请不要肩并肩，能拥抱的时候请别手牵手。',
     MEDITATION_DESCRIPTION: '耶和华是善良正直的，他必指引人走正确的道。',
     MESSAGES_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
-    MOVIES_OPERAS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
+    MOVIES_OPERAS_DESCRIPTION: '小宝宝们喜欢小兔乖乖的故事~、 大人们爱听哈利波特~、 那么下一个故事讲的是什么呢？~、',
     PENDING_INVITATION: '你有待处理的好友邀请',
     REGISTERED: '感谢您的注册。<br>我们已向您发送了一封邮件到 <b>{{email}}</b>。<br>请查看邮件并点击链接来确认邮箱。',
     SELF_CARE_DESCRIPTION: '健康的身体来自于良好的生活习惯~、美好的一天从干干净净开始~ 、让我们一起来享受清洁吧~、٩（●ᴗ●）۶',
     SHOP_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     SPORTS_DESCRIPTION: '左三圈，右三圈脖子扭扭屁股扭扭~、早睡早起，咱们来做运动~୧☉□☉୨',
-    STORIES_DESCRIPTION: '小宝宝们喜欢小兔乖乖的故事~、 大人们爱听哈利波特~、 那么下一个故事讲的是什么呢？~、',
     STUDY_DESCRIPTION: '学而时习之，不亦说乎~ 、',
     TASKS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     TIMELINE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?'

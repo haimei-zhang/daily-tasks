@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
-import { DiaryStoreServiceService } from '~service/store/diary-store-service.service';
+import { DiaryStoreService } from '~service/store/diary-store.service';
 
 @Component({
   selector: 'diary-announcement-editor',
@@ -20,7 +20,7 @@ export class AnnouncementEditorComponent implements OnInit {
 
   constructor(readonly router: Router,
               public dialog: MatDialog,
-              readonly diaryStoreService: DiaryStoreServiceService) { }
+              readonly diaryStoreService: DiaryStoreService) { }
 
   ngOnInit(): void {
     this.diaryStoreService.currentAnnouncement$.subscribe(announcement => {

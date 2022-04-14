@@ -1,21 +1,23 @@
-<h1 mat-dialog-title>{{data.title | translate}}</h1>
-<div mat-dialog-content>
-  <mat-form-field *ngIf="data.name || data.name === ''" appearance="fill">
-    <mat-label>{{'TABLE.NAME' | translate}}</mat-label>
-    <input matInput [(ngModel)]="data.name" aria-label="name">
-  </mat-form-field>
-  <mat-form-field *ngIf="data.completedDate || data.completedDate === ''" appearance="fill">
-    <mat-label>{{'TABLE.DATE' | translate}}</mat-label>
-    <input matInput [matDatepicker]="picker" aria-label="date" [(ngModel)]="data.completedDate">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-  <mat-form-field *ngIf="data.notes || data.notes === ''" appearance="fill">
-    <mat-label>{{'TABLE.NOTES' | translate}}</mat-label>
-    <textarea matInput [(ngModel)]="data.notes" aria-label="notes"></textarea>
-  </mat-form-field>
-</div>
-<div mat-dialog-actions align="end">
-  <button mat-button (click)="onNoClick()">{{'COMMON.CANCEL' | translate}}</button>
-  <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>{{'COMMON.OK' | translate}}</button>
+<div *ngIf="data">
+  <h1 mat-dialog-title>{{data.title | translate}}</h1>
+  <div mat-dialog-content>
+    <mat-form-field *ngIf="data.name || data.name === ''" appearance="fill">
+      <mat-label>{{'TABLE.NAME' | translate}}</mat-label>
+      <input matInput [(ngModel)]="data.name" aria-label="name">
+    </mat-form-field>
+    <mat-form-field *ngIf="data.completedDate || data.completedDate === 0 || data.completedDate === null" appearance="fill">
+      <mat-label>{{'TABLE.DATE' | translate}}</mat-label>
+      <input matInput [matDatepicker]="picker" aria-label="date" [(ngModel)]="data.completedDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field *ngIf="data.notes || data.notes === ''" appearance="fill">
+      <mat-label>{{'TABLE.NOTES' | translate}}</mat-label>
+      <textarea matInput [(ngModel)]="data.notes" aria-label="notes"></textarea>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'COMMON.CANCEL' | translate}}</button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>{{'COMMON.OK' | translate}}</button>
+  </div>
 </div>

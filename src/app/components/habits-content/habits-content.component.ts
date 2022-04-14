@@ -4,7 +4,9 @@ import { CreateUpdateHabitsDialogComponent } from '~components/dialog/create-upd
 import { MatDialog } from '@angular/material/dialog';
 
 import { Habit } from '~models/habit.model';
-import { DiaryStoreServiceService } from '~service/store/diary-store-service.service';
+import { DB_COLLECTION_NAME } from '~constants';
+import { getLoggedInUser } from '~utils/core.util';
+import { DiaryStoreService } from '~service/store/diary-store.service';
 
 @Component({
   selector: 'diary-habits-content',
@@ -20,18 +22,22 @@ export class HabitsContentComponent implements OnInit {
   gameTasks$: Observable<Habit[]>;
   challengingTasks$: Observable<Habit[]>;
   loveTasks$: Observable<Habit[]>;
+  movieTasks$: Observable<Habit[]>;
 
-  constructor(public dialog: MatDialog, readonly diaryStoreServiceService: DiaryStoreServiceService) {
+  DB_COLLECTION_NAME = DB_COLLECTION_NAME;
+
+  constructor(public dialog: MatDialog, readonly diaryStoreService: DiaryStoreService) {
   }
 
   ngOnInit(): void {
-    this.selfCareTasks$ = this.diaryStoreServiceService.selfCareTasks$;
-    this.sportsTasks$ = this.diaryStoreServiceService.sportsTasks$;
-    this.studyTasks$ = this.diaryStoreServiceService.studyTasks$;
-    this.meditationTasks$ = this.diaryStoreServiceService.meditationTasks$;
-    this.gameTasks$ = this.diaryStoreServiceService.gameTasks$;
-    this.challengingTasks$ = this.diaryStoreServiceService.challengingTasks$;
-    this.loveTasks$ = this.diaryStoreServiceService.loveTasks$;
+    this.selfCareTasks$ = this.diaryStoreService.selfCareTasks$;
+    this.sportsTasks$ = this.diaryStoreService.sportsTasks$;
+    this.studyTasks$ = this.diaryStoreService.studyTasks$;
+    this.meditationTasks$ = this.diaryStoreService.meditationTasks$;
+    this.gameTasks$ = this.diaryStoreService.gameTasks$;
+    this.challengingTasks$ = this.diaryStoreService.challengingTasks$;
+    this.loveTasks$ = this.diaryStoreService.loveTasks$;
+    this.movieTasks$ = this.diaryStoreService.movieTasks$;
   }
 
   createTask(taskName: string): void {
@@ -39,19 +45,20 @@ export class HabitsContentComponent implements OnInit {
       data: {
         title: 'DIALOG.CREATE_HABIT',
         name: '',
-        completedDate: new Date(),
-        notes: ''
+        completedDate: null,
+        notes: '',
+        authorId: getLoggedInUser().uid,
+        authorName: getLoggedInUser().displayName
       }
     };
-    this.openCreateHabitDialog(config);
+    this.openCreateHabitDialog(config, taskName);
   }
 
-  private openCreateHabitDialog(config): void {
+  private openCreateHabitDialog(config: any, taskName: string): void {
     const dialogRef = this.dialog.open(CreateUpdateHabitsDialogComponent, config);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+      this.diaryStoreService.createHabit(taskName, result);
     });
   }
 

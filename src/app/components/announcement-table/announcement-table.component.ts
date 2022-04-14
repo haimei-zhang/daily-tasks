@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { TASKS } from '~constants';
-import { DiaryStoreServiceService } from '~service/store/diary-store-service.service';
+import { DiaryStoreService } from '~service/store/diary-store.service';
 
 @Component({
   selector: 'diary-announcement-table',
@@ -19,7 +19,7 @@ export class AnnouncementTableComponent implements OnInit {
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
   constructor(readonly router: Router,
-              readonly diaryStoreService: DiaryStoreServiceService) { }
+              readonly diaryStoreService: DiaryStoreService) { }
 
   ngOnInit(): void {
   }
