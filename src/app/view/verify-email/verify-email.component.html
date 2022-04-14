@@ -11,7 +11,7 @@
           <p *ngIf="user" class="authentication-card__text" [innerHTML]="'MESSAGE.REGISTERED' | translate: {email: user.email}"></p>
           <mat-grid-list cols="2" rowHeight="40px">
             <mat-grid-tile>
-              <button mat-raised-button class="full-width" color="primary" (click)="resendEmail()">
+              <button mat-raised-button class="full-width" color="basic" (click)="resendEmail()">
                 {{'COMMON.RESEND_EMAIL' | translate}}
               </button>
             </mat-grid-tile>

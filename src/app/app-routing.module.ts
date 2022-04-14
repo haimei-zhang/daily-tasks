@@ -19,24 +19,26 @@ import { SignUpComponent } from '~view/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from '~view/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from '~view/verify-email/verify-email.component';
 
+import { AuthGuard } from '~service/guard/auth.guard';
+
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'sign-up', component: SignUpComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'verify-email', component: VerifyEmailComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'letters', component: LettersComponent},
-  {path: 'agreements', component: AgreementsComponent},
-  {path: 'habits', component: HabitsComponent},
-  {path: 'tasks', component: TasksComponent},
-  {path: 'announcement', component: AnnouncementComponent},
-  {path: 'announcement/:id', component: AnnouncementEditorComponent},
-  {path: 'bank', component: BankComponent},
-  {path: 'analytics', component: AnalyticsComponent},
-  {path: 'timeline', component: TimelineComponent},
-  {path: 'shop', component: ShopComponent},
-  {path: 'messages', component: MessagesComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'letters', component: LettersComponent, canActivate: [AuthGuard]},
+  {path: 'agreements', component: AgreementsComponent, canActivate: [AuthGuard]},
+  {path: 'habits', component: HabitsComponent, canActivate: [AuthGuard]},
+  {path: 'tasks', component: TasksComponent, canActivate: [AuthGuard]},
+  {path: 'announcement', component: AnnouncementComponent, canActivate: [AuthGuard]},
+  {path: 'announcement/:id', component: AnnouncementEditorComponent, canActivate: [AuthGuard]},
+  {path: 'bank', component: BankComponent, canActivate: [AuthGuard]},
+  {path: 'analytics', component: AnalyticsComponent, canActivate: [AuthGuard]},
+  {path: 'timeline', component: TimelineComponent, canActivate: [AuthGuard]},
+  {path: 'shop', component: ShopComponent, canActivate: [AuthGuard]},
+  {path: 'messages', component: MessagesComponent, canActivate: [AuthGuard]},
   {path: 'error', component: ErrorComponent},
   {path: '**', redirectTo: '/login'}
 ];

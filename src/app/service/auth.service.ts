@@ -13,6 +13,7 @@ import { User } from '~models/user.model';
 export class AuthService {
 
   userData: any; // Save logged in user data
+
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
