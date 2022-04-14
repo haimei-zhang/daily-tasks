@@ -8,6 +8,7 @@ export const EN = {
     FORGET_PASSWORD: 'Forget Password',
     LANGUAGE: 'Language',
     LOGIN: 'Login',
+    LOGIN_WITH_GOOGLE: 'Login with Google',
     LOGOUT: 'Logout',
     MENU: 'Menu',
     MESSAGE: 'Message',
@@ -109,6 +110,7 @@ export const EN = {
   SUCCESS: {},
   MESSAGE: {
     AGREEMENTS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
+    ALREADY_HAVE_ACCOUNT: 'Already have an account?',
     ANALYTICS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     ANNOUNCEMENT_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     BANK_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',

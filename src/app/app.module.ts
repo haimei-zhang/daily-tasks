@@ -73,6 +73,7 @@ import { AuthService } from '~service/auth.service';
 
 import { environment } from '../environments/environment';
 import { SignUpComponent } from './view/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './view/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import { SignUpComponent } from './view/sign-up/sign-up.component';
     ShopComponent,
     HabitsTableComponent,
     MessagesComponent,
-    SignUpComponent
+    SignUpComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

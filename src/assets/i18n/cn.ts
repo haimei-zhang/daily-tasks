@@ -8,6 +8,7 @@ export const CN = {
     FORGET_PASSWORD: '忘记密码',
     LANGUAGE: '语言',
     LOGIN: '登陆',
+    LOGIN_WITH_GOOGLE: 'Google登陆',
     LOGOUT: '登出',
     MENU: '菜单',
     MESSAGE: '留言',
@@ -37,8 +38,8 @@ export const CN = {
     TASKS: '小任务'
   },
   LANGUAGE: {
-    CN: 'Chinese',
-    EN: '英语'
+    CN: '中文',
+    EN: 'English'
   },
   TABLE: {
     ACTION: '管理',
@@ -109,6 +110,7 @@ export const CN = {
   SUCCESS: {},
   MESSAGE: {
     AGREEMENTS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
+    ALREADY_HAVE_ACCOUNT: '已有账户？',
     ANALYTICS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     ANNOUNCEMENT_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     BANK_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',

@@ -36,22 +36,23 @@
               </mat-grid-tile>
               <mat-grid-tile>
                 <button mat-raised-button class="full-width" color="primary" (click)="loginWithGoogle()">
-                  Google {{'COMMON.LOGIN' | translate}}
+                  {{'COMMON.LOGIN_WITH_GOOGLE' | translate}}
                 </button>
               </mat-grid-tile>
             </mat-grid-list>
           </form>
           <p class="authentication-card__text authentication-card__last-child">
-            <a mat-button href="javascript:void(0)" target="_blank" routerLink="/forgot-password">
+            <a mat-button href="javascript:void(0)" routerLink="/forgot-password">
               {{'COMMON.FORGET_PASSWORD' | translate}}?
             </a>
-            <a mat-button href="javascript:void(0)" target="_blank" routerLink="/sign-up">
+            <a mat-button href="javascript:void(0)" routerLink="/sign-up">
               {{'COMMON.REGISTER' | translate}}
             </a>
           </p>
         </div>
         <div class="authentication-card__footer">
-          <small>Development System<br>Any other environment information</small>
+          <small>Developed by Haimei Zhang<br>
+            Visit my <a href="https://haimei-zhang.github.io/profile/" target="_blank">profile page</a></small>
         </div>
       </div>
     </div>
