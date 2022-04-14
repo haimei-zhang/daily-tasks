@@ -57,7 +57,7 @@ export class DiaryStoreService {
 
   updateHabit(dbName: string, habit: Habit): void {
     habit.completedDate = dateToTime(habit.completedDate);
-    this.angularFirestore.collection(dbName).doc(habit.id).set(habit);
+    this.angularFirestore.collection(dbName).doc(habit.id).update(habit);
   }
 
 }
