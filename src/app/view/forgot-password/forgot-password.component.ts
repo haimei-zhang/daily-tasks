@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '~service/auth.service';
 
 @Component({
   selector: 'diary-forgot-password',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor() { }
+  email: string;
+
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  resetPassword(): void {
+    this.authService.forgotPassword(this.email);
   }
 
 }

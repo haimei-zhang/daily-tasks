@@ -16,11 +16,13 @@ import { TasksComponent } from '~view/tasks/tasks.component';
 import { ShopComponent } from '~view/shop/shop.component';
 import { MessagesComponent } from '~view/messages/messages.component';
 import { SignUpComponent } from '~view/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from '~view/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'sign-up', component: SignUpComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'home', component: HomeComponent},
   {path: 'letters', component: LettersComponent},
   {path: 'agreements', component: AgreementsComponent},

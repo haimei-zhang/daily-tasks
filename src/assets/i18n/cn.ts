@@ -17,6 +17,7 @@ export const CN = {
     PASSWORD: '密码',
     REFRESH: '刷新',
     REGISTER: '注册',
+    RESET_PASSWORD: '重置密码',
     SETTINGS: '设置',
     USER_NAME: '用户名'
   },
@@ -118,6 +119,7 @@ export const CN = {
     CHALLENGE_DESCRIPTION: '冒险写啥子哦',
     COMPLETED_STATUS_ANALYTICS_DESCRIPTION: 'Completed status analytics',
     DETAILED_RULE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
+    FORGOT_PASSWORD: '请输入注册的邮箱',
     FREQUENCY_ANALYTICS_DESCRIPTION: 'Frequency analytic',
     GAMES_DESCRIPTION: '上上下下左右左右BABA，哈哈！！我有30条命~！',
     GENERAL_RULE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
