@@ -1,0 +1,32 @@
+<div class="authentication">
+  <div class="authentication-container authentication-container--bg-img"
+       style="background-image: url(assets/images/background.png);">
+    <div class="authentication-container__inner">
+      <div class="authentication-card">
+        <div class="authentication-card__header">
+          <div class="authentication-card__app-name">{{'COMMON.MY_DIARY' | translate}}</div>
+          <h1 class="authentication-card__title">{{'COMMON.REGISTER' | translate}}</h1>
+        </div>
+        <div class="authentication-card__content">
+          <p *ngIf="user" class="authentication-card__text" [innerHTML]="'MESSAGE.REGISTERED' | translate: {email: user.email}"></p>
+          <mat-grid-list cols="2" rowHeight="40px">
+            <mat-grid-tile>
+              <button mat-raised-button class="full-width" color="primary" (click)="resendEmail()">
+                {{'COMMON.RESEND_EMAIL' | translate}}
+              </button>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <button mat-raised-button class="full-width" color="primary" routerLink="/login">
+                {{'COMMON.LOGIN' | translate}}
+              </button>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+        <div class="authentication-card__footer">
+          <small>Developed by Haimei Zhang<br>
+            Visit my <a href="https://haimei-zhang.github.io/profile/" target="_blank">profile page</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

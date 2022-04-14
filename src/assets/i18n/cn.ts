@@ -17,6 +17,7 @@ export const CN = {
     PASSWORD: '密码',
     REFRESH: '刷新',
     REGISTER: '注册',
+    RESEND_EMAIL: '重发邮件',
     RESET_PASSWORD: '重置密码',
     SETTINGS: '设置',
     USER_NAME: '用户名'
@@ -131,6 +132,7 @@ export const CN = {
     MEDITATION_DESCRIPTION: '耶和华是善良正直的，他必指引人走正确的道。',
     MESSAGES_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     MOVIES_OPERAS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
+    REGISTERED: '感谢您的注册。<br>我们已向您发送了一封邮件到 <b>{{email}}</b>。<br>请查看邮件并点击链接来确认邮箱。',
     SELF_CARE_DESCRIPTION: '健康的身体来自于良好的生活习惯~、美好的一天从干干净净开始~ 、让我们一起来享受清洁吧~、٩（●ᴗ●）۶',
     SHOP_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     SPORTS_DESCRIPTION: '左三圈，右三圈脖子扭扭屁股扭扭~、早睡早起，咱们来做运动~୧☉□☉୨',

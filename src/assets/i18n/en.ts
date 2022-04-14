@@ -17,6 +17,7 @@ export const EN = {
     PASSWORD: 'Password',
     REFRESH: 'Refresh',
     REGISTER: 'Register',
+    RESEND_EMAIL: 'Resend Email',
     RESET_PASSWORD: 'Reset Password',
     SETTINGS: 'Settings',
     USER_NAME: 'User Name'
@@ -131,6 +132,7 @@ export const EN = {
     MESSAGES_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     MEDITATION_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     MOVIES_OPERAS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
+    REGISTERED: 'Thank you for registering.<br>We have sent a confirmation email to <b>{{email}}</b>.<br>Please check your email and click on the link to verify your email address.',
     SELF_CARE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     SHOP_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     SPORTS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
