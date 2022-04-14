@@ -125,7 +125,7 @@ export const EN = {
     GAMES_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     GENERAL_RULE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     HABITS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
-    HOME_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
+    HOME_DESCRIPTION: 'Welcome',
     LETTER_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     LOGIN_SUB_TITLE: 'Welcome',
     LOVE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',

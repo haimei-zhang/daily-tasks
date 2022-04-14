@@ -1,5 +1,5 @@
 <diary-page-header [pageTitle]="'MENU.BANK'" [pageSubtitle]="'MENU.BANK'"
-                   (refreshEvent)="refresh($event)"></diary-page-header>
+                   [toShowAction]="true" (refreshEvent)="refresh($event)"></diary-page-header>
 <div class="diary-bank">
   <diary-bank-table class="diary-bank-card" [user]="'user1'"></diary-bank-table>
   <diary-bank-table class="diary-bank-card" [user]="'user2'"></diary-bank-table>

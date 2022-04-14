@@ -1,5 +1,5 @@
 <diary-page-header [pageTitle]="'MENU.TIMELINE'" [pageSubtitle]="'MENU.TIMELINE'" [avatarSrc]="avatarSrc"
-                   (refreshEvent)="refresh($event)"></diary-page-header>
+                   [toShowAction]="true" (refreshEvent)="refresh($event)"></diary-page-header>
 <div class="container">
   <div class="timeline">
     <div class="swiper-container swiper-container-vertical">

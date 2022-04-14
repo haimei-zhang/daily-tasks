@@ -13,7 +13,7 @@
           <span class="page-header__subtitle">{{pageSubtitle | translate}}</span>
         </div>
       </div>
-      <div class="page-header__right page-header__right--with-collapse">
+      <div class="page-header__right page-header__right--with-collapse" *ngIf="toShowAction">
         <div class="btn mr-2">
           <button type="button" mat-raised-button aria-label="refresh" (click)="refresh()">
             <span class="btn__icon">

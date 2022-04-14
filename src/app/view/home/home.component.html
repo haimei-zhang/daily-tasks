@@ -1,4 +1,7 @@
-<div id="diary-home">
+<diary-page-header *ngIf="user" [pageTitle]="'MENU.HOME'" [avatarSrc]="avatarSrc"
+                   [pageSubtitle]="('MESSAGE.HOME_DESCRIPTION' | translate) + (user.displayName? ' ' + user.displayName: '')"
+                   [toShowAction]="false"></diary-page-header>
+<div>
   <mat-grid-list [cols]="cols" rowHeight="1:1" (window:resize)="onResize($event)">
     <ng-container *ngFor="let menu of MENUS; let i = index;">
       <mat-grid-tile *ngIf="menu.text !== 'MENU.HOME'">

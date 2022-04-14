@@ -125,7 +125,7 @@ export const CN = {
     GAMES_DESCRIPTION: '上上下下左右左右BABA，哈哈！！我有30条命~！',
     GENERAL_RULE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     HABITS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
-    HOME_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
+    HOME_DESCRIPTION: '欢迎,',
     LETTER_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     LOGIN_SUB_TITLE: '欢迎',
     LOVE_DESCRIPTION: '能牵手的时候请不要肩并肩，能拥抱的时候请别手牵手。',

@@ -15,6 +15,7 @@ export class PageHeaderComponent implements OnInit {
   @Input() pageTitle: string;
   @Input() pageSubtitle: string;
   @Input() avatarSrc: string;
+  @Input() toShowAction: boolean;
   @Output() refreshEvent = new EventEmitter<number>();
 
   constructor(readonly router: Router,

@@ -1,5 +1,5 @@
 <diary-page-header [pageTitle]="'MENU.LETTERS'" [pageSubtitle]="'MENU.LETTERS'" [avatarSrc]="avatarSrc"
-                   (refreshEvent)="refresh($event)"></diary-page-header>
+                   [toShowAction]="true" (refreshEvent)="refresh($event)"></diary-page-header>
 <div class="diary-letters">
   <div class="diary-letters-table" [ngClass]="isEditMode ? 'full-width' : 'half-width mr-2'">
     <diary-letters-table></diary-letters-table>
