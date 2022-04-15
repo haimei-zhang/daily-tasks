@@ -56,7 +56,9 @@ export class TasksTableComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(CreateUpdateTasksDialogComponent, config);
     dialogRef.afterClosed().subscribe(result => {
-      this.edit(result);
+      if (result) {
+        this.edit(result);
+      }
     });
   }
 

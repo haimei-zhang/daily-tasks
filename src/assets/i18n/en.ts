@@ -115,8 +115,17 @@ export const EN = {
     EDIT_HABIT: 'Edit the habit',
     EDIT_BANK: 'Edit the bank statement'
   },
-  ERROR: {},
-  SUCCESS: {},
+  ERROR: {
+    CREATE_TASK: 'Could not create the task',
+    GET_TASK: 'Could not get tasks',
+    DELETE_TASK: 'Could not delete the task',
+    UPDATE_TASK: 'Could not update the task'
+  },
+  SUCCESS: {
+    CREATE_TASK: 'Successfully created the task',
+    DELETE_TASK: 'Successfully deleted the task',
+    UPDATE_TASK: 'Successfully updated the task'
+  },
   MESSAGE: {
     AGREEMENTS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     ALREADY_HAVE_ACCOUNT: 'Already have an account?',

@@ -59,7 +59,9 @@ export class HabitsTableComponent implements OnInit, OnChanges {
     };
     const dialogRef = this.dialog.open(CreateUpdateHabitsDialogComponent, config);
     dialogRef.afterClosed().subscribe(result => {
-      this.edit(result);
+      if (result) {
+        this.edit(result);
+      }
     });
   }
 

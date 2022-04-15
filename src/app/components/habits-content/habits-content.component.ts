@@ -60,7 +60,9 @@ export class HabitsContentComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateUpdateHabitsDialogComponent, config);
 
     dialogRef.afterClosed().subscribe(result => {
-      this.diaryStoreService.createHabit(taskName, result);
+      if (result) {
+        this.diaryStoreService.createHabit(taskName, result);
+      }
     });
   }
 

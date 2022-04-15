@@ -36,8 +36,10 @@ export class TasksComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateUpdateTasksDialogComponent, config);
 
     dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+      }
       console.log('The dialog was closed');
-      console.log(result);
     });
   }
 

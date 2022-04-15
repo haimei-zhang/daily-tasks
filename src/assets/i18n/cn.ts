@@ -115,8 +115,17 @@ export const CN = {
     EDIT_HABIT: '修改习惯',
     EDIT_BANK: '编辑银行流水'
   },
-  ERROR: {},
-  SUCCESS: {},
+  ERROR: {
+    CREATE_TASK: '无法创建任务',
+    GET_TASK: '无法获取任务信息',
+    DELETE_TASK: '无法删除任务',
+    UPDATE_TASK: '无法更新任务'
+  },
+  SUCCESS: {
+    CREATE_TASK: '成功创建任务',
+    DELETE_TASK: '成功删除任务',
+    UPDATE_TASK: '成功更新任务'
+  },
   MESSAGE: {
     AGREEMENTS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     ALREADY_HAVE_ACCOUNT: '已有账户？',
