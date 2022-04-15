@@ -57,3 +57,9 @@ export const DB_COLLECTION_NAME = {
   LOVE_TASKS: 'love_tasks',
   MOVIE_TASKS: 'movie_tasks'
 };
+
+export const INVITATION_STATUS = {
+  CONNECTED: 'Connected',
+  INVITED: 'Invited',
+  PENDING_INVITATION: 'Pending Invitation',
+}

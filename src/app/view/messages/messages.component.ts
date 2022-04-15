@@ -6,6 +6,7 @@ import { User } from '~models/user.model';
 import { MESSAGES } from '~constants';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { AuthService } from '~service/auth.service';
+import { DiaryStoreService } from '~service/store/diary-store.service';
 
 @Component({
   selector: 'diary-messages',
@@ -27,7 +28,8 @@ export class MessagesComponent implements OnInit {
   friendId: string;
 
   constructor(public dialog: MatDialog,
-              readonly authService: AuthService) {}
+              readonly authService: AuthService,
+              readonly diaryStoreService: DiaryStoreService) {}
 
   ngOnInit(): void {
     this.getUser();
@@ -64,7 +66,9 @@ export class MessagesComponent implements OnInit {
   }
 
   addFriend(): void {
-
+    if (this.friendId) {
+      this.diaryStoreService.inviteFriend(this.friendId.trim());
+    }
   }
 
   private getUser(): void {

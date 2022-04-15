@@ -119,7 +119,10 @@ export const EN = {
     CREATE_TASK: 'Could not create the task',
     GET_TASK: 'Could not get tasks',
     DELETE_TASK: 'Could not delete the task',
-    UPDATE_TASK: 'Could not update the task'
+    NO_USER_FOUND: 'Could not find this user',
+    UPDATE_TASK: 'Could not update the task',
+    USER_ALREADY_EXISTS: 'This user already exists',
+    USER_IS_MYSELF: 'You cannot add yourself as a friend'
   },
   SUCCESS: {
     CREATE_TASK: 'Successfully created the task',

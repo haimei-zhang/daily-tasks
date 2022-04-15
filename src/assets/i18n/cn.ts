@@ -119,7 +119,10 @@ export const CN = {
     CREATE_TASK: '无法创建任务',
     GET_TASK: '无法获取任务信息',
     DELETE_TASK: '无法删除任务',
-    UPDATE_TASK: '无法更新任务'
+    NO_USER_FOUND: '无法找到该用户',
+    UPDATE_TASK: '无法更新任务',
+    USER_ALREADY_EXISTS: '用户已存在',
+    USER_IS_MYSELF: '不能添加自己为好友'
   },
   SUCCESS: {
     CREATE_TASK: '成功创建任务',
