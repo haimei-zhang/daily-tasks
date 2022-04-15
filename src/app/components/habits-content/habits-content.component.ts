@@ -5,8 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { Habit } from '~models/habit.model';
 import { DB_COLLECTION_NAME } from '~constants';
-import { getLoggedInUser } from '~utils/core.util';
 import { DiaryStoreService } from '~service/store/diary-store.service';
+import { AuthService } from '~service/auth.service';
 
 @Component({
   selector: 'diary-habits-content',
@@ -26,7 +26,9 @@ export class HabitsContentComponent implements OnInit {
 
   DB_COLLECTION_NAME = DB_COLLECTION_NAME;
 
-  constructor(public dialog: MatDialog, readonly diaryStoreService: DiaryStoreService) {
+  constructor(public dialog: MatDialog,
+              readonly authService: AuthService,
+              readonly diaryStoreService: DiaryStoreService) {
   }
 
   ngOnInit(): void {
@@ -47,8 +49,8 @@ export class HabitsContentComponent implements OnInit {
         name: '',
         completedDate: null,
         notes: '',
-        authorId: getLoggedInUser().uid,
-        authorName: getLoggedInUser().displayName
+        authorId: this.authService.getLoggedInUser().uid,
+        authorName: this.authService.getLoggedInUser().displayName
       }
     };
     this.openCreateHabitDialog(config, taskName);

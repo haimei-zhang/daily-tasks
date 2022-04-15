@@ -118,10 +118,12 @@ export class AuthService {
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      displayName: displayName ? displayName : user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
+    if (displayName) {
+      userData.displayName = displayName;
+    }
     return userRef.set(userData, {
       merge: true,
     });
@@ -132,5 +134,12 @@ export class AuthService {
       sessionStorage.removeItem('user');
       this.router.navigate(['login']);
     });
+  }
+
+  getLoggedInUser(): User {
+    if (!this.userData) {
+      return JSON.parse(sessionStorage.getItem('user'));
+    }
+    return this.userData;
   }
 }

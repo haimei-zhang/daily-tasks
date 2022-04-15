@@ -17,7 +17,7 @@ export class HabitsTableComponent implements OnInit, OnChanges {
   @Input() data: Habit[] = [];
   @Input() dbName: string;
 
-  displayedColumns: string[] = ['name', 'notes', 'completedDate', 'action'];
+  displayedColumns: string[] = ['name', 'author', 'notes', 'completedDate', 'action'];
   dataToDisplay = [...this.data];
   dataSource = new MatTableDataSource(this.data);
 

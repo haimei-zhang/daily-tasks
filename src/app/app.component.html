@@ -19,7 +19,7 @@
   <button type="button" mat-button (click)="drawer.toggle(); isMenuOpen = !isMenuOpen">
     {{'COMMON.MENU' | translate}}
   </button>
-  <button mat-button [routerLink]="'./login'">{{'COMMON.LOGOUT' | translate}}</button>
+  <button mat-button (click)="logout()">{{'COMMON.LOGOUT' | translate}}</button>
 </div>
 
 <div class="main-container">

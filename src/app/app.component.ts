@@ -5,6 +5,7 @@ import { CN } from '../assets/i18n/cn';
 import { EN } from '../assets/i18n/en';
 
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
+import { AuthService } from '~service/auth.service';
 
 @Component({
   selector: 'diary-root',
@@ -17,7 +18,8 @@ export class AppComponent {
   isMenuOpen = false;
 
   constructor(readonly translateService: TranslateService,
-              readonly loadingIndicatorService: LoadingIndicatorService) {
+              readonly loadingIndicatorService: LoadingIndicatorService,
+              readonly authService: AuthService) {
     loadingIndicatorService.onLoadingChanged.subscribe(isLoading => setTimeout(() => {
       this.isLoading = isLoading;
     }, 0));
@@ -29,5 +31,9 @@ export class AppComponent {
 
   changeLanguage(language): void {
     this.translateService.use(language);
+  }
+
+  logout(): void {
+    this.authService.signOut();
   }
 }

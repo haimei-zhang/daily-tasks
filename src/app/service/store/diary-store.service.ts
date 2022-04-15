@@ -4,7 +4,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import * as R from 'ramda';
 
 import { Habit } from '~models/habit.model';
-import { dateToTime, getLoggedInUser } from '~utils/core.util';
+import { dateToTime } from '~utils/core.util';
+import { AuthService } from '~service/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,8 @@ export class DiaryStoreService {
   loveTasks$ = this.getObservable(this.getCurrentUserDataCollection().collection('love_tasks')) as Observable<Habit[]>;
   movieTasks$ = this.getObservable(this.getCurrentUserDataCollection().collection('movie_tasks')) as Observable<Habit[]>;
 
-  constructor(private angularFirestore: AngularFirestore) {
+  constructor(private angularFirestore: AngularFirestore,
+              readonly authService: AuthService) {
   }
 
   getObservable(collection: AngularFirestoreCollection<any>): Observable<any> {
@@ -37,7 +39,7 @@ export class DiaryStoreService {
   }
 
   getCurrentUserDataCollection(): AngularFirestoreDocument {
-    return this.angularFirestore.collection('users').doc(getLoggedInUser().uid).collection('personal_data').doc('1');
+    return this.angularFirestore.collection('users').doc(this.authService.getLoggedInUser().uid).collection('personal_data').doc('1');
   }
 
   updateCurrentAnnouncement(announcement): void {

@@ -5,7 +5,7 @@ import { User } from '~models/user.model';
 
 import { MESSAGES } from '~constants';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
-import { getLoggedInUser } from '~utils/core.util';
+import { AuthService } from '~service/auth.service';
 
 @Component({
   selector: 'diary-messages',
@@ -26,7 +26,8 @@ export class MessagesComponent implements OnInit {
   message: string;
   friendId: string;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,
+              readonly authService: AuthService) {}
 
   ngOnInit(): void {
     this.getUser();
@@ -67,7 +68,7 @@ export class MessagesComponent implements OnInit {
   }
 
   private getUser(): void {
-    this.user = getLoggedInUser();
+    this.user = this.authService.getLoggedInUser();
   }
 
   private removeData(data) {

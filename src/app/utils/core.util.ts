@@ -120,7 +120,3 @@ export const transferEndOfDayToStartOfDayDate = (endOfDay: any): Date => {
     return endOfDay;
   }
 };
-
-export const getLoggedInUser = (): User => {
-  return JSON.parse(sessionStorage.getItem('user'));
-};
