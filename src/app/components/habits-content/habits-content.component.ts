@@ -56,7 +56,6 @@ export class HabitsContentComponent implements OnInit {
 
   private openCreateHabitDialog(config: any, taskName: string): void {
     const dialogRef = this.dialog.open(CreateUpdateHabitsDialogComponent, config);
-
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.diaryStoreService.createHabit(taskName, result);

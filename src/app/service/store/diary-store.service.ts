@@ -73,6 +73,7 @@ export class DiaryStoreService {
   createHabit(dbName: string, habit: Habit): void {
     habit.createdDate = dateToTime(habit.createdDate);
     habit.completedDate = dateToTime(habit.completedDate);
+    delete habit.title;
     this.angularFirestore.collection(dbName).add(habit).then(() => {
       this.log(null, 'SUCCESS.CREATE_TASK', 'success');
     }).catch(() => this.handleError('ERROR.CREATE_TASK'));
@@ -86,6 +87,7 @@ export class DiaryStoreService {
 
   updateHabit(dbName: string, habit: Habit): void {
     habit.completedDate = dateToTime(habit.completedDate);
+    delete habit.title;
     this.angularFirestore.collection(dbName).doc(habit.id).update(habit).then(() => {
       this.log(null, 'SUCCESS.UPDATE_TASK', 'success');
     }).catch(() => this.handleError('ERROR.UPDATE_TASK'));
