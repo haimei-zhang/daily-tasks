@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "my-diary-dc506": {
+      "hosting": {
+        "daily-tasks": [
+          "my-diary-dc506"
+        ]
+      }
+    }
+  }
+}
