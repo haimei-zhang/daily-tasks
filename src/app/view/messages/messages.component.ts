@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { User } from '~models/user.model';
+import { Friend } from '~models/friend.model';
 
-import { MESSAGES } from '~constants';
+import { INVITATION_STATUS, MESSAGES } from '~constants';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { AuthService } from '~service/auth.service';
 import { DiaryStoreService } from '~service/store/diary-store.service';
@@ -16,12 +17,8 @@ import { DiaryStoreService } from '~service/store/diary-store.service';
 export class MessagesComponent implements OnInit {
 
   user: User;
-  friends: User[] = [
-    {displayName: '大笨蛋', uid: '1', email: '1'},
-    {displayName: '大傻子', uid: '2', email: '1'},
-    {displayName: '宝宝', uid: '3', email: '1'},
-    {displayName: '大变态', uid: '4', email: '1'}
-  ];
+  pendingFriends: Friend[];
+  connectedFriends: Friend[];
   avatarSrc = 'assets/images/daily-tasks.jpg';
   messages = MESSAGES;
   message: string;
@@ -33,6 +30,7 @@ export class MessagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+    this.getFriends();
   }
 
   refresh(lastRefreshTime): void {
@@ -78,6 +76,13 @@ export class MessagesComponent implements OnInit {
   private removeData(data) {
     this.messages = this.messages.filter((message) => {
       return message.id !== data.id;
+    });
+  }
+
+  private getFriends(): void {
+    this.diaryStoreService.friends$.subscribe((friends) => {
+      this.pendingFriends = friends.filter(friend => friend.status === INVITATION_STATUS.PENDING_ACCEPTED);
+      this.connectedFriends = friends.filter(friend => friend.status === INVITATION_STATUS.CONNECTED);
     });
   }
 }

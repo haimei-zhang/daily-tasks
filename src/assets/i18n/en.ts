@@ -82,7 +82,9 @@ export const EN = {
     TABLE_CHART: 'Table chart'
   },
   FRIENDS_MESSAGES: {
+    CONNECTED_FRIENDS: 'Connected Friends',
     FRIENDS_ID: 'Friend\'s ID',
+    PENDING_INVITATION: 'Friends requests',
     YOUR_ID: 'Your ID'
   },
   MENU: {
@@ -156,7 +158,7 @@ export const EN = {
     MEDITATION_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     MOVIES_OPERAS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     NO_DATA: 'No Data Available',
-    PENDING_INVITATION: 'You have pending invitation(s)',
+    PENDING_ACCEPTED: 'You have pending invitation(s)',
     REGISTERED: 'Thank you for registering.<br>We have sent a confirmation email to <b>{{email}}</b>.<br>Please check your email and click on the link to verify your email address.',
     SELF_CARE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     SHOP_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',

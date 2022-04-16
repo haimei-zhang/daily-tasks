@@ -61,5 +61,5 @@ export const DB_COLLECTION_NAME = {
 export const INVITATION_STATUS = {
   CONNECTED: 'Connected',
   INVITED: 'Invited',
-  PENDING_INVITATION: 'Pending Invitation',
+  PENDING_ACCEPTED: 'Pending Accepted',
 }

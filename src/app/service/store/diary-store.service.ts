@@ -8,6 +8,7 @@ import * as R from 'ramda';
 import { Habit } from '~models/habit.model';
 import { User } from '~models/user.model';
 import { Friend } from '~models/friend.model';
+import { Message } from '~models/message.model';
 
 import { INVITATION_STATUS } from '~constants';
 
@@ -33,8 +34,8 @@ export class DiaryStoreService {
   challengingTasks$ = this.getUserPersonalDataStoreCollectionObservable('challenging_tasks') as Observable<Habit[]>;
   loveTasks$ = this.getUserPersonalDataStoreCollectionObservable('love_tasks') as Observable<Habit[]>;
   movieTasks$ = this.getUserPersonalDataStoreCollectionObservable('movie_tasks') as Observable<Habit[]>;
-  friends$ = this.getUserPersonalDataStoreCollectionObservable('friends') as Observable<User[]>;
-  messages$ = this.getRootStoreCollectionObservable('messages') as Observable<User[]>;
+  friends$ = this.getUserPersonalDataStoreCollectionObservable('friends') as Observable<Friend[]>;
+  messages$ = this.getRootStoreCollectionObservable('messages') as Observable<Message[]>;
 
   constructor(private toastr: ToastrService,
               private translateService: TranslateService,
@@ -126,7 +127,7 @@ export class DiaryStoreService {
       friendUid: this.authService.getLoggedInUser().uid,
       friendDisplayName: this.authService.getLoggedInUser().displayName,
       createdDate: dateToTime(new Date()),
-      status: INVITATION_STATUS.PENDING_INVITATION
+      status: INVITATION_STATUS.PENDING_ACCEPTED
     };
     this.angularFirestore.collection('users/' + friend.uid + '/personal_data/1/friends').add(friendSendingRequest).then(() => {
       this.log(null, 'SUCCESS.INVITE_FRIEND', 'success');

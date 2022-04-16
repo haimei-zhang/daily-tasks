@@ -82,7 +82,9 @@ export const CN = {
     TABLE_CHART: '图表'
   },
   FRIENDS_MESSAGES: {
+    CONNECTED_FRIENDS: '我的好友',
     FRIENDS_ID: '朋友的ID',
+    PENDING_INVITATION: '好友请求',
     YOUR_ID: '你的ID'
   },
   MENU: {
@@ -156,7 +158,7 @@ export const CN = {
     MESSAGES_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     MOVIES_OPERAS_DESCRIPTION: '小宝宝们喜欢小兔乖乖的故事~、 大人们爱听哈利波特~、 那么下一个故事讲的是什么呢？~、',
     NO_DATA: '暂无数据',
-    PENDING_INVITATION: '你有待处理的好友邀请',
+    PENDING_ACCEPTED: '你有待处理的好友邀请',
     REGISTERED: '感谢您的注册。<br>我们已向您发送了一封邮件到 <b>{{email}}</b>。<br>请查看邮件并点击链接来确认邮箱。',
     SELF_CARE_DESCRIPTION: '健康的身体来自于良好的生活习惯~、美好的一天从干干净净开始~ 、让我们一起来享受清洁吧~、٩（●ᴗ●）۶',
     SHOP_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',

@@ -18,22 +18,30 @@
     </div>
     <div class="pending-invitation-friends">
       <mat-divider class="my-2"></mat-divider>
-      <p>{{'MESSAGE.PENDING_INVITATION' | translate}}</p>
-      <mat-list role="list">
-        <mat-list-item role="listitem" *ngFor="let friend of friends" [value]="friend.uid">
-          <span>{{friend.displayName}}</span>
-          <button mat-stroked-button color="basic" class="pending-invitation-action">{{'COMMON.ACCEPT' | translate}}</button>
-        </mat-list-item>
-      </mat-list>
+      <h3>{{'FRIENDS_MESSAGES.PENDING_INVITATION' | translate}}</h3>
+      <ng-container *ngIf="!pendingFriends?.length">
+        <p>{{'MESSAGE.NO_DATA' | translate}}</p>
+      </ng-container>
+      <ng-container *ngIf="pendingFriends?.length">
+        <p>{{'MESSAGE.PENDING_ACCEPTED' | translate}}</p>
+        <mat-list role="list">
+          <mat-list-item role="listitem" *ngFor="let friend of pendingFriends" [value]="friend.friendUid">
+            <span>{{friend.friendDisplayName}}</span>
+            <button mat-stroked-button color="basic" class="pending-invitation-action">{{'COMMON.ACCEPT' | translate}}</button>
+          </mat-list-item>
+        </mat-list>
+      </ng-container>
     </div>
+
     <div class="friends-list">
       <mat-divider class="my-2"></mat-divider>
-      <ng-container *ngIf="!friends?.length">
-        <p>You don't have any friends yet.</p>
+      <h3>{{'FRIENDS_MESSAGES.CONNECTED_FRIENDS' | translate}}</h3>
+      <ng-container *ngIf="!connectedFriends?.length">
+        <p>{{'MESSAGE.NO_DATA' | translate}}</p>
       </ng-container>
       <mat-selection-list [multiple]="false">
-        <mat-list-option *ngFor="let friend of friends" [value]="friend.uid">
-          {{friend.displayName}}
+        <mat-list-option *ngFor="let friend of connectedFriends" [value]="friend.friendUid">
+          {{friend.friendDisplayName}}
         </mat-list-option>
       </mat-selection-list>
     </div>
