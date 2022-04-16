@@ -16,22 +16,18 @@
         </button>
       </form>
     </div>
-    <div class="pending-invitation-friends">
+
+    <div class="pending-invitation-friends" *ngIf="pendingFriends?.length">
       <mat-divider class="my-2"></mat-divider>
       <h3>{{'FRIENDS_MESSAGES.PENDING_INVITATION' | translate}}</h3>
-      <ng-container *ngIf="!pendingFriends?.length">
-        <p>{{'MESSAGE.NO_DATA' | translate}}</p>
-      </ng-container>
-      <ng-container *ngIf="pendingFriends?.length">
-        <p>{{'MESSAGE.PENDING_ACCEPTED' | translate}}</p>
-        <mat-list role="list">
-          <mat-list-item role="listitem" *ngFor="let friend of pendingFriends" [value]="friend.friendUid">
-            <span>{{friend.friendDisplayName}}</span>
-            <button mat-stroked-button color="basic" class="pending-invitation-action"
-                    (click)="acceptInvitation(friend)">{{'COMMON.ACCEPT' | translate}}</button>
-          </mat-list-item>
-        </mat-list>
-      </ng-container>
+      <p>{{'MESSAGE.PENDING_ACCEPTED' | translate}}</p>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let friend of pendingFriends" [value]="friend.friendUid">
+          <span>{{friend.friendDisplayName}}</span>
+          <button mat-stroked-button color="basic" class="pending-invitation-action"
+                  (click)="acceptInvitation(friend)">{{'COMMON.ACCEPT' | translate}}</button>
+        </mat-list-item>
+      </mat-list>
     </div>
 
     <div class="friends-list">

@@ -136,7 +136,7 @@ export class DiaryStoreService {
 
   acceptFriendInvitation(friend: Friend): void {
     // update my friend connection
-    this.getCurrentUserDataCollection().collection('friend').doc(friend.id)
+    this.getCurrentUserDataCollection().collection('friends').doc(friend.id)
       .set({status: INVITATION_STATUS.CONNECTED}, {merge: true})
       .then(() => {this.log(null, 'SUCCESS.ACCEPT_INVITATION', 'success');})
       .catch(() => this.handleError('ERROR.ACCEPT_INVITATION'));
