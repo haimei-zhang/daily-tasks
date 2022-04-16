@@ -4,6 +4,8 @@ export const CN = {
     BACK: '返回',
     CANCEL: '取消',
     CLOSE: '关闭',
+    COMPLETED_DATE: '完成日期',
+    COMPLETED_TODAY: '今日已完成',
     CONFIRM: '确定',
     EMAIL: '邮箱',
     FORGET_PASSWORD: '忘记密码',
@@ -23,7 +25,8 @@ export const CN = {
     RESEND_EMAIL: '重发邮件',
     RESET_PASSWORD: '重置密码',
     SETTINGS: '设置',
-    USER_NAME: '用户名'
+    USER_NAME: '用户名',
+    VISIBLE_TO_FRIENDS: '对以下朋友可见'
   },
   AGREEMENTS: {
     DETAILED_RULE: '细则',

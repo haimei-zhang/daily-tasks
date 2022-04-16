@@ -1,7 +1,9 @@
 export interface Friend {
   id?: string;
-  friendUid: string;
-  friendDisplayName: string;
-  createdDate: number;
+  friendId: string;
+  friendName: string;
+  authorId: string;
+  authorName: string;
+  date: number;
   status: string;
 }

@@ -22,8 +22,8 @@
       <h3>{{'FRIENDS_MESSAGES.PENDING_INVITATION' | translate}}</h3>
       <p>{{'MESSAGE.PENDING_ACCEPTED' | translate}}</p>
       <mat-list role="list">
-        <mat-list-item role="listitem" *ngFor="let friend of pendingFriends" [value]="friend.friendUid">
-          <span>{{friend.friendDisplayName}}</span>
+        <mat-list-item role="listitem" *ngFor="let friend of pendingFriends" [value]="friend.friendId">
+          <span>{{friend.friendName}}</span>
           <button mat-stroked-button color="basic" class="pending-invitation-action"
                   (click)="acceptInvitation(friend)">{{'COMMON.ACCEPT' | translate}}</button>
         </mat-list-item>
@@ -37,8 +37,8 @@
         <p>{{'MESSAGE.NO_DATA' | translate}}</p>
       </ng-container>
       <mat-selection-list [multiple]="false">
-        <mat-list-option *ngFor="let friend of connectedFriends" [value]="friend.friendUid">
-          {{friend.friendDisplayName}}
+        <mat-list-option *ngFor="let friend of connectedFriends" [value]="friend.friendId">
+          {{friend.friendName}}
         </mat-list-option>
       </mat-selection-list>
     </div>

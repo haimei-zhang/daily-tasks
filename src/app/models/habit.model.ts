@@ -1,9 +1,12 @@
 export interface Habit {
   id: string;
   name: string;
-  completedDate?: number | Date;
   notes?: string;
+  createdDate?: number;
+  completedDate?: number | Date;
+  isCompletedToday?: boolean;
   authorId?: string;
   authorName?: string;
-  isVisible?: boolean;
+  isVisibleToUserIds?: string[];
+  title?: string;
 }

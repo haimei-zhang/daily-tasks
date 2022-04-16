@@ -32,14 +32,7 @@ export class HabitsContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.selfCareTasks$ = this.diaryStoreService.selfCareTasks$;
-    this.sportsTasks$ = this.diaryStoreService.sportsTasks$;
-    this.studyTasks$ = this.diaryStoreService.studyTasks$;
-    this.meditationTasks$ = this.diaryStoreService.meditationTasks$;
-    this.gameTasks$ = this.diaryStoreService.gameTasks$;
-    this.challengingTasks$ = this.diaryStoreService.challengingTasks$;
-    this.loveTasks$ = this.diaryStoreService.loveTasks$;
-    this.movieTasks$ = this.diaryStoreService.movieTasks$;
+    this.getTasks();
   }
 
   createTask(taskName: string): void {
@@ -64,6 +57,17 @@ export class HabitsContentComponent implements OnInit {
         this.diaryStoreService.createHabit(taskName, result);
       }
     });
+  }
+
+  private getTasks(): void {
+    this.selfCareTasks$ = this.diaryStoreService.selfCareTasks$;
+    this.sportsTasks$ = this.diaryStoreService.sportsTasks$;
+    this.studyTasks$ = this.diaryStoreService.studyTasks$;
+    this.meditationTasks$ = this.diaryStoreService.meditationTasks$;
+    this.gameTasks$ = this.diaryStoreService.gameTasks$;
+    this.challengingTasks$ = this.diaryStoreService.challengingTasks$;
+    this.loveTasks$ = this.diaryStoreService.loveTasks$;
+    this.movieTasks$ = this.diaryStoreService.movieTasks$;
   }
 
 }

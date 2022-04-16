@@ -4,6 +4,8 @@ export const EN = {
     BACK: 'Back',
     CANCEL: 'Cancel',
     CLOSE: 'Close',
+    COMPLETED_DATE: 'Completed Date',
+    COMPLETED_TODAY: 'Completed Today',
     CONFIRM: 'Confirm',
     EMAIL: 'Email',
     FORGET_PASSWORD: 'Forgot Password',
@@ -23,7 +25,8 @@ export const EN = {
     RESEND_EMAIL: 'Resend Email',
     RESET_PASSWORD: 'Reset Password',
     SETTINGS: 'Settings',
-    USER_NAME: 'User Name'
+    USER_NAME: 'User Name',
+    VISIBLE_TO_FRIENDS: 'Visible to Friends'
   },
   AGREEMENTS: {
     DETAILED_RULE: 'Detailed Rule',
