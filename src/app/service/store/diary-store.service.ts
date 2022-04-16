@@ -90,26 +90,52 @@ export class DiaryStoreService {
 
       const friend = data[0].payload.doc.data() as User;
       // check whether friend already exists. Only add it when it doesn't exist
-      this.findExistingDataInDb(this.getCurrentUserDataPath(), 'friendUid', friend.uid).subscribe((data) => {
+      this.findExistingDataInDb(this.getCurrentUserDataPath() + '/friends', 'friendUid', friend.uid).subscribe((data) => {
         if (data?.length) {
-          this.log(null, 'USER_ALREADY_EXISTS', 'error');
+          this.log(null, 'ERROR.USER_ALREADY_EXISTS', 'error');
           return;
         }
-        if (!data?.length) {
-          const param = {
-            friendUid: friend.uid,
-            friendDisplayName: friend.uid,
-            createdDate: dateToTime(new Date()),
-            status: INVITATION_STATUS.INVITED
-          };
-          this.addFriendStatus(param);
-        }
+        this.addFriendStatusToMyself(friend);
       });
+
+      // check whether friend already has me. Only add it when it doesn't exist
+      this.findExistingDataInDb('users/' + friend.uid + '/personal_data/1/friends', 'friendUid', friend.uid).subscribe((data) => {
+        if (data?.length) {
+          return;
+        }
+        this.addFriendStatusToFriend(friend);
+      });
+
     });
   }
 
-  addFriendStatus(friend: Friend): void {
-    this.getCurrentUserDataCollection().collection('friends').add(friend);
+  addFriendStatusToMyself(friend: User): void {
+    const friendToBeInvited = {
+      friendUid: friend.uid,
+      friendDisplayName: friend.displayName,
+      createdDate: dateToTime(new Date()),
+      status: INVITATION_STATUS.INVITED
+    };
+    this.getCurrentUserDataCollection().collection('friends').add(friendToBeInvited).then(() => {
+      this.log(null, 'SUCCESS.INVITE_FRIEND', 'success');
+    }).catch(this.handleError);
+  }
+
+  addFriendStatusToFriend(friend: User): void {
+    const friendSendingRequest = {
+      friendUid: this.authService.getLoggedInUser().uid,
+      friendDisplayName: this.authService.getLoggedInUser().displayName,
+      createdDate: dateToTime(new Date()),
+      status: INVITATION_STATUS.PENDING_INVITATION
+    };
+    this.angularFirestore.collection('users/' + friend.uid + '/personal_data/1/friends').add(friendSendingRequest).then(() => {
+      this.log(null, 'SUCCESS.INVITE_FRIEND', 'success');
+    }).catch(this.handleError);
+  }
+
+  acceptFriendInvitation(friend: Friend): void {
+    friend.status = INVITATION_STATUS.CONNECTED;
+    this.getCurrentUserDataCollection().collection('friend').doc(friend.id).update(friend);
   }
 
   private getObservable(collection: AngularFirestoreCollection<any>): Observable<any> {

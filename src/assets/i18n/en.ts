@@ -116,6 +116,7 @@ export const EN = {
     EDIT_BANK: 'Edit the bank statement'
   },
   ERROR: {
+    ACCEPT_INVITATION: 'Could not accept the invitation',
     CREATE_TASK: 'Could not create the task',
     GET_TASK: 'Could not get tasks',
     DELETE_TASK: 'Could not delete the task',
@@ -125,8 +126,10 @@ export const EN = {
     USER_IS_MYSELF: 'You cannot add yourself as a friend'
   },
   SUCCESS: {
+    ACCEPT_INVITATION: 'Successfully accepted the invitation',
     CREATE_TASK: 'Successfully created the task',
     DELETE_TASK: 'Successfully deleted the task',
+    INVITE_FRIEND: 'Successfully sent the invitation',
     UPDATE_TASK: 'Successfully updated the task'
   },
   MESSAGE: {

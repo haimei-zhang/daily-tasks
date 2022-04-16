@@ -116,6 +116,7 @@ export const CN = {
     EDIT_BANK: '编辑银行流水'
   },
   ERROR: {
+    ACCEPT_INVITATION: '无法接受邀请',
     CREATE_TASK: '无法创建任务',
     GET_TASK: '无法获取任务信息',
     DELETE_TASK: '无法删除任务',
@@ -125,9 +126,11 @@ export const CN = {
     USER_IS_MYSELF: '不能添加自己为好友'
   },
   SUCCESS: {
+    ACCEPT_INVITATION: '成功接受邀请',
     CREATE_TASK: '成功创建任务',
     DELETE_TASK: '成功删除任务',
-    UPDATE_TASK: '成功更新任务'
+    INVITE_FRIEND: '成功发送好友申请',
+    UPDATE_TASK: '成功更新任务',
   },
   MESSAGE: {
     AGREEMENTS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
