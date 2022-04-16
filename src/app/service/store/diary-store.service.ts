@@ -148,8 +148,8 @@ export class DiaryStoreService {
     // update my connection
     this.updateFriendInvitationStatus(friend.id,
       {status: INVITATION_STATUS.CONNECTED, date: dateToTime(new Date)},
-      'SUCCESS.ACCEPT_INVITATION',
-      'ERROR.ACCEPT_INVITATION');
+      'ERROR.ACCEPT_INVITATION',
+      'SUCCESS.ACCEPT_INVITATION');
 
     // update my friend's connection
     this.angularFirestore.collection('friends', ref => ref
@@ -162,8 +162,8 @@ export class DiaryStoreService {
         const friendStatusToUpdate = data[0].payload.doc.data() as Friend;
         this.updateFriendInvitationStatus(friendStatusToUpdate.id,
           {status: INVITATION_STATUS.CONNECTED, date: dateToTime(new Date)},
-          'SUCCESS.ACCEPT_INVITATION',
-          'ERROR.ACCEPT_INVITATION');
+          'ERROR.ACCEPT_INVITATION',
+          'SUCCESS.ACCEPT_INVITATION');
       });
   }
 
