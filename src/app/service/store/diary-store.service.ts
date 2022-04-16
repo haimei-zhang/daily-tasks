@@ -137,8 +137,10 @@ export class DiaryStoreService {
   acceptFriendInvitation(friend: Friend): void {
     // update my friend connection
     this.getCurrentUserDataCollection().collection('friends').doc(friend.id)
-      .set({status: INVITATION_STATUS.CONNECTED}, {merge: true})
-      .then(() => {this.log(null, 'SUCCESS.ACCEPT_INVITATION', 'success');})
+      .update({status: INVITATION_STATUS.CONNECTED})
+      .then(() => {
+        this.log(null, 'SUCCESS.ACCEPT_INVITATION', 'success');
+      })
       .catch(() => this.handleError('ERROR.ACCEPT_INVITATION'));
 
     // update my friend's connection
@@ -147,8 +149,9 @@ export class DiaryStoreService {
       if (data?.length) {
         return;
       }
-      this.angularFirestore.collection('users/' + friend.friendUid + '/personal_data/1/friends').doc(data.id)
-        .set({status: INVITATION_STATUS.CONNECTED}, {merge: true})
+
+      this.angularFirestore.collection('users/' + friend.friendUid + '/personal_data/1/friends').doc(data[0].payload.doc.data().id)
+        .update({status: INVITATION_STATUS.CONNECTED})
         .catch(() => this.handleError('ERROR.ACCEPT_INVITATION'));
     });
   }
