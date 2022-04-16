@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { Habit } from '~models/habit.model';
 import { DB_COLLECTION_NAME } from '~constants';
+import { dateToTime } from '~utils/core.util';
+
 import { DiaryStoreService } from '~service/store/diary-store.service';
 import { AuthService } from '~service/auth.service';
 
@@ -40,10 +42,13 @@ export class HabitsContentComponent implements OnInit {
       data: {
         title: 'DIALOG.CREATE_HABIT',
         name: '',
-        completedDate: null,
         notes: '',
+        createdDate: dateToTime(new Date()),
+        completedDate: null,
+        isCompletedToday: false,
         authorId: this.authService.getLoggedInUser().uid,
-        authorName: this.authService.getLoggedInUser().displayName
+        authorName: this.authService.getLoggedInUser().displayName,
+        isVisibleToUserIds: []
       }
     };
     this.openCreateHabitDialog(config, taskName);
