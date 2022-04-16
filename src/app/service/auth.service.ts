@@ -55,7 +55,13 @@ export class AuthService {
         /* Call the sendVerificationMail() function when new user sign
         up and returns promise */
         this.sendVerificationMail();
-        this.setUserData(result.user, displayName);
+        this.afAuth.onAuthStateChanged(user => {
+          if (user) {
+            user.updateProfile({displayName: displayName});
+          }
+        }).then(() => {
+          this.setUserData(result.user);
+        });
       })
       .catch((error) => {
         window.alert(error.message);
@@ -111,7 +117,7 @@ export class AuthService {
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  setUserData(user: User, displayName?: string) {
+  setUserData(user: User) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
@@ -120,13 +126,9 @@ export class AuthService {
       email: user.email,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
+      displayName: user.displayName
     };
-    if (displayName) {
-      userData.displayName = displayName;
-    }
-    return userRef.set(userData, {
-      merge: true,
-    });
+    return userRef.set(userData, {merge: true});
   }
   // Sign out
   signOut() {
