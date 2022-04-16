@@ -69,6 +69,10 @@ export class MessagesComponent implements OnInit {
     }
   }
 
+  acceptInvitation(friend: Friend): void {
+    this.diaryStoreService.acceptFriendInvitation(friend);
+  }
+
   private getUser(): void {
     this.user = this.authService.getLoggedInUser();
   }

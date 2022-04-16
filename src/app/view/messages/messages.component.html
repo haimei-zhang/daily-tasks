@@ -27,7 +27,8 @@
         <mat-list role="list">
           <mat-list-item role="listitem" *ngFor="let friend of pendingFriends" [value]="friend.friendUid">
             <span>{{friend.friendDisplayName}}</span>
-            <button mat-stroked-button color="basic" class="pending-invitation-action">{{'COMMON.ACCEPT' | translate}}</button>
+            <button mat-stroked-button color="basic" class="pending-invitation-action"
+                    (click)="acceptInvitation(friend)">{{'COMMON.ACCEPT' | translate}}</button>
           </mat-list-item>
         </mat-list>
       </ng-container>

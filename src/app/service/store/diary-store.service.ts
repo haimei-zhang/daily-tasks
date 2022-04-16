@@ -56,21 +56,21 @@ export class DiaryStoreService {
   createHabit(dbName: string, habit: Habit): void {
     habit.completedDate = dateToTime(habit.completedDate);
     this.getCurrentUserDataCollection().collection(dbName).add(habit).then(() => {
-      this.log(null, 'SUCCESS.DELETE_TASK', 'success');
-    }).catch(this.handleError);
+      this.log(null, 'SUCCESS.CREATE_TASK', 'success');
+    }).catch(() => this.handleError('ERROR.CREATE_TASK'));
   }
 
   deleteHabit(dbName: string, habit: Habit): void {
     this.getCurrentUserDataCollection().collection(dbName).doc(habit.id).delete().then(() => {
       this.log(null, 'SUCCESS.DELETE_TASK', 'success');
-    }).catch(this.handleError);
+    }).catch(() => this.handleError('ERROR.DELETE_TASK'));
   }
 
   updateHabit(dbName: string, habit: Habit): void {
     habit.completedDate = dateToTime(habit.completedDate);
     this.getCurrentUserDataCollection().collection(dbName).doc(habit.id).update(habit).then(() => {
       this.log(null, 'SUCCESS.UPDATE_TASK', 'success');
-    }).catch(this.handleError);
+    }).catch(() => this.handleError('ERROR.UPDATE_TASK'));
   }
 
   inviteFriend(friendId: string): void {
@@ -119,7 +119,7 @@ export class DiaryStoreService {
     };
     this.getCurrentUserDataCollection().collection('friends').add(friendToBeInvited).then(() => {
       this.log(null, 'SUCCESS.INVITE_FRIEND', 'success');
-    }).catch(this.handleError);
+    }).catch(() => this.handleError('ERROR.INVITE_FRIEND'));
   }
 
   addFriendStatusToFriend(friend: User): void {
@@ -131,12 +131,26 @@ export class DiaryStoreService {
     };
     this.angularFirestore.collection('users/' + friend.uid + '/personal_data/1/friends').add(friendSendingRequest).then(() => {
       this.log(null, 'SUCCESS.INVITE_FRIEND', 'success');
-    }).catch(this.handleError);
+    }).catch(() => this.handleError('ERROR.INVITE_FRIEND'));
   }
 
   acceptFriendInvitation(friend: Friend): void {
-    friend.status = INVITATION_STATUS.CONNECTED;
-    this.getCurrentUserDataCollection().collection('friend').doc(friend.id).update(friend);
+    // update my friend connection
+    this.getCurrentUserDataCollection().collection('friend').doc(friend.id)
+      .set({status: INVITATION_STATUS.CONNECTED}, {merge: true})
+      .then(() => {this.log(null, 'SUCCESS.ACCEPT_INVITATION', 'success');})
+      .catch(() => this.handleError('ERROR.ACCEPT_INVITATION'));
+
+    // update my friend's connection
+    this.findExistingDataInDb('users/' + friend.friendUid + '/personal_data/1/friends', 'friendUid',
+      this.authService.getLoggedInUser().uid).subscribe(data => {
+      if (data?.length) {
+        return;
+      }
+      this.angularFirestore.collection('users/' + friend.friendUid + '/personal_data/1/friends').doc(data.id)
+        .set({status: INVITATION_STATUS.CONNECTED}, {merge: true})
+        .catch(() => this.handleError('ERROR.ACCEPT_INVITATION'));
+    });
   }
 
   private getObservable(collection: AngularFirestoreCollection<any>): Observable<any> {
