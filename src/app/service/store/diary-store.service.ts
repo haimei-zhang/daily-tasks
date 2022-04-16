@@ -96,7 +96,7 @@ export class DiaryStoreService {
   getFriends(): Observable<Friend[]> {
     const loggedInUserId = this.authService.getLoggedInUser().uid;
     return this.getObservable(this.angularFirestore.collection('friends',
-        ref => ref.where('authorUid', '==', loggedInUserId)));
+        ref => ref.where('authorId', '==', loggedInUserId)));
   }
 
   inviteFriend(friendId: string): void {
@@ -143,7 +143,31 @@ export class DiaryStoreService {
     });
   }
 
-  addFriendStatusToMyself(friend: User, loggedInUser: User): void {
+  acceptFriendInvitation(friend: Friend): void {
+    const loggedInUser = this.authService.getLoggedInUser();
+    // update my connection
+    this.updateFriendInvitationStatus(friend.id,
+      {status: INVITATION_STATUS.CONNECTED, date: dateToTime(new Date)},
+      'SUCCESS.ACCEPT_INVITATION',
+      'ERROR.ACCEPT_INVITATION');
+
+    // update my friend's connection
+    this.angularFirestore.collection('friends', ref => ref
+      .where('authorId', '==', friend.friendId)
+      .where('friendId', '==', loggedInUser.uid)).snapshotChanges()
+      .subscribe((data) => {
+        if (data?.length) {
+          return;
+        }
+        const friendStatusToUpdate = data[0].payload.doc.data() as Friend;
+        this.updateFriendInvitationStatus(friendStatusToUpdate.id,
+          {status: INVITATION_STATUS.CONNECTED, date: dateToTime(new Date)},
+          'SUCCESS.ACCEPT_INVITATION',
+          'ERROR.ACCEPT_INVITATION');
+      });
+  }
+
+  private addFriendStatusToMyself(friend: User, loggedInUser: User): void {
     const friendToBeInvited = {
       friendId: friend.uid,
       friendName: friend.displayName,
@@ -152,12 +176,10 @@ export class DiaryStoreService {
       date: dateToTime(new Date()),
       status: INVITATION_STATUS.INVITED
     };
-    this.angularFirestore.collection('friends').add(friendToBeInvited).then(() => {
-      this.log(null, 'SUCCESS.INVITE_FRIEND', 'success');
-    }).catch(() => this.handleError('ERROR.INVITE_FRIEND'));
+    this.addFriendInvitationStatus(friendToBeInvited);
   }
 
-  addFriendStatusToFriend(friend: User, loggedInUser: User): void {
+  private addFriendStatusToFriend(friend: User, loggedInUser: User): void {
     const friendPendingInvitation = {
       friendId: loggedInUser.uid,
       friendName: loggedInUser.displayName,
@@ -166,16 +188,19 @@ export class DiaryStoreService {
       date: dateToTime(new Date()),
       status: INVITATION_STATUS.PENDING_ACCEPTED
     };
-    this.angularFirestore.collection('friends').add(friendPendingInvitation).then(() => {
+    this.addFriendInvitationStatus(friendPendingInvitation);
+  }
+
+  private addFriendInvitationStatus(friend: Friend): void {
+    this.angularFirestore.collection('friends').add(friend).then(() => {
       this.log(null, 'SUCCESS.INVITE_FRIEND', 'success');
     }).catch(() => this.handleError('ERROR.INVITE_FRIEND'));
   }
 
-  acceptFriendInvitation(friend: Friend): void {
-    // update my friend connection
-
-    // update my friend's connection
-
+  private updateFriendInvitationStatus(friendId: string, friendToUpdate: Friend, error?: string, success?: string): void {
+    this.angularFirestore.collection('friends').doc(friendId).update(friendToUpdate).then(() => {
+      this.log(null, success, 'success');
+    }).catch(() => this.handleError(error));
   }
 
   private getObservable(collection: AngularFirestoreCollection<any>): Observable<any> {
