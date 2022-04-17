@@ -18,7 +18,7 @@
     <div>
       <mat-checkbox [(ngModel)]="data.isCompletedToday">{{'COMMON.COMPLETED_TODAY' | translate}}</mat-checkbox>
     </div>
-    <mat-form-field appearance="fill" *ngIf="(friends$ | async)?.length">
+    <mat-form-field appearance="fill" *ngIf="data.authorId === user.uid && (friends$ | async)?.length">
       <mat-label>{{'COMMON.VISIBLE_TO_FRIENDS' | translate}}</mat-label>
       <mat-select multiple [(value)]="data.isVisibleToUserIds">
         <mat-option *ngFor="let friend of (friends$ | async)" [value]="friend.friendId">{{friend.friendName}}</mat-option>

@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { CN } from '../assets/i18n/cn';
 import { EN } from '../assets/i18n/en';
+import { User } from '~models/user.model';
 
 import { LoadingIndicatorService } from '~service/loading-indicator.service';
 import { AuthService } from '~service/auth.service';
@@ -16,6 +17,7 @@ export class AppComponent {
 
   isLoading: boolean;
   isMenuOpen = false;
+  user: User;
 
   constructor(readonly translateService: TranslateService,
               readonly loadingIndicatorService: LoadingIndicatorService,
@@ -27,6 +29,7 @@ export class AppComponent {
     translateService.setTranslation('cn', CN);
     translateService.setTranslation('en', EN);
     translateService.use('cn');
+    this.user = authService.getLoggedInUser();
   }
 
   changeLanguage(language): void {

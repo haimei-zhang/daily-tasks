@@ -64,8 +64,7 @@ export class DiaryStoreService {
         .where('isVisibleToUserIds', 'array-contains', loggedInUserId)));
     return combineLatest([myOwnTasks, tasksVisibleToMe]).pipe(
       map(([myOwnTasks, tasksVisibleToMe]) => {
-        console.log(myOwnTasks.concat(tasksVisibleToMe))
-        return myOwnTasks.concat(tasksVisibleToMe)
+        return myOwnTasks.concat(tasksVisibleToMe);
       })
     );
   }

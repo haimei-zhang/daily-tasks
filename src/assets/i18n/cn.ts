@@ -1,6 +1,7 @@
 export const CN = {
   COMMON: {
     ACCEPT: '接受',
+    ACCOUNT_SETTINGS: '账户设置',
     BACK: '返回',
     CANCEL: '取消',
     CLOSE: '关闭',

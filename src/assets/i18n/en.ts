@@ -1,6 +1,7 @@
 export const EN = {
   COMMON: {
     ACCEPT: 'Accept',
+    ACCOUNT_SETTINGS: 'Account Settings',
     BACK: 'Back',
     CANCEL: 'Cancel',
     CLOSE: 'Close',
