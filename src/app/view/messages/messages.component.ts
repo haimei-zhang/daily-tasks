@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 
 import { User } from '~models/user.model';
@@ -24,6 +25,8 @@ export class MessagesComponent implements OnInit {
   message: string;
   friendId: string;
 
+  friendsSubscription: Subscription;
+
   constructor(public dialog: MatDialog,
               readonly authService: AuthService,
               readonly diaryStoreService: DiaryStoreService) {}
@@ -31,6 +34,10 @@ export class MessagesComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
     this.getFriends();
+  }
+
+  ngOnDestroy(): void {
+    this.friendsSubscription.unsubscribe();
   }
 
   refresh(lastRefreshTime): void {
@@ -84,7 +91,7 @@ export class MessagesComponent implements OnInit {
   }
 
   private getFriends(): void {
-    this.diaryStoreService.friends$.subscribe((friends) => {
+    this.friendsSubscription = this.diaryStoreService.friends$.subscribe((friends) => {
       this.pendingFriends = friends.filter(friend => friend.status === INVITATION_STATUS.PENDING_ACCEPTED);
       this.connectedFriends = friends.filter(friend => friend.status === INVITATION_STATUS.CONNECTED);
     });

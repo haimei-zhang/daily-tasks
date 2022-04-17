@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, of, pipe } from 'rxjs';
+import { debounceTime, map, shareReplay } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import * as R from 'ramda';
 
 import { Habit } from '~models/habit.model';
@@ -15,7 +16,6 @@ import { INVITATION_STATUS } from '~constants';
 import { dateToTime } from '~utils/core.util';
 
 import { AuthService } from '~service/auth.service';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -118,26 +118,30 @@ export class DiaryStoreService {
       const friend = data[0].payload.doc.data() as User;
       const loggedInUser = this.authService.getLoggedInUser();
       // check whether friend already exists. Only add it when it doesn't exist
-      this.angularFirestore.collection('friends', ref => ref
+      const myConnectionSubscription = this.angularFirestore.collection('friends', ref => ref
         .where('friendId', '==', friend.uid)
         .where('authorId', '==', loggedInUser.uid)).snapshotChanges()
+        .pipe(debounceTime(500), shareReplay(1))
         .subscribe((data) => {
-        if (data?.length) {
+        if (data.length) {
           this.log(null, 'ERROR.USER_ALREADY_EXISTS', 'error');
           return;
         }
-        this.addFriendStatusToMyself(friend, loggedInUser);
+        const callback = () => {myConnectionSubscription.unsubscribe();}
+        this.addFriendStatusToMyself(friend, loggedInUser, callback);
       });
 
       // check whether friend already has me. Only add it when the friend doesn't have me
-      this.angularFirestore.collection('friends', ref => ref
+      const myFriendsConnectionSubscription = this.angularFirestore.collection('friends', ref => ref
         .where('authorId', '==', friend.uid)
         .where('friendId', '==', loggedInUser.uid)).snapshotChanges()
+        .pipe(debounceTime(500), shareReplay(1))
         .subscribe((data) => {
-        if (data?.length) {
+        if (data.length) {
           return;
         }
-        this.addFriendStatusToFriend(friend, loggedInUser);
+        const callback = () => {myFriendsConnectionSubscription.unsubscribe();}
+        this.addFriendStatusToFriend(friend, loggedInUser, callback);
       });
 
     });
@@ -152,22 +156,24 @@ export class DiaryStoreService {
       'SUCCESS.ACCEPT_INVITATION');
 
     // update my friend's connection
-    this.angularFirestore.collection('friends', ref => ref
+    const myFriendsConnectionSubscription = this.angularFirestore.collection('friends', ref => ref
       .where('authorId', '==', friend.friendId)
       .where('friendId', '==', loggedInUser.uid)).snapshotChanges()
+      .pipe(debounceTime(2000), shareReplay(1))
       .subscribe((data) => {
-        if (data?.length) {
+        if (!data?.length) {
           return;
         }
-        const friendStatusToUpdate = data[0].payload.doc.data() as Friend;
-        this.updateFriendInvitationStatus(friendStatusToUpdate.id,
+        const friendStatusIdToUpdate = data[0].payload.doc.id;
+        const callback = () => {myFriendsConnectionSubscription.unsubscribe()};
+        this.updateFriendInvitationStatus(friendStatusIdToUpdate,
           {status: INVITATION_STATUS.CONNECTED, date: dateToTime(new Date)},
           'ERROR.ACCEPT_INVITATION',
-          'SUCCESS.ACCEPT_INVITATION');
+          null, callback);
       });
   }
 
-  private addFriendStatusToMyself(friend: User, loggedInUser: User): void {
+  private addFriendStatusToMyself(friend: User, loggedInUser: User, callback?: () => void): void {
     const friendToBeInvited = {
       friendId: friend.uid,
       friendName: friend.displayName,
@@ -176,10 +182,10 @@ export class DiaryStoreService {
       date: dateToTime(new Date()),
       status: INVITATION_STATUS.INVITED
     };
-    this.addFriendInvitationStatus(friendToBeInvited);
+    this.addFriendInvitationStatus(friendToBeInvited, 'SUCCESS.INVITE_FRIEND', callback);
   }
 
-  private addFriendStatusToFriend(friend: User, loggedInUser: User): void {
+  private addFriendStatusToFriend(friend: User, loggedInUser: User, callback?: () => void): void {
     const friendPendingInvitation = {
       friendId: loggedInUser.uid,
       friendName: loggedInUser.displayName,
@@ -188,18 +194,28 @@ export class DiaryStoreService {
       date: dateToTime(new Date()),
       status: INVITATION_STATUS.PENDING_ACCEPTED
     };
-    this.addFriendInvitationStatus(friendPendingInvitation);
+    this.addFriendInvitationStatus(friendPendingInvitation, null, callback);
   }
 
-  private addFriendInvitationStatus(friend: Friend): void {
+  private addFriendInvitationStatus(friend: Friend, success?: string, callback?: () => void): void {
     this.angularFirestore.collection('friends').add(friend).then(() => {
-      this.log(null, 'SUCCESS.INVITE_FRIEND', 'success');
+      if (success) {
+        this.log(null, success, 'success');
+      }
+      if (callback) {
+        callback();
+      }
     }).catch(() => this.handleError('ERROR.INVITE_FRIEND'));
   }
 
-  private updateFriendInvitationStatus(friendId: string, friendToUpdate: Friend, error?: string, success?: string): void {
+  private updateFriendInvitationStatus(friendId: string, friendToUpdate: Friend, error?: string, success?: string, callback?: () => void): void {
     this.angularFirestore.collection('friends').doc(friendId).update(friendToUpdate).then(() => {
-      this.log(null, success, 'success');
+      if (success) {
+        this.log(null, success, 'success');
+      }
+      if (callback) {
+        callback();
+      }
     }).catch(() => this.handleError(error));
   }
 
