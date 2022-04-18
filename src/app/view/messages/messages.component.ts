@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 
 import { User } from '~models/user.model';
@@ -23,13 +23,12 @@ export class MessagesComponent implements OnInit {
   pendingFriends: Friend[];
   connectedFriends: Friend[];
   avatarSrc = 'assets/images/daily-tasks.jpg';
-  messages: Message[];
+  message$: Observable<Message[]>;
   message: string;
   newFriendId: string;
   currentFriend: Friend;
 
   friendsSubscription: Subscription;
-  messageSubscription: Subscription;
 
   constructor(public dialog: MatDialog,
               readonly authService: AuthService,
@@ -43,7 +42,6 @@ export class MessagesComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.friendsSubscription.unsubscribe();
-    this.messageSubscription.unsubscribe();
   }
 
   refresh(lastRefreshTime): void {
@@ -96,7 +94,7 @@ export class MessagesComponent implements OnInit {
   selectCurrentFriend(friend: Friend): void {
     this.currentFriend = friend;
     if (this.currentFriend) {
-      this.diaryStoreService.getMessages(this.currentFriend.friendId);
+      this.message$ = this.diaryStoreService.getMessagesByFriendId(this.currentFriend.friendId);
     }
   }
 
@@ -105,9 +103,9 @@ export class MessagesComponent implements OnInit {
   }
 
   private removeData(data) {
-    this.messages = this.messages.filter((message) => {
+   /* this.messages = this.messages.filter((message) => {
       return message.id !== data.id;
-    });
+    });*/
   }
 
   private getFriends(): void {
@@ -118,10 +116,6 @@ export class MessagesComponent implements OnInit {
   }
 
   private getMessages(): void {
-    this.messageSubscription = this.diaryStoreService.messages$?.subscribe((messages) => {
-      if (this.currentFriend) {
-        this.messages = messages;
-      }
-    });
+    this.message$ = this.diaryStoreService.getMessagesByFriendId(null);
   }
 }

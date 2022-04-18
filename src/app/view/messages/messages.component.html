@@ -60,11 +60,11 @@
       </div>
     </div>
     <mat-divider class="my-2"></mat-divider>
-    <ng-container *ngFor="let message of messages">
+    <ng-container *ngFor="let message of (message$ | async)">
       <mat-card class="card mb-2">
         <mat-card-header>
           <div mat-card-avatar class="header-image" style="background-image: url(assets/images/daily-tasks.jpg);"></div>
-          <mat-card-title>{{message.authorId}}</mat-card-title>
+          <mat-card-title>{{message.authorName}}</mat-card-title>
           <mat-card-subtitle>{{message.createdDate | date: 'medium'}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
@@ -80,6 +80,6 @@
         </mat-card-actions>
       </mat-card>
     </ng-container>
-    <ng-container *ngIf="!messages?.length">{{'MESSAGE.NO_DATA' | translate}}</ng-container>
+    <ng-container *ngIf="!(message$ | async)?.length">{{'MESSAGE.NO_DATA' | translate}}</ng-container>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, combineLatest, Observable, of, pipe } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { debounceTime, map, shareReplay } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
@@ -36,7 +36,7 @@ export class DiaryStoreService {
   loveTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('love_tasks');
   movieTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('movie_tasks');
   friends$: Observable<Friend[]> = this.getFriends();
-  messages$: Observable<Message[]>;
+  messages$: Observable<Message[]> = this.getMessagesByFriendId(null);
 
   constructor(private toastr: ToastrService,
               private translateService: TranslateService,
@@ -154,23 +154,30 @@ export class DiaryStoreService {
   }
 
   /*messages*/
-  getMessages(friendId: string): Observable<Message[]> {
-    const loggedInUserId = this.authService.getLoggedInUser().uid;
-    const myMessages = this.getObservable(this.angularFirestore.collection('friends',
-      ref => ref
-        .where('authorId', '==', loggedInUserId)
-        .where('toUserId', '==', friendId)
-        .orderBy('createdDate')));
-    const messagesToMe = this.getObservable(this.angularFirestore.collection('friends',
-      ref => ref
-        .where('authorId', '==', friendId)
-        .where('toUserId', '==', loggedInUserId)
-        .orderBy('createdDate')));
-    return combineLatest([myMessages, messagesToMe]).pipe(
-      map(([myMessages, messagesToMe]) => {
-        return myMessages.concat(messagesToMe).sort((a, b) => a.createdDate - b.createdDate);
-      })
-    );
+  getMessagesByFriendId(friendId: string): Observable<Message[]> {
+    if (friendId) {
+      const loggedInUserId = this.authService.getLoggedInUser().uid;
+      const myMessages = this.getObservable(this.angularFirestore.collection('messages',
+        (ref) => ref
+          .where('authorId', '==', loggedInUserId)
+          .where('toUserId', '==', friendId)
+          .orderBy('createdDate')
+      ));
+      const messagesToMe = this.getObservable(this.angularFirestore.collection('messages',
+        (ref) => ref
+          .where('authorId', '==', friendId)
+          .where('toUserId', '==', loggedInUserId)
+          .orderBy('createdDate')
+      ));
+      return combineLatest([myMessages, messagesToMe]).pipe(
+        map(([myMessages, messagesToMe]) => {
+          const allMessages = myMessages.concat(messagesToMe);
+          return allMessages.sort((a, b) => a.createdDate - b.createdDate);
+        })
+      );
+    } else {
+      return of([]);
+    }
   }
 
   createMessage(message: Message): void {
