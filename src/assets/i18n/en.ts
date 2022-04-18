@@ -125,6 +125,7 @@ export const EN = {
     ACCEPT_INVITATION: 'Could not accept the invitation',
     CREATE_MESSAGE: 'Could not send the message',
     CREATE_TASK: 'Could not create the task',
+    DELETE_MESSAGE: 'Could not delete the message',
     GET_TASK: 'Could not get tasks',
     DELETE_TASK: 'Could not delete the task',
     NO_USER_FOUND: 'Could not find this user',
@@ -135,6 +136,7 @@ export const EN = {
   SUCCESS: {
     ACCEPT_INVITATION: 'Successfully accepted the invitation',
     CREATE_TASK: 'Successfully created the task',
+    DELETE_MESSAGE: 'Successfully deleted the message',
     DELETE_TASK: 'Successfully deleted the task',
     INVITE_FRIEND: 'Successfully sent the invitation',
     UPDATE_TASK: 'Successfully updated the task'

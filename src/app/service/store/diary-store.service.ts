@@ -185,6 +185,14 @@ export class DiaryStoreService {
       .catch(() => this.handleError('ERROR.CREATE_MESSAGE'));
   }
 
+  deleteMessage(message: Message): void {
+    this.angularFirestore.collection('messages').doc(message.id).delete()
+      .then(() => {
+        this.log(null, 'SUCCESS.DELETE_MESSAGE', 'success');
+      })
+      .catch(() => this.handleError('ERROR.DELETE_MESSAGE'));
+  }
+
   /*tasks*/
   private getTasksForCurrentUser(dbName): Observable<Habit[]> {
     const loggedInUserId = this.authService.getLoggedInUser().uid;

@@ -126,6 +126,7 @@ export const CN = {
     CREATE_MESSAGE: '无法发送信息',
     CREATE_TASK: '无法创建任务',
     GET_TASK: '无法获取任务信息',
+    DELETE_MESSAGE: '无法删除信息',
     DELETE_TASK: '无法删除任务',
     NO_USER_FOUND: '无法找到该用户',
     UPDATE_TASK: '无法更新任务',
@@ -135,6 +136,7 @@ export const CN = {
   SUCCESS: {
     ACCEPT_INVITATION: '成功接受邀请',
     CREATE_TASK: '成功创建任务',
+    DELETE_MESSAGE: '成功删除留言',
     DELETE_TASK: '成功删除任务',
     INVITE_FRIEND: '成功发送好友申请',
     UPDATE_TASK: '成功更新任务',

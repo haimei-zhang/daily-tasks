@@ -76,7 +76,7 @@ export class MessagesComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, config);
     dialogRef.afterClosed().subscribe(confirm => {
       if (confirm) {
-        this.removeData(element);
+        this.deleteMessage(element);
       }
     });
   }
@@ -102,10 +102,8 @@ export class MessagesComponent implements OnInit {
     this.user = this.authService.getLoggedInUser();
   }
 
-  private removeData(data) {
-   /* this.messages = this.messages.filter((message) => {
-      return message.id !== data.id;
-    });*/
+  private deleteMessage(message: Message) {
+    this.diaryStoreService.deleteMessage(message);
   }
 
   private getFriends(): void {
