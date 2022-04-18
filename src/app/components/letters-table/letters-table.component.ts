@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+
+import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 
 import { Letter } from '~models/letter.model';
 
@@ -21,7 +24,8 @@ export class LettersTableComponent implements OnInit, OnDestroy {
   dataToDisplay = [...this.letters];
   dataSource = new MatTableDataSource(this.letters);
 
-  constructor(readonly storeService: StoreService,
+  constructor(public dialog: MatDialog,
+              readonly storeService: StoreService,
               readonly diaryStoreService: DiaryStoreService) { }
 
   ngOnInit(): void {
@@ -38,8 +42,19 @@ export class LettersTableComponent implements OnInit, OnDestroy {
     this.diaryStoreService.clearCurrentLetter();
   }
 
-  removeData(data) {
-    // this.storeService.deleteLetter(data);
+  openDeleteConfirmationDialog(letter: Letter): void {
+    const config = {
+      data: {
+        title: 'DIALOG.DELETE_LETTER',
+        content: 'DIALOG.DELETE_LETTER_MESSAGE'
+      }
+    };
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, config);
+    dialogRef.afterClosed().subscribe(confirm => {
+      if (confirm) {
+        this.removeData(letter);
+      }
+    });
   }
 
   applyFilter(event: Event) {
@@ -47,9 +62,14 @@ export class LettersTableComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  edit(element): void {
+  edit(letter: Letter): void {
     this.storeService.updateEditMode(true);
-    this.diaryStoreService.updateCurrentLetter(element);
+    this.diaryStoreService.updateCurrentLetter(letter);
+  }
+
+  private removeData(letter: Letter) {
+    this.diaryStoreService.deleteLetter(letter.id);
+    this.storeService.updateEditMode(false);
   }
 
   private getLetters(): void {

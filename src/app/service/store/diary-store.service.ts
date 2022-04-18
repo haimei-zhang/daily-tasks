@@ -217,6 +217,14 @@ export class DiaryStoreService {
       .catch(() => this.handleError('ERROR.UPDATE_LETTER'));
   }
 
+  deleteLetter(letterId: string): void {
+    this.angularFirestore.collection('letters').doc(letterId).delete()
+      .then(() => {
+        this.log(null, 'SUCCESS.DELETE_LETTER', 'success');
+      })
+      .catch(() => this.handleError('ERROR.DELETE_LETTER'));
+  }
+
   updateCurrentLetter(currentLetter): void {
     this.currentLetter = R.clone(currentLetter);
     this.currentLetterSource.next(this.currentLetter);
