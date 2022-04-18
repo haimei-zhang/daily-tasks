@@ -17,7 +17,6 @@ export class AppComponent {
 
   isLoading: boolean;
   isMenuOpen = false;
-  user: User;
 
   constructor(readonly translateService: TranslateService,
               readonly loadingIndicatorService: LoadingIndicatorService,
@@ -29,7 +28,6 @@ export class AppComponent {
     translateService.setTranslation('cn', CN);
     translateService.setTranslation('en', EN);
     translateService.use('cn');
-    this.user = authService.getLoggedInUser();
   }
 
   changeLanguage(language): void {

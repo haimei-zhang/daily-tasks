@@ -21,7 +21,7 @@
     {{'COMMON.MENU' | translate}}
   </button>
 
-  <button type="button" mat-button [matMenuTriggerFor]="account">{{user.displayName}}</button>
+  <button type="button" mat-button [matMenuTriggerFor]="account">{{authService.getLoggedInUser()?.displayName}}</button>
   <mat-menu #account="matMenu">
     <button mat-menu-item>{{'COMMON.ACCOUNT_SETTINGS' | translate}}</button>
     <button mat-menu-item (click)="logout()">{{'COMMON.LOGOUT' | translate}}</button>

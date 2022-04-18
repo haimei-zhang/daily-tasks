@@ -36,7 +36,6 @@ export class DiaryStoreService {
   loveTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('love_tasks');
   movieTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('movie_tasks');
   friends$: Observable<Friend[]> = this.getFriends();
-  messages$: Observable<Message[]> = this.getMessagesByFriendId(null);
 
   constructor(private toastr: ToastrService,
               private translateService: TranslateService,
