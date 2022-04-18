@@ -56,6 +56,7 @@ import { IconsComponent } from '~components/icons/icons.component';
 import { PageHeaderComponent } from '~components/page-header/page-header.component';
 import { LettersTableComponent } from '~components/letters-table/letters-table.component';
 import { LettersEditorComponent } from '~components/letters-editor/letters-editor.component';
+import { LetterDetailsComponent } from '~components/letter-details/letter-details.component';
 import { AgreementsEditorComponent } from '~components/agreements-editor/agreements-editor.component';
 import { HabitsContentComponent } from '~components/habits-content/habits-content.component';
 import { CreateUpdateHabitsDialogComponent } from '~components/dialog/create-update-habits-dialog/create-update-habits-dialog.component';
@@ -117,7 +118,8 @@ import { environment } from '../environments/environment';
     MessagesComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    LetterDetailsComponent
   ],
   imports: [
     BrowserModule,

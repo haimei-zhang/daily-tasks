@@ -43,6 +43,7 @@ export class LettersEditorComponent implements OnInit, OnDestroy {
       } else {
         this.createLetter();
       }
+      this.storeService.updateEditMode(false);
     }
   }
 
@@ -71,7 +72,6 @@ export class LettersEditorComponent implements OnInit, OnDestroy {
       createdDate: dateToTime(new Date())
     } as Letter;
     this.diaryStoreService.createLetter(letter);
-    this.storeService.updateEditMode(false);
   }
 
   private getCurrentLetter(): void {

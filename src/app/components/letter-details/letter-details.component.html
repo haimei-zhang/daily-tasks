@@ -1,0 +1,42 @@
+<diary-page-header [pageTitle]="'MENU.LETTERS'" [pageSubtitle]="'MENU.LETTERS'" [avatarSrc]="avatarSrc"
+                   [toShowAction]="true" (refreshEvent)="refresh($event)"></diary-page-header>
+<div *ngIf="currentLetter">
+  <div *ngIf="!isEditMode">
+    <mat-card class="card mb-2">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image" style="background-image: url(assets/images/letters.jpeg);"></div>
+        <mat-card-title>{{currentLetter.title}}</mat-card-title>
+        <mat-card-subtitle>
+          <span>{{currentLetter.authorName}}, </span>
+          <span *ngIf="!currentLetter.editedDate">{{currentLetter.createdDate | date: 'medium'}}</span>
+          <span *ngIf="currentLetter.editedDate">{{currentLetter.editedDate | date: 'medium'}}</span>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>{{currentLetter.content}}</mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-stroked-button color="basic" routerLink="/letters">
+          <svg class="icon" width="16" height="16">
+            <use xlink:href="#arrow-alt-circle-left" href="#arrow-alt-circle-left"></use>
+          </svg>
+          {{'COMMON.BACK' | translate}}
+        </button>
+        <button mat-stroked-button color="basic" (click)="edit()">
+          <svg class="icon" width="16" height="16">
+            <use xlink:href="#edit" href="#edit"></use>
+          </svg>
+          {{'TABLE.EDIT' | translate}}
+        </button>
+        <button mat-stroked-button color="warn" (click)="openDeleteConfirmationDialog()">
+          <svg class="icon" width="16" height="16">
+            <use xlink:href="#trash-alt" href="#trash-alt"></use>
+          </svg>
+          {{'TABLE.DELETE' | translate}}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div *ngIf="isEditMode">
+    <diary-letters-editor></diary-letters-editor>
+  </div>
+</div>
+<div *ngIf="!currentLetter" class="text-center">{{'MESSAGE.NO_DATA' | translate}}</div>

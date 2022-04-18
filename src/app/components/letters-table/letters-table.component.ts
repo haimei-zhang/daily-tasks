@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,9 +25,11 @@ export class LettersTableComponent implements OnInit, OnDestroy {
   dataToDisplay = [...this.letters];
   dataSource = new MatTableDataSource(this.letters);
 
-  constructor(public dialog: MatDialog,
+  constructor(public router: Router,
+              public dialog: MatDialog,
               readonly storeService: StoreService,
-              readonly diaryStoreService: DiaryStoreService) { }
+              readonly diaryStoreService: DiaryStoreService) {
+  }
 
   ngOnInit(): void {
     this.getLetters();
@@ -42,7 +45,8 @@ export class LettersTableComponent implements OnInit, OnDestroy {
     this.diaryStoreService.clearCurrentLetter();
   }
 
-  openDeleteConfirmationDialog(letter: Letter): void {
+  openDeleteConfirmationDialog(letter: Letter, e: Event): void {
+    e.stopPropagation();
     const config = {
       data: {
         title: 'DIALOG.DELETE_LETTER',
@@ -62,9 +66,15 @@ export class LettersTableComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  edit(letter: Letter): void {
+  edit(letter: Letter, e: Event): void {
+    e.stopPropagation();
     this.storeService.updateEditMode(true);
     this.diaryStoreService.updateCurrentLetter(letter);
+  }
+
+  view(row: Letter): void {
+    this.diaryStoreService.updateCurrentLetter(row);
+    this.router.navigate(['letters/' + row.id]);
   }
 
   private removeData(letter: Letter) {

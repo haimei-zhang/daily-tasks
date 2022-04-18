@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { StoreService } from '~service/store/store.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'diary-letters',
@@ -19,10 +20,11 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ])
   ]
 })
-export class LettersComponent implements OnInit {
+export class LettersComponent implements OnInit, OnDestroy {
 
   avatarSrc = 'assets/images/letters.jpeg';
   isEditMode: boolean;
+  isEditModeSubscription: Subscription;
 
   constructor(readonly storeService: StoreService) { }
 
@@ -30,12 +32,16 @@ export class LettersComponent implements OnInit {
     this.getEditMode();
   }
 
+  ngOnDestroy(): void {
+    this.isEditModeSubscription.unsubscribe();
+  }
+
   refresh(lastRefreshTime): void {
     console.log(lastRefreshTime);
   }
 
   private getEditMode(): void {
-    this.storeService.isEditMode$.subscribe((isEditMode) => {
+    this.isEditModeSubscription = this.storeService.isEditMode$.subscribe((isEditMode) => {
       this.isEditMode = isEditMode;
     });
   }
