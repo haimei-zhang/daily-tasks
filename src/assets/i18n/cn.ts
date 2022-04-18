@@ -64,7 +64,8 @@ export const CN = {
     FILTER: '搜索',
     NAME: '名称',
     NOTES: '描述',
-    SAVE: '保存'
+    SAVE: '保存',
+    TITLE: '标题'
   },
   BANK: {
     AMOUNT: '数额',
@@ -123,22 +124,26 @@ export const CN = {
   },
   ERROR: {
     ACCEPT_INVITATION: '无法接受邀请',
+    CREATE_LETTER: '无法创建保证书',
     CREATE_MESSAGE: '无法发送信息',
     CREATE_TASK: '无法创建任务',
     GET_TASK: '无法获取任务信息',
     DELETE_MESSAGE: '无法删除信息',
     DELETE_TASK: '无法删除任务',
     NO_USER_FOUND: '无法找到该用户',
+    UPDATE_LETTER: '无法更新保证书',
     UPDATE_TASK: '无法更新任务',
     USER_ALREADY_EXISTS: '用户已存在',
     USER_IS_MYSELF: '不能添加自己为好友'
   },
   SUCCESS: {
     ACCEPT_INVITATION: '成功接受邀请',
+    CREATE_LETTER: '成功创建保证书',
     CREATE_TASK: '成功创建任务',
     DELETE_MESSAGE: '成功删除留言',
     DELETE_TASK: '成功删除任务',
     INVITE_FRIEND: '成功发送好友申请',
+    UPDATE_LETTER: '成功更新保证书',
     UPDATE_TASK: '成功更新任务',
   },
   MESSAGE: {

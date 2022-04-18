@@ -10,6 +10,8 @@ import { Habit } from '~models/habit.model';
 import { User } from '~models/user.model';
 import { Friend } from '~models/friend.model';
 import { Message } from '~models/message.model';
+import { Letter } from '~models/letter.model';
+import { Announcement } from '~models/announcement.model';
 
 import { INVITATION_STATUS } from '~constants';
 
@@ -22,10 +24,14 @@ import { AuthService } from '~service/auth.service';
 })
 export class DiaryStoreService {
 
-  currentAnnouncement: any;
+  currentAnnouncement: Announcement;
+  currentLetter: Letter;
 
   readonly currentAnnouncementSource = new BehaviorSubject<any>(this.currentAnnouncement);
   currentAnnouncement$ = this.currentAnnouncementSource.asObservable();
+
+  readonly currentLetterSource = new BehaviorSubject<any>(this.currentLetter);
+  currentLetter$ = this.currentLetterSource.asObservable();
 
   selfCareTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('self_care_tasks');
   sportsTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('sports_tasks');
@@ -36,6 +42,7 @@ export class DiaryStoreService {
   loveTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('love_tasks');
   movieTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('movie_tasks');
   friends$: Observable<Friend[]> = this.getFriends();
+  letters$: Observable<Letter[]> = this.getLetters();
 
   constructor(private toastr: ToastrService,
               private translateService: TranslateService,
@@ -43,6 +50,7 @@ export class DiaryStoreService {
               readonly authService: AuthService) {
   }
 
+  /*announcement*/
   updateCurrentAnnouncement(announcement): void {
     this.currentAnnouncement = R.clone(announcement);
     this.currentAnnouncementSource.next(this.currentAnnouncement);
@@ -192,6 +200,33 @@ export class DiaryStoreService {
       .catch(() => this.handleError('ERROR.DELETE_MESSAGE'));
   }
 
+  /*letters*/
+  createLetter(letter: Letter): void {
+    this.angularFirestore.collection('letters').add(letter)
+      .then(() => {
+        this.log(null, 'SUCCESS.CREATE_LETTER', 'success');
+      })
+      .catch(() => this.handleError('ERROR.CREATE_LETTER'));
+  }
+
+  updateLetter(letterId: string, letter: Letter): void {
+    this.angularFirestore.collection('letters').doc(letterId).update(letter)
+      .then(() => {
+        this.log(null, 'SUCCESS.UPDATE_LETTER', 'success');
+      })
+      .catch(() => this.handleError('ERROR.UPDATE_LETTER'));
+  }
+
+  updateCurrentLetter(currentLetter): void {
+    this.currentLetter = R.clone(currentLetter);
+    this.currentLetterSource.next(this.currentLetter);
+  }
+
+  clearCurrentLetter(): void {
+    this.currentLetter = null;
+    this.currentLetterSource.next(null);
+  }
+
   /*tasks*/
   private getTasksForCurrentUser(dbName): Observable<Habit[]> {
     const loggedInUserId = this.authService.getLoggedInUser().uid;
@@ -259,6 +294,20 @@ export class DiaryStoreService {
         callback();
       }
     }).catch(() => this.handleError(error));
+  }
+
+  /*letters*/
+  private getLetters(): Observable<Letter[]> {
+    const loggedInUserId = this.authService.getLoggedInUser().uid;
+    const myLetters = this.getObservable(this.angularFirestore.collection('letters',
+      ref => ref.where('authorId', '==', loggedInUserId)));
+    const lettersToMe = this.getObservable(this.angularFirestore.collection('letters',
+      ref => ref.where('toUserIds', 'array-contains', loggedInUserId)));
+    return combineLatest([myLetters, lettersToMe]).pipe(
+      map(([myLetters, lettersToMe]) => {
+        return myLetters.concat(lettersToMe);
+      })
+    );
   }
 
   /*global*/

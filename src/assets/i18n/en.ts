@@ -64,7 +64,8 @@ export const EN = {
     FILTER: 'Filter',
     NAME: 'Name',
     NOTES: 'Notes',
-    SAVE: 'Save'
+    SAVE: 'Save',
+    TITLE: 'Title'
   },
   BANK: {
     AMOUNT: 'Amount',
@@ -123,22 +124,26 @@ export const EN = {
   },
   ERROR: {
     ACCEPT_INVITATION: 'Could not accept the invitation',
+    CREATE_LETTER: 'Could not create the letter',
     CREATE_MESSAGE: 'Could not send the message',
     CREATE_TASK: 'Could not create the task',
     DELETE_MESSAGE: 'Could not delete the message',
     GET_TASK: 'Could not get tasks',
     DELETE_TASK: 'Could not delete the task',
     NO_USER_FOUND: 'Could not find this user',
+    UPDATE_LETTER: 'Could not create the letter',
     UPDATE_TASK: 'Could not update the task',
     USER_ALREADY_EXISTS: 'This user already exists',
     USER_IS_MYSELF: 'You cannot add yourself as a friend'
   },
   SUCCESS: {
     ACCEPT_INVITATION: 'Successfully accepted the invitation',
+    CREATE_LETTER: 'Successfully created the letter',
     CREATE_TASK: 'Successfully created the task',
     DELETE_MESSAGE: 'Successfully deleted the message',
     DELETE_TASK: 'Successfully deleted the task',
     INVITE_FRIEND: 'Successfully sent the invitation',
+    UPDATE_LETTER: 'Successfully created the letter',
     UPDATE_TASK: 'Successfully updated the task'
   },
   MESSAGE: {

@@ -1,36 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Subscription } from 'rxjs';
 
-import { TASKS } from '~constants';
+import { Letter } from '~models/letter.model';
 
 import { StoreService } from '~service/store/store.service';
+import { DiaryStoreService } from '~service/store/diary-store.service';
 
 @Component({
   selector: 'diary-letters-table',
   templateUrl: './letters-table.component.html',
   styleUrls: ['./letters-table.component.scss']
 })
-export class LettersTableComponent implements OnInit {
+export class LettersTableComponent implements OnInit, OnDestroy {
 
-  ELEMENT_DATA = TASKS;
+  letters: Letter[] = [];
+  lettersSubscription: Subscription;
 
-  displayedColumns: string[] = ['name', 'date', 'action'];
-  dataToDisplay = [...this.ELEMENT_DATA];
-  dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+  displayedColumns: string[] = ['title', 'authorName', 'createdDate', 'action'];
+  dataToDisplay = [...this.letters];
+  dataSource = new MatTableDataSource(this.letters);
 
-  constructor(readonly storeService: StoreService) { }
+  constructor(readonly storeService: StoreService,
+              readonly diaryStoreService: DiaryStoreService) { }
 
   ngOnInit(): void {
+    this.getLetters();
+  }
+
+  ngOnDestroy(): void {
+    this.lettersSubscription.unsubscribe();
+    this.storeService.updateEditMode(false);
   }
 
   add(): void {
     this.storeService.updateEditMode(true);
+    this.diaryStoreService.clearCurrentLetter();
   }
 
   removeData(data) {
-    console.log(data);
-    this.dataToDisplay = this.dataToDisplay.slice(0, -1);
-    // this.dataSource.setData(this.dataToDisplay);
+    // this.storeService.deleteLetter(data);
   }
 
   applyFilter(event: Event) {
@@ -39,7 +48,14 @@ export class LettersTableComponent implements OnInit {
   }
 
   edit(element): void {
-    console.log(element);
     this.storeService.updateEditMode(true);
+    this.diaryStoreService.updateCurrentLetter(element);
+  }
+
+  private getLetters(): void {
+    this.lettersSubscription = this.diaryStoreService.letters$.subscribe(letters => {
+      this.letters = letters;
+      this.dataSource = new MatTableDataSource(this.letters);
+    });
   }
 }
