@@ -123,6 +123,7 @@ export const EN = {
   },
   ERROR: {
     ACCEPT_INVITATION: 'Could not accept the invitation',
+    CREATE_MESSAGE: 'Could not send the message',
     CREATE_TASK: 'Could not create the task',
     GET_TASK: 'Could not get tasks',
     DELETE_TASK: 'Could not delete the task',

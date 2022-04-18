@@ -123,6 +123,7 @@ export const CN = {
   },
   ERROR: {
     ACCEPT_INVITATION: '无法接受邀请',
+    CREATE_MESSAGE: '无法发送信息',
     CREATE_TASK: '无法创建任务',
     GET_TASK: '无法获取任务信息',
     DELETE_TASK: '无法删除任务',

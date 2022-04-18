@@ -173,6 +173,11 @@ export class DiaryStoreService {
     );
   }
 
+  createMessage(message: Message): void {
+    this.angularFirestore.collection('messages').add(message)
+      .catch(() => this.handleError('ERROR.CREATE_MESSAGE'));
+  }
+
   /*tasks*/
   private getTasksForCurrentUser(dbName): Observable<Habit[]> {
     const loggedInUserId = this.authService.getLoggedInUser().uid;

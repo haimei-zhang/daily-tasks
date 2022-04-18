@@ -10,6 +10,7 @@ import { INVITATION_STATUS } from '~constants';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { AuthService } from '~service/auth.service';
 import { DiaryStoreService } from '~service/store/diary-store.service';
+import { dateToTime } from '~utils/core.util';
 
 @Component({
   selector: 'diary-messages',
@@ -50,14 +51,21 @@ export class MessagesComponent implements OnInit {
   }
 
   createMessage(): void {
-    const message = {
-      id: new Date().getTime(),
-      notes: this.message,
-      name: '笨笨',
-      date: new Date()
-    };
-    // this.messages.unshift(message);
-    this.message = '';
+    if (this.message) {
+      const message = {
+        notes: this.message,
+        authorId: this.user.uid,
+        authorName: this.user.displayName,
+        createdDate: dateToTime(new Date()),
+        editedDate: null,
+        toUserId: this.currentFriend.friendId,
+        toUserName: this.currentFriend.friendName
+      };
+      if (this.currentFriend) {
+        this.diaryStoreService.createMessage(message);
+      }
+      this.message = '';
+    }
   }
 
   openDeleteConfirmationDialog(element): void {
@@ -87,6 +95,9 @@ export class MessagesComponent implements OnInit {
 
   selectCurrentFriend(friend: Friend): void {
     this.currentFriend = friend;
+    if (this.currentFriend) {
+      this.diaryStoreService.getMessages(this.currentFriend.friendId);
+    }
   }
 
   private getUser(): void {
@@ -107,8 +118,7 @@ export class MessagesComponent implements OnInit {
   }
 
   private getMessages(): void {
-    this.diaryStoreService.getMessages(this.currentFriend.friendId);
-    this.messageSubscription = this.diaryStoreService.messages$.subscribe((messages) => {
+    this.messageSubscription = this.diaryStoreService.messages$?.subscribe((messages) => {
       if (this.currentFriend) {
         this.messages = messages;
       }
