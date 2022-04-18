@@ -9,7 +9,7 @@
         <mat-form-field class="full-width" appearance="fill">
           <mat-label>{{'FRIENDS_MESSAGES.FRIENDS_ID' | translate}}</mat-label>
           <input type="text" matInput name="friendId" [placeholder]="'MESSAGE.INVITE_FRIEND' | translate"
-                 [(ngModel)]="friendId" required>
+                 [(ngModel)]="newFriendId" required>
         </mat-form-field>
         <button mat-stroked-button class="full-width" color="primary" (click)="addFriend()">
           {{'COMMON.INVITE' | translate}}
@@ -37,7 +37,8 @@
         <p>{{'MESSAGE.NO_DATA' | translate}}</p>
       </ng-container>
       <mat-selection-list [multiple]="false">
-        <mat-list-option *ngFor="let friend of connectedFriends" [value]="friend.friendId">
+        <mat-list-option *ngFor="let friend of connectedFriends" [value]="friend.friendId"
+                         (click)="selectCurrentFriend(friend)">
           {{friend.friendName}}
         </mat-list-option>
       </mat-selection-list>
@@ -63,8 +64,8 @@
       <mat-card class="card mb-2">
         <mat-card-header>
           <div mat-card-avatar class="header-image" style="background-image: url(assets/images/daily-tasks.jpg);"></div>
-          <mat-card-title>{{message.name}}</mat-card-title>
-          <mat-card-subtitle>{{message.date | date: 'medium'}}</mat-card-subtitle>
+          <mat-card-title>{{message.authorId}}</mat-card-title>
+          <mat-card-subtitle>{{message.createdDate | date: 'medium'}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           {{message.notes}}
@@ -79,5 +80,6 @@
         </mat-card-actions>
       </mat-card>
     </ng-container>
+    <ng-container *ngIf="!messages?.length">{{'MESSAGE.NO_DATA' | translate}}</ng-container>
   </div>
 </div>

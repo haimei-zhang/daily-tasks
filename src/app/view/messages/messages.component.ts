@@ -4,8 +4,9 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { User } from '~models/user.model';
 import { Friend } from '~models/friend.model';
+import { Message } from '~models/message.model';
 
-import { INVITATION_STATUS, MESSAGES } from '~constants';
+import { INVITATION_STATUS } from '~constants';
 import { ConfirmationDialogComponent } from '~components/dialog/confirmation-dialog/confirmation-dialog.component';
 import { AuthService } from '~service/auth.service';
 import { DiaryStoreService } from '~service/store/diary-store.service';
@@ -21,11 +22,13 @@ export class MessagesComponent implements OnInit {
   pendingFriends: Friend[];
   connectedFriends: Friend[];
   avatarSrc = 'assets/images/daily-tasks.jpg';
-  messages = MESSAGES;
+  messages: Message[];
   message: string;
-  friendId: string;
+  newFriendId: string;
+  currentFriend: Friend;
 
   friendsSubscription: Subscription;
+  messageSubscription: Subscription;
 
   constructor(public dialog: MatDialog,
               readonly authService: AuthService,
@@ -34,10 +37,12 @@ export class MessagesComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
     this.getFriends();
+    this.getMessages();
   }
 
   ngOnDestroy(): void {
     this.friendsSubscription.unsubscribe();
+    this.messageSubscription.unsubscribe();
   }
 
   refresh(lastRefreshTime): void {
@@ -51,7 +56,7 @@ export class MessagesComponent implements OnInit {
       name: '笨笨',
       date: new Date()
     };
-    this.messages.unshift(message);
+    // this.messages.unshift(message);
     this.message = '';
   }
 
@@ -71,13 +76,17 @@ export class MessagesComponent implements OnInit {
   }
 
   addFriend(): void {
-    if (this.friendId) {
-      this.diaryStoreService.inviteFriend(this.friendId.trim());
+    if (this.newFriendId) {
+      this.diaryStoreService.inviteFriend(this.newFriendId.trim());
     }
   }
 
   acceptInvitation(friend: Friend): void {
     this.diaryStoreService.acceptFriendInvitation(friend);
+  }
+
+  selectCurrentFriend(friend: Friend): void {
+    this.currentFriend = friend;
   }
 
   private getUser(): void {
@@ -94,6 +103,15 @@ export class MessagesComponent implements OnInit {
     this.friendsSubscription = this.diaryStoreService.friends$.subscribe((friends) => {
       this.pendingFriends = friends.filter(friend => friend.status === INVITATION_STATUS.PENDING_ACCEPTED);
       this.connectedFriends = friends.filter(friend => friend.status === INVITATION_STATUS.CONNECTED);
+    });
+  }
+
+  private getMessages(): void {
+    this.diaryStoreService.getMessages(this.currentFriend.friendId);
+    this.messageSubscription = this.diaryStoreService.messages$.subscribe((messages) => {
+      if (this.currentFriend) {
+        this.messages = messages;
+      }
     });
   }
 }

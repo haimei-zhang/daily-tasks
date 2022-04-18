@@ -1,7 +1,10 @@
 export interface Message {
   id?: string;
+  createdDate: number;
+  editedDate: number;
   notes: string;
   authorId: string;
-  authorDisplayName: string;
-  date: number;
+  authorName: string;
+  toUserId: string;
+  toUserName: string;
 }

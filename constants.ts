@@ -38,14 +38,6 @@ export const TASKS = [
   {id: '10', name: 'test name 0', completedDate: new Date(), notes: 'This is a test note'}
 ];
 
-export const MESSAGES = [
-  {id: 1, name: '笨笨', date: new Date(), notes: '来踩踩。'},
-  {id: 2, name: '宝宝', date: new Date(), notes: '不知道说啥好。'},
-  {id: 3, name: '笨笨', date: new Date(), notes: '笨笨太笨了。'},
-  {id: 4, name: '宝宝', date: new Date(), notes: '笨笨是个大笨蛋。'},
-  {id: 5, name: '宝宝', date: new Date(), notes: '没错真的好笨啊。'}
-];
-
 export const DB_COLLECTION_NAME = {
   USER: 'user',
   SELF_CARE_TASKS: 'self_care_tasks',

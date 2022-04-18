@@ -54,21 +54,7 @@ export class DiaryStoreService {
     this.currentAnnouncementSource.next(null);
   }
 
-  getTasksForCurrentUser(dbName): Observable<Habit[]> {
-    const loggedInUserId = this.authService.getLoggedInUser().uid;
-    const myOwnTasks = this.getObservable(this.angularFirestore.collection(dbName,
-      (ref) => ref
-        .where('authorId', '==', loggedInUserId)));
-    const tasksVisibleToMe = this.getObservable(this.angularFirestore.collection(dbName,
-      (ref) => ref
-        .where('isVisibleToUserIds', 'array-contains', loggedInUserId)));
-    return combineLatest([myOwnTasks, tasksVisibleToMe]).pipe(
-      map(([myOwnTasks, tasksVisibleToMe]) => {
-        return myOwnTasks.concat(tasksVisibleToMe);
-      })
-    );
-  }
-
+  /*habits*/
   createHabit(dbName: string, habit: Habit): void {
     habit.createdDate = dateToTime(habit.createdDate);
     habit.completedDate = dateToTime(habit.completedDate);
@@ -92,12 +78,7 @@ export class DiaryStoreService {
     }).catch(() => this.handleError('ERROR.UPDATE_TASK'));
   }
 
-  getFriends(): Observable<Friend[]> {
-    const loggedInUserId = this.authService.getLoggedInUser().uid;
-    return this.getObservable(this.angularFirestore.collection('friends',
-        ref => ref.where('authorId', '==', loggedInUserId)));
-  }
-
+  /*friends*/
   inviteFriend(friendId: string): void {
     // this.userInvitesCollection = this.afs.collection('userInvites', (ref) => ref.orderBy('createdOn'));
 
@@ -172,6 +153,49 @@ export class DiaryStoreService {
       });
   }
 
+  /*messages*/
+  getMessages(friendId: string): Observable<Message[]> {
+    const loggedInUserId = this.authService.getLoggedInUser().uid;
+    const myMessages = this.getObservable(this.angularFirestore.collection('friends',
+      ref => ref
+        .where('authorId', '==', loggedInUserId)
+        .where('toUserId', '==', friendId)
+        .orderBy('createdDate')));
+    const messagesToMe = this.getObservable(this.angularFirestore.collection('friends',
+      ref => ref
+        .where('authorId', '==', friendId)
+        .where('toUserId', '==', loggedInUserId)
+        .orderBy('createdDate')));
+    return combineLatest([myMessages, messagesToMe]).pipe(
+      map(([myMessages, messagesToMe]) => {
+        return myMessages.concat(messagesToMe).sort((a, b) => a.createdDate - b.createdDate);
+      })
+    );
+  }
+
+  /*tasks*/
+  private getTasksForCurrentUser(dbName): Observable<Habit[]> {
+    const loggedInUserId = this.authService.getLoggedInUser().uid;
+    const myOwnTasks = this.getObservable(this.angularFirestore.collection(dbName,
+      (ref) => ref
+        .where('authorId', '==', loggedInUserId)));
+    const tasksVisibleToMe = this.getObservable(this.angularFirestore.collection(dbName,
+      (ref) => ref
+        .where('isVisibleToUserIds', 'array-contains', loggedInUserId)));
+    return combineLatest([myOwnTasks, tasksVisibleToMe]).pipe(
+      map(([myOwnTasks, tasksVisibleToMe]) => {
+        return myOwnTasks.concat(tasksVisibleToMe);
+      })
+    );
+  }
+
+  /*friends*/
+  private getFriends(): Observable<Friend[]> {
+    const loggedInUserId = this.authService.getLoggedInUser().uid;
+    return this.getObservable(this.angularFirestore.collection('friends',
+      ref => ref.where('authorId', '==', loggedInUserId)));
+  }
+
   private addFriendStatusToMyself(friend: User, loggedInUser: User, callback?: () => void): void {
     const friendToBeInvited = {
       friendId: friend.uid,
@@ -218,6 +242,7 @@ export class DiaryStoreService {
     }).catch(() => this.handleError(error));
   }
 
+  /*global*/
   private getObservable(collection: AngularFirestoreCollection<any>): Observable<any> {
     const subject = new BehaviorSubject<any>([]);
     collection.valueChanges({idField: 'id'}).subscribe(val => {
