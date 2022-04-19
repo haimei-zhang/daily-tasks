@@ -18,3 +18,12 @@ textarea {
   }
 }
 
+.agreements-editor-actions {
+  display: flex;
+  justify-content: space-between;
+
+  .editor-title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}

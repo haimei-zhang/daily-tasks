@@ -3,9 +3,12 @@
     <mat-card-header>
       <div mat-card-avatar class="header-image" style="background-image: url(assets/images/agreements.jpeg);"></div>
       <mat-card-title>{{'AGREEMENTS.GENERAL_RULE' | translate}}</mat-card-title>
-      <mat-card-subtitle>{{'MESSAGE.GENERAL_RULE_DESCRIPTION' | translate}}</mat-card-subtitle>
+      <mat-card-subtitle>
+        <span>{{(agreementGeneralRule$ | async)?.authorName}}, </span>
+        <span>{{(agreementGeneralRule$ | async)?.createdDate | date: 'medium'}}</span>
+      </mat-card-subtitle>
       <div class="card-header-action text-right">
-        <button mat-stroked-button (click)="edit()">
+        <button mat-stroked-button (click)="edit(AGREEMENT_TYPE.GENERAL_RULE)">
           <svg class="icon" width="16" height="16">
             <use xlink:href="#edit" href="#edit"></use>
           </svg>
@@ -14,20 +17,19 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
+      <p>{{(agreementGeneralRule$ | async)?.content}}</p>
     </mat-card-content>
   </mat-card>
   <mat-card class="card detailed-rule">
     <mat-card-header>
       <div mat-card-avatar class="header-image" style="background-image: url(assets/images/agreements.jpeg);"></div>
       <mat-card-title>{{'AGREEMENTS.DETAILED_RULE' | translate}}</mat-card-title>
-      <mat-card-subtitle>{{'MESSAGE.DETAILED_RULE_DESCRIPTION' | translate}}</mat-card-subtitle>
+      <mat-card-subtitle>
+        <span>{{(agreementDetailedRule$ | async)?.authorName}}, </span>
+        <span>{{(agreementDetailedRule$ | async)?.createdDate | date: 'medium'}}</span>
+      </mat-card-subtitle>
       <div class="card-header-action text-right">
-        <button mat-stroked-button (click)="edit()">
+        <button mat-stroked-button (click)="edit(AGREEMENT_TYPE.DETAILED_RULE)">
           <svg class="icon" width="16" height="16">
             <use xlink:href="#edit" href="#edit"></use>
           </svg>
@@ -36,37 +38,34 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
+      <p>{{(agreementDetailedRule$ | async)?.content}}</p>
     </mat-card-content>
   </mat-card>
 </div>
+
 <div class="agreements-editor" *ngIf="(isEditMode$ | async)">
-  <div class="button-container text-right">
-    <button mat-raised-button class="mr-2" (click)="cancel()">
-      <svg class="icon" width="16" height="16">
-        <use xlink:href="#times" href="#times"></use>
-      </svg>
-      {{'COMMON.CANCEL' | translate}}
-    </button>
-    <button mat-raised-button (click)="save()" color="primary">
-      <svg class="icon" width="16" height="16">
-        <use xlink:href="#save" href="#save"></use>
-      </svg>
-      {{'TABLE.SAVE' | translate}}
-    </button>
+  <div class="agreements-editor-actions">
+    <div class="editor-title">{{agreementType === AGREEMENT_TYPE.GENERAL_RULE ? ('AGREEMENTS.GENERAL_RULE' | translate) : ('AGREEMENTS.DETAILED_RULE' | translate)}}</div>
+    <div class="button-container text-right">
+      <button mat-raised-button class="mr-2" (click)="cancel()">
+        <svg class="icon" width="16" height="16">
+          <use xlink:href="#times" href="#times"></use>
+        </svg>
+        {{'COMMON.CANCEL' | translate}}
+      </button>
+      <button mat-raised-button (click)="save()" color="primary">
+        <svg class="icon" width="16" height="16">
+          <use xlink:href="#save" href="#save"></use>
+        </svg>
+        {{'TABLE.SAVE' | translate}}
+      </button>
+    </div>
   </div>
-  <form>
-    <mat-form-field class="full-width" appearance="fill">
-      <mat-label>{{'TABLE.NAME' | translate}}</mat-label>
-      <input matInput aria-label="name" readonly>
-    </mat-form-field>
+
+  <form name="agreement-form">
     <mat-form-field class="content-input full-width" appearance="fill">
       <mat-label>{{'TABLE.CONTENT' | translate}}</mat-label>
-      <textarea matInput aria-label="content"></textarea>
+      <textarea name="content" matInput aria-label="content" [(ngModel)]="content"></textarea>
     </mat-form-field>
   </form>
 </div>

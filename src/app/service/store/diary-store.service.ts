@@ -18,6 +18,7 @@ import { INVITATION_STATUS } from '~constants';
 import { dateToTime } from '~utils/core.util';
 
 import { AuthService } from '~service/auth.service';
+import { Agreement } from '~models/agreement.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,12 +27,16 @@ export class DiaryStoreService {
 
   currentAnnouncement: Announcement;
   currentLetter: Letter;
+  currentAgreement: Agreement;
 
   readonly currentAnnouncementSource = new BehaviorSubject<any>(this.currentAnnouncement);
   currentAnnouncement$ = this.currentAnnouncementSource.asObservable();
 
   readonly currentLetterSource = new BehaviorSubject<any>(this.currentLetter);
   currentLetter$ = this.currentLetterSource.asObservable();
+
+  readonly currentAgreementSource = new BehaviorSubject<any>(this.currentAgreement);
+  currentAgreement$ = this.currentAgreementSource.asObservable();
 
   selfCareTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('self_care_tasks');
   sportsTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('sports_tasks');
@@ -43,6 +48,8 @@ export class DiaryStoreService {
   movieTasks$: Observable<Habit[]> = this.getTasksForCurrentUser('movie_tasks');
   friends$: Observable<Friend[]> = this.getFriends();
   letters$: Observable<Letter[]> = this.getLetters();
+  agreementGeneralRule$: Observable<Agreement> = this.getAgreementGeneralRule();
+  agreementDetailedRule$: Observable<Agreement> = this.getAgreementDetailedRule();
 
   constructor(private toastr: ToastrService,
               private translateService: TranslateService,
@@ -110,13 +117,15 @@ export class DiaryStoreService {
         .where('authorId', '==', loggedInUser.uid)).snapshotChanges()
         .pipe(debounceTime(500), shareReplay(1))
         .subscribe((data) => {
-        if (data.length) {
-          this.log(null, 'ERROR.USER_ALREADY_EXISTS', 'error');
-          return;
-        }
-        const callback = () => {myConnectionSubscription.unsubscribe();}
-        this.addFriendStatusToMyself(friend, loggedInUser, callback);
-      });
+          if (data.length) {
+            this.log(null, 'ERROR.USER_ALREADY_EXISTS', 'error');
+            return;
+          }
+          const callback = () => {
+            myConnectionSubscription.unsubscribe();
+          }
+          this.addFriendStatusToMyself(friend, loggedInUser, callback);
+        });
 
       // check whether friend already has me. Only add it when the friend doesn't have me
       const myFriendsConnectionSubscription = this.angularFirestore.collection('friends', ref => ref
@@ -124,12 +133,14 @@ export class DiaryStoreService {
         .where('friendId', '==', loggedInUser.uid)).snapshotChanges()
         .pipe(debounceTime(500), shareReplay(1))
         .subscribe((data) => {
-        if (data.length) {
-          return;
-        }
-        const callback = () => {myFriendsConnectionSubscription.unsubscribe();}
-        this.addFriendStatusToFriend(friend, loggedInUser, callback);
-      });
+          if (data.length) {
+            return;
+          }
+          const callback = () => {
+            myFriendsConnectionSubscription.unsubscribe();
+          }
+          this.addFriendStatusToFriend(friend, loggedInUser, callback);
+        });
 
     });
   }
@@ -152,7 +163,9 @@ export class DiaryStoreService {
           return;
         }
         const friendStatusIdToUpdate = data[0].payload.doc.id;
-        const callback = () => {myFriendsConnectionSubscription.unsubscribe()};
+        const callback = () => {
+          myFriendsConnectionSubscription.unsubscribe()
+        };
         this.updateFriendInvitationStatus(friendStatusIdToUpdate,
           {status: INVITATION_STATUS.CONNECTED, date: dateToTime(new Date)},
           'ERROR.ACCEPT_INVITATION',
@@ -235,6 +248,45 @@ export class DiaryStoreService {
     this.currentLetterSource.next(null);
   }
 
+  /*agreements*/
+  updateCurrentAgreement(agreement: Agreement): void {
+    this.currentAgreement = R.clone(agreement);
+    this.currentAgreementSource.next(this.currentAgreement);
+  }
+
+  clearCurrentAgreement(): void {
+    this.currentAgreement = null;
+    this.currentAgreementSource.next(null);
+  }
+
+  addGeneralRuleAgreement(agreement: Agreement): void {
+    this.angularFirestore.collection('general_agreements').add(agreement)
+      .then(() => {
+        this.log(null, 'SUCCESS.CREATE_AGREEMENT', 'success');
+      }).catch(() => this.handleError('ERROR.CREATE_AGREEMENT'));
+  }
+
+  addDetailedRuleAgreement(agreement: Agreement): void {
+    this.angularFirestore.collection('detailed_agreements').add(agreement)
+      .then(() => {
+        this.log(null, 'SUCCESS.CREATE_AGREEMENT', 'success');
+      }).catch(() => this.handleError('ERROR.CREATE_AGREEMENT'));
+  }
+
+  updateGeneralRuleAgreement(agreement: Agreement): void {
+    this.angularFirestore.collection('general_agreements').doc(agreement.id).update(agreement)
+      .then(() => {
+        this.log(null, 'SUCCESS.UPDATE_AGREEMENT', 'success');
+      }).catch(() => this.handleError('ERROR.UPDATE_AGREEMENT'));
+  }
+
+  updateDetailedRuleAgreement(agreement: Agreement): void {
+    this.angularFirestore.collection('detailed_agreements').doc(agreement.id).update(agreement)
+      .then(() => {
+        this.log(null, 'SUCCESS.UPDATE_AGREEMENT', 'success');
+      }).catch(() => this.handleError('ERROR.UPDATE_AGREEMENT'));
+  }
+
   /*tasks*/
   private getTasksForCurrentUser(dbName): Observable<Habit[]> {
     const loggedInUserId = this.authService.getLoggedInUser().uid;
@@ -314,6 +366,33 @@ export class DiaryStoreService {
     return combineLatest([myLetters, lettersToMe]).pipe(
       map(([myLetters, lettersToMe]) => {
         return myLetters.concat(lettersToMe);
+      })
+    );
+  }
+
+  /*agreements*/
+  private getAgreementGeneralRule(): Observable<Agreement> {
+    const loggedInUserId = this.authService.getLoggedInUser().uid;
+    const myAgreements = this.getObservable(this.angularFirestore.collection('general_agreements',
+      ref => ref.where('authorId', '==', loggedInUserId)));
+    const agreementsToMe = this.getObservable(this.angularFirestore.collection('general_agreements',
+      ref => ref.where('toUserIds', 'array-contains', loggedInUserId)));
+    return combineLatest([myAgreements, agreementsToMe]).pipe(
+      map(([myAgreements, agreementsToMe]) => {
+        return myAgreements.concat(agreementsToMe);
+      })
+    );
+  }
+
+  private getAgreementDetailedRule(): Observable<Agreement> {
+    const loggedInUserId = this.authService.getLoggedInUser().uid;
+    const myAgreements = this.getObservable(this.angularFirestore.collection('detailed_agreements',
+      ref => ref.where('authorId', '==', loggedInUserId)));
+    const agreementsToMe = this.getObservable(this.angularFirestore.collection('detailed_agreements',
+      ref => ref.where('toUserIds', 'array-contains', loggedInUserId)));
+    return combineLatest([myAgreements, agreementsToMe]).pipe(
+      map(([myAgreements, agreementsToMe]) => {
+        return myAgreements.concat(agreementsToMe);
       })
     );
   }

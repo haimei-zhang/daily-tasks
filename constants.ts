@@ -54,4 +54,9 @@ export const INVITATION_STATUS = {
   CONNECTED: 'Connected',
   INVITED: 'Invited',
   PENDING_ACCEPTED: 'Pending Accepted',
+};
+
+export const AGREEMENT_TYPE = {
+  GENERAL_RULE: 'GENERAL_RULE',
+  DETAILED_RULE: 'DETAILED_RULE'
 }

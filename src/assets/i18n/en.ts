@@ -126,6 +126,7 @@ export const EN = {
   },
   ERROR: {
     ACCEPT_INVITATION: 'Could not accept the invitation',
+    CREATE_AGREEMENT: 'Could not create the agreement',
     CREATE_LETTER: 'Could not create the letter',
     CREATE_MESSAGE: 'Could not send the message',
     CREATE_TASK: 'Could not create the task',
@@ -134,6 +135,7 @@ export const EN = {
     GET_TASK: 'Could not get tasks',
     DELETE_TASK: 'Could not delete the task',
     NO_USER_FOUND: 'Could not find this user',
+    UPDATE_AGREEMENT: 'Could not update the agreement',
     UPDATE_LETTER: 'Could not create the letter',
     UPDATE_TASK: 'Could not update the task',
     USER_ALREADY_EXISTS: 'This user already exists',
@@ -141,12 +143,14 @@ export const EN = {
   },
   SUCCESS: {
     ACCEPT_INVITATION: 'Successfully accepted the invitation',
+    CREATE_AGREEMENT: 'Successfully created the agreement',
     CREATE_LETTER: 'Successfully created the letter',
     CREATE_TASK: 'Successfully created the task',
     DELETE_LETTER: 'Successfully deleted the letter',
     DELETE_MESSAGE: 'Successfully deleted the message',
     DELETE_TASK: 'Successfully deleted the task',
     INVITE_FRIEND: 'Successfully sent the invitation',
+    UPDATE_AGREEMENT: 'Successfully updated the agreement',
     UPDATE_LETTER: 'Successfully created the letter',
     UPDATE_TASK: 'Successfully updated the task'
   },
@@ -163,7 +167,6 @@ export const EN = {
     FORGOT_PASSWORD: 'Please enter your email address to request a password reset.',
     FREQUENCY_ANALYTICS_DESCRIPTION: 'Frequency analytic',
     GAMES_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
-    GENERAL_RULE_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     HABITS_DESCRIPTION: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quaerat quibusdam repudiandae suscipit tenetur. Accusantium animi commodi culpa dolorum error illum natus nemo nulla, officiis recusandae rem repellat ut voluptatum?',
     HOME_DESCRIPTION: 'Welcome',
     INVITE_FRIEND: 'Enter your friend\'s ID',
